@@ -1,0 +1,11 @@
+# See: https://help.github.com/en/articles/about-code-owners
+
+* @ursinn @gmcbm/developer
+
+/core/ @ursinn @gmcbm/developer-core 
+
+/spigot/ @ursinn @gmcbm/developer-spigot 
+
+/bungeecord/ @ursinn @gmcbm/developer-bungeecord 
+
+/velocity/ @ursinn @gmcbm/developer-velocity 
