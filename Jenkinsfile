@@ -7,19 +7,60 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('Build Core') {
             steps {
-                echo 'Building..'
                 dir('core') {
-                    echo "Building Core..."
+                    echo 'Building..'
                     sh 'mvn clean package -Djar.finalName=GMCBM_Core-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
                 }
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
+                }
+            }
+        }
+    }
+}
+
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
+
+    stages {
+        stage('Build Spigot') {
+            steps {
                 dir('spigot') {
-                    echo "Building Spigot Plugin..."
+                    echo "Building.."
                     sh 'mvn clean package -Djar.finalName=GMCBM_Spigot-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
                 }
+            }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/**/*.jar', fingerprint: true
+                }
+            }
+        }
+    }
+}
+
+pipeline {
+    agent {
+        docker {
+            image 'maven:3-alpine'
+            args '-v /root/.m2:/root/.m2'
+        }
+    }
+
+    stages {
+        stage('Build Bungeecord') {
+            steps {
                 dir('bungeecord') {
-                    echo "Building Bungeecord Plugin..."
+                    echo "Building.."
                     sh 'mvn clean package -Djar.finalName=GMCBM_Bungeecord-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
                 }
             }
