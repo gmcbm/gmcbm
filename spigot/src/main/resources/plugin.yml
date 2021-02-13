@@ -1,0 +1,7 @@
+name: gmcbm
+version: ${project.version}
+main: net.gmcbm.spigot.Main
+prefix: gmcbm
+authors: [ ursinn ]
+description: ${project.description}
+website: ${project.url}
