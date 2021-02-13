@@ -70,5 +70,12 @@
             <version>1.8-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Annotation -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>
