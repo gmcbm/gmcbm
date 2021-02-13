@@ -13,9 +13,10 @@ jobs:
       script:
         - cd spigot
         - mvn clean verify
-#      script:
-#        - cd bungeecord
-#        - mvn clean verify
+    - stage: "Build Plugins"
+      script:
+        - cd bungeecord
+        - mvn clean verify
 
 cache:
   directories:
