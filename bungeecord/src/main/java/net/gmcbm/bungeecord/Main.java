@@ -28,7 +28,11 @@
 package net.gmcbm.bungeecord;
 
 import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.server.Server;
+import net.gmcbm.core.utils.PluginType;
 import net.md_5.bungee.api.plugin.Plugin;
+
+import java.util.UUID;
 
 public final class Main extends Plugin {
 
@@ -42,7 +46,9 @@ public final class Main extends Plugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        instance = this;
+
+        this.gmcbm = new GMCBM(PluginType.SPIGOT, debug, new Server(UUID.randomUUID()));
     }
 
     @Override
