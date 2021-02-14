@@ -51,8 +51,9 @@
 
     <scm>
         <connection>scm:git:git://github.com/gmcbm/gmcbm.git</connection>
-        <developerConnection>scm:git:git://github.com/gmcbm/gmcbm.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:gmcbm/gmcbm.git</developerConnection>
         <url>https://github.com/gmcbm/gmcbm</url>
+        <tag>HEAD</tag>
     </scm>
 
     <issueManagement>
