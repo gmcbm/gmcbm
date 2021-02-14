@@ -27,17 +27,41 @@
 
 package net.gmcbm.spigot;
 
+import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.utils.PluginType;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
 
+    // Debug Option
+    private final boolean debug = true;
+
+    // Instance
+    private static Main instance;
+
+    private GMCBM gmcbm;
+
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        instance = this;
+
+        this.gmcbm = new GMCBM(PluginType.SPIGOT, debug);
     }
 
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static Main getInstance() {
+        return instance;
+    }
+
+    public GMCBM getGmcbm() {
+        return gmcbm;
+    }
+
+    public boolean isDebug() {
+        return debug;
     }
 }

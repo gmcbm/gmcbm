@@ -27,9 +27,18 @@
 
 package net.gmcbm.bungeecord;
 
+import net.gmcbm.core.GMCBM;
 import net.md_5.bungee.api.plugin.Plugin;
 
 public final class Main extends Plugin {
+
+    // Debug Option
+    private final boolean debug = true;
+
+    // Instance
+    private static Main instance;
+
+    private GMCBM gmcbm;
 
     @Override
     public void onEnable() {
@@ -39,5 +48,17 @@ public final class Main extends Plugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
+    }
+
+    public static Main getInstance() {
+        return instance;
+    }
+
+    public GMCBM getGmcbm() {
+        return gmcbm;
+    }
+
+    public boolean isDebug() {
+        return debug;
     }
 }
