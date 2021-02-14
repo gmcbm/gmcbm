@@ -27,6 +27,8 @@
 
 package net.gmcbm.core.item;
 
+import net.gmcbm.core.server.Server;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.time.Instant;
@@ -51,6 +53,7 @@ public class Item {
     private final ItemAction action;
     private final Instant timestamp;
     private final OriginType origin;
+    private final Server server;
 
     /**
      * Constructor of {@link Item}
@@ -66,11 +69,12 @@ public class Item {
      * @param action     Action ({@link ItemAction})
      * @param timestamp  Timestamp ({@link Instant})
      * @param origin     Origin ({@link OriginType})
+     * @param server     Server ({@link Server})
      */
     public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer,
                 @Nonnull String issuerName, @Nonnull Instant from, @Nonnull Instant until,
                 @Nonnull ItemStatus status, @Nonnull ItemAction action, @Nonnull Instant timestamp,
-                @Nonnull OriginType origin) {
+                @Nonnull OriginType origin, @Nonnull Server server) {
         this.id = Objects.requireNonNull(id);
         this.player = Objects.requireNonNull(player);
         this.reason = Objects.requireNonNull(reason);
@@ -82,6 +86,7 @@ public class Item {
         this.action = Objects.requireNonNull(action);
         this.timestamp = Objects.requireNonNull(timestamp);
         this.origin = Objects.requireNonNull(origin);
+        this.server = Objects.requireNonNull(server);
     }
 
     /**
@@ -93,9 +98,10 @@ public class Item {
      * @param issuerName Issuer Name
      * @param from       From {@link Instant}
      * @param until      Until {@link Instant}
+     * @param server     Server ({@link Server})
      */
     public Item(@Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer, @Nonnull String issuerName,
-                @Nonnull Instant from, @Nonnull Instant until) {
+                @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
         this.id = null;
         this.player = Objects.requireNonNull(player);
         this.reason = Objects.requireNonNull(reason);
@@ -107,6 +113,7 @@ public class Item {
         this.action = ItemAction.ADD_NEW;
         this.timestamp = Instant.now();
         this.origin = OriginType.RUNTIME;
+        this.server = Objects.requireNonNull(server);
     }
 
     /**
@@ -173,16 +180,24 @@ public class Item {
     }
 
     /**
-     * @return Timestamp
+     * @return Timestamp ({@link Instant})
      */
     public Instant getTimestamp() {
         return timestamp;
     }
 
     /**
-     * @return Origin
+     * @return Origin ({@link OriginType})
      */
     public OriginType getOrigin() {
         return origin;
+    }
+
+    /**
+     *
+     * @return Server ({@link Server})
+     */
+    public Server getServer() {
+        return server;
     }
 }
