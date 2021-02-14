@@ -8,7 +8,7 @@ jobs:
     - stage: "Build Core"
       script:
         - cd core
-        - mvn clean verify
+        - mvn clean install
     - stage: "Build Plugins"
       script:
         - cd spigot

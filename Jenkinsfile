@@ -12,7 +12,7 @@ pipeline {
                 echo 'Building..'
                 dir('core') {
                     echo "Building Core..."
-                    sh 'mvn clean package -Djar.finalName=GMCBM_Core-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                    sh 'mvn clean install -Djar.finalName=GMCBM_Core-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
                 }
                 dir('spigot') {
                     echo "Building Spigot Plugin..."
