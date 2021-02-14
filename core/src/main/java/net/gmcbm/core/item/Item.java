@@ -49,6 +49,8 @@ public class Item {
     private final Instant until;
     private final ItemStatus status;
     private final ItemAction action;
+    private final Instant timestamp;
+    private final OriginType origin;
 
     /**
      * Constructor of {@link Item}
@@ -62,10 +64,13 @@ public class Item {
      * @param until      Until {@link Instant}
      * @param status     Status ({@link ItemStatus})
      * @param action     Action ({@link ItemAction})
+     * @param timestamp  Timestamp ({@link Instant})
+     * @param origin     Origin ({@link OriginType})
      */
     public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer,
                 @Nonnull String issuerName, @Nonnull Instant from, @Nonnull Instant until,
-                @Nonnull ItemStatus status, @Nonnull ItemAction action) {
+                @Nonnull ItemStatus status, @Nonnull ItemAction action, @Nonnull Instant timestamp,
+                @Nonnull OriginType origin) {
         this.id = Objects.requireNonNull(id);
         this.player = Objects.requireNonNull(player);
         this.reason = Objects.requireNonNull(reason);
@@ -75,6 +80,8 @@ public class Item {
         this.until = Objects.requireNonNull(until);
         this.status = Objects.requireNonNull(status);
         this.action = Objects.requireNonNull(action);
+        this.timestamp = Objects.requireNonNull(timestamp);
+        this.origin = Objects.requireNonNull(origin);
     }
 
     /**
@@ -98,6 +105,8 @@ public class Item {
         this.until = Objects.requireNonNull(until);
         this.status = ItemStatus.ACTIVE;
         this.action = ItemAction.ADD_NEW;
+        this.timestamp = Instant.now();
+        this.origin = OriginType.RUNTIME;
     }
 
     /**
@@ -161,5 +170,19 @@ public class Item {
      */
     public ItemAction getAction() {
         return action;
+    }
+
+    /**
+     * @return Timestamp
+     */
+    public Instant getTimestamp() {
+        return timestamp;
+    }
+
+    /**
+     * @return Origin
+     */
+    public OriginType getOrigin() {
+        return origin;
     }
 }

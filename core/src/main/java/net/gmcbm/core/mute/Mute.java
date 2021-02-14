@@ -30,6 +30,7 @@ package net.gmcbm.core.mute;
 import net.gmcbm.core.item.Item;
 import net.gmcbm.core.item.ItemAction;
 import net.gmcbm.core.item.ItemStatus;
+import net.gmcbm.core.item.OriginType;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -55,11 +56,14 @@ public class Mute extends Item {
      * @param until      Until {@link Instant}
      * @param status     Status ({@link ItemStatus})
      * @param action     Action ({@link ItemAction})
+     * @param timestamp  Timestamp ({@link Instant})
+     * @param origin     Origin ({@link OriginType})
      */
     public Mute(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer,
                 @Nonnull String issuerName, @Nonnull Instant from, @Nonnull Instant until,
-                @Nonnull ItemStatus status, @Nonnull ItemAction action) {
-        super(id, player, reason, issuer, issuerName, from, until, status, action);
+                @Nonnull ItemStatus status, @Nonnull ItemAction action, @Nonnull Instant timestamp,
+                @Nonnull OriginType origin) {
+        super(id, player, reason, issuer, issuerName, from, until, status, action, timestamp, origin);
     }
 
     /**
