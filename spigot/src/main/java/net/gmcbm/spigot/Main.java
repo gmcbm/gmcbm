@@ -28,8 +28,11 @@
 package net.gmcbm.spigot;
 
 import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.util.UUID;
 
 public final class Main extends JavaPlugin {
 
@@ -45,7 +48,7 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        this.gmcbm = new GMCBM(PluginType.SPIGOT, debug);
+        this.gmcbm = new GMCBM(PluginType.SPIGOT, debug, new Server(UUID.randomUUID()));
     }
 
     @Override

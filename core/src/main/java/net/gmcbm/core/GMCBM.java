@@ -27,6 +27,7 @@
 
 package net.gmcbm.core;
 
+import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 
 /**
@@ -38,16 +39,19 @@ public class GMCBM {
 
     private final PluginType type;
     private final boolean debug;
+    private final Server server;
 
     /**
      * GMCBM Constructor
      *
      * @param type  Plugin ({@link PluginType})
      * @param debug Debug mode
+     * @param server Server ({@link Server})
      */
-    public GMCBM(PluginType type, boolean debug) {
+    public GMCBM(PluginType type, boolean debug, Server server) {
         this.type = type;
         this.debug = debug;
+        this.server = server;
     }
 
     /**
@@ -62,5 +66,12 @@ public class GMCBM {
      */
     public boolean isDebug() {
         return debug;
+    }
+
+    /**
+     * @return Server ({@link Server})
+     */
+    public Server getServer() {
+        return server;
     }
 }
