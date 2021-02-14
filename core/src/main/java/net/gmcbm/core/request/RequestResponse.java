@@ -58,7 +58,7 @@ public class RequestResponse {
      *
      * @param message  Response message
      * @param status   Status ({@link RequestStatus})
-     * @param response Response {@link Optional<Object>}
+     * @param response Response {@link Optional}
      */
     public RequestResponse(@Nonnull String message, @Nonnull RequestStatus status,
                            @Nonnull Optional<Object> response) {
@@ -82,7 +82,7 @@ public class RequestResponse {
     }
 
     /**
-     * @return Response {@link Optional<Object>}
+     * @return Response {@link Optional}
      */
     public Optional<Object> getResponse() {
         return response;
