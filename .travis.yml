@@ -5,6 +5,9 @@ jdk:
 
 jobs:
   include:
+    - stage: "Build Parent"
+      script:
+        - mvn -pl . clean install
     - stage: "Build Core"
       script:
         - cd core
