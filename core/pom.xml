@@ -37,14 +37,65 @@
     <packaging>jar</packaging>
 
     <name>Core</name>
-    <description>Global Minecraft Ban Manager | Core</description>
+    <description>Global Minecraft Ban Manager Core</description>
     <url>https://github.com/gmcbm/gmcbm</url>
+    <inceptionYear>2021</inceptionYear>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <scm>
+        <connection>scm:git:git://github.com/gmcbm/gmcbm.git</connection>
+        <developerConnection>scm:git:https://github.com:gmcbm/gmcbm.git</developerConnection>
+        <url>https://github.com/gmcbm/gmcbm</url>
+    </scm>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/gmcbm/gmcbm/issues</url>
+    </issueManagement>
+
+    <ciManagement>
+        <system>Travis CI</system>
+        <url>https://travis-ci.com/github/gmcbm/gmcbm</url>
+    </ciManagement>
+
+    <developers>
+        <developer>
+            <id>ursinn</id>
+            <name>Ursin Filli</name>
+            <email>ursin.filli@gmcbm.net</email>
+            <organization>Global Minecraft Ban Manager</organization>
+            <organizationUrl>https://www.gmcbm.net</organizationUrl>
+            <roles>
+                <role>owner</role>
+                <role>developer</role>
+            </roles>
+            <timezone>1</timezone>
+            <url>https://ursinn.dev</url>
+        </developer>
+    </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <!-- Annotation -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <defaultGoal>clean package</defaultGoal>
@@ -77,6 +128,34 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.2</version>
             </plugin>
+            <!-- Javadoc Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Source Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
         <resources>
             <resource>
@@ -86,13 +165,14 @@
         </resources>
     </build>
 
-    <dependencies>
-        <!-- Annotation -->
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <distributionManagement>
+        <repository>
+            <id>gmcbm-repo</id>
+            <url>https://repo.gmcbm.net/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>gmcbm-repo</id>
+            <url>https://repo.gmcbm.net/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
