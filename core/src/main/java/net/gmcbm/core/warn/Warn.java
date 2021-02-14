@@ -65,7 +65,7 @@ public class Warn extends Item {
                 @Nonnull String issuerName, @Nonnull Instant from, @Nonnull Instant until,
                 @Nonnull ItemStatus status, @Nonnull ItemAction action, @Nonnull Instant timestamp,
                 @Nonnull OriginType origin, @Nonnull Server server) {
-        super(id, player, reason, issuer, issuerName, from, until, status, action, timestamp, origin,server);
+        super(id, player, reason, issuer, issuerName, from, until, status, action, timestamp, origin, server);
     }
 
     /**
@@ -81,6 +81,6 @@ public class Warn extends Item {
      */
     public Warn(@Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer, @Nonnull String issuerName,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
-        super(player, reason, issuer, issuerName, from, until,server);
+        super(player, reason, issuer, issuerName, from, until, server);
     }
 }

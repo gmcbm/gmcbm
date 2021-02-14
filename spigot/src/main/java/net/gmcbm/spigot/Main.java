@@ -36,13 +36,15 @@ import java.util.UUID;
 
 public final class Main extends JavaPlugin {
 
-    // Debug Option
-    private final boolean debug = true;
-
     // Instance
     private static Main instance;
-
+    // Debug Option
+    private final boolean debug = true;
     private GMCBM gmcbm;
+
+    public static Main getInstance() {
+        return instance;
+    }
 
     @Override
     public void onEnable() {
@@ -54,10 +56,6 @@ public final class Main extends JavaPlugin {
     @Override
     public void onDisable() {
         // Plugin shutdown logic
-    }
-
-    public static Main getInstance() {
-        return instance;
     }
 
     public GMCBM getGmcbm() {

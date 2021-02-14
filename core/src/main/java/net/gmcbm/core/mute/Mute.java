@@ -27,7 +27,6 @@
 
 package net.gmcbm.core.mute;
 
-import net.gmcbm.core.ban.Ban;
 import net.gmcbm.core.item.Item;
 import net.gmcbm.core.item.ItemAction;
 import net.gmcbm.core.item.ItemStatus;

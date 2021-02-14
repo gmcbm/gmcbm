@@ -194,7 +194,6 @@ public class Item {
     }
 
     /**
-     *
      * @return Server ({@link Server})
      */
     public Server getServer() {

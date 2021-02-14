@@ -44,8 +44,8 @@ public class GMCBM {
     /**
      * GMCBM Constructor
      *
-     * @param type  Plugin ({@link PluginType})
-     * @param debug Debug mode
+     * @param type   Plugin ({@link PluginType})
+     * @param debug  Debug mode
      * @param server Server ({@link Server})
      */
     public GMCBM(PluginType type, boolean debug, Server server) {
