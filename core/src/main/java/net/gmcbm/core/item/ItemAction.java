@@ -35,9 +35,14 @@ package net.gmcbm.core.item;
 public enum ItemAction {
 
     /**
-     * Add Item
+     * Add new Item
      */
-    ADD,
+    ADD_NEW,
+
+    /**
+     * Add sync Item
+     */
+    ADD_SYNC,
 
     /**
      * Received Item

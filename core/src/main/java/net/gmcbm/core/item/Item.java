@@ -51,7 +51,7 @@ public class Item {
     private final ItemAction action;
 
     /**
-     * Constructor of Item
+     * Constructor of {@link Item}
      *
      * @param id         Item Identifier
      * @param player     {@link UUID} of Player
@@ -78,7 +78,7 @@ public class Item {
     }
 
     /**
-     * Constructor of Item
+     * Constructor of {@link Item}
      *
      * @param player     {@link UUID} of Player
      * @param reason     Reason
@@ -97,7 +97,7 @@ public class Item {
         this.from = Objects.requireNonNull(from);
         this.until = Objects.requireNonNull(until);
         this.status = ItemStatus.ACTIVE;
-        this.action = ItemAction.ADD;
+        this.action = ItemAction.ADD_NEW;
     }
 
     /**
