@@ -1,0 +1,4 @@
+name: gmcbm
+version: ${project.version}
+main: net.gmcbm.bungeecord.Main
+description: ${project.description}

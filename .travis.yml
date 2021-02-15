@@ -1,0 +1,26 @@
+language: java
+
+jdk:
+  - openjdk8
+
+jobs:
+  include:
+    - stage: "Build Parent"
+      script:
+        - mvn -pl . clean install
+    - stage: "Build Core"
+      script:
+        - cd core
+        - mvn clean install
+    - stage: "Build Plugins"
+      script:
+        - cd spigot
+        - mvn clean verify
+    - stage: "Build Plugins"
+      script:
+        - cd bungeecord
+        - mvn clean verify
+
+cache:
+  directories:
+    - $HOME/.m2
