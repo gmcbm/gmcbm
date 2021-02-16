@@ -93,8 +93,8 @@
 
     <modules>
         <module>core</module>
-        <module>spigot</module>
-        <module>bungeecord</module>
+        <module>bukkit</module>
+        <module>bungee</module>
     </modules>
 
     <dependencyManagement>
@@ -113,14 +113,14 @@
                 <version>1.0.0-SNAPSHOT</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- Spigot -->
+            <!-- Bukkit -->
             <dependency>
-                <groupId>org.spigotmc</groupId>
-                <artifactId>spigot-api</artifactId>
+                <groupId>org.bukkit</groupId>
+                <artifactId>bukkit</artifactId>
                 <version>1.8.8-R0.1-SNAPSHOT</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Bungeecord -->
+            <!-- BungeeCord -->
             <dependency>
                 <groupId>net.md-5</groupId>
                 <artifactId>bungeecord-api</artifactId>
