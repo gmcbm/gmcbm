@@ -1,6 +1,6 @@
 plugins:
   checkstyle:
-    enabled: true
+    enabled: false
   markdownlint:
     enabled: true
   pmd:
