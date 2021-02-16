@@ -4,6 +4,7 @@
 [![Build status (Jenkins)](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.gmcbm.net%2Fjob%2Fgmcbm-public%2Fjob%2Fgmcbm%2Fjob%2Fdevelop%2F&label=Jenkins&logo=jenkins)](https://ci.gmcbm.net/job/gmcbm-public/job/gmcbm)
 [![Github last commit date](https://img.shields.io/github/last-commit/gmcbm/gmcbm.svg?label=Updated&logo=github&maxAge=600)](https://github.com/gmcbm/gmcbm/commits)
 [![License](https://img.shields.io/github/license/gmcbm/gmcbm.svg?label=License&maxAge=2592000)](https://github.com/gmcbm/gmcbm/blob/main/LICENSE)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgmcbm%2Fgmcbm.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fgmcbm%2Fgmcbm?ref=badge_shield)
 
 <!--
 [![GitHub stable release version](https://img.shields.io/github/release/gmcbm/gmcbm.svg?label=Stable&logo=github&maxAge=600)](https://github.com/gmcbm/gmcbm/releases/latest)
@@ -26,3 +27,6 @@ Description
 ## License
 
 This project is under the MIT License. See the [LICENSE](https://github.com/gmcbm/gmcbm/blob/main/LICENSE) file for the full license text.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fgmcbm%2Fgmcbm.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fgmcbm%2Fgmcbm?ref=badge_large)
