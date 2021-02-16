@@ -113,6 +113,11 @@
 <!--                <groupId>org.sonatype.plugins</groupId>-->
 <!--                <artifactId>nexus-staging-maven-plugin</artifactId>-->
 <!--            </plugin>-->
+            <!-- Jacoco Plugin -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
         </plugins>
     </build>
 </project>
