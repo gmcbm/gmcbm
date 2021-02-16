@@ -3,7 +3,8 @@
 [![Build status (Travis)](https://img.shields.io/travis/com/gmcbm/gmcbm/develop?label=Travis&logo=travis)](https://travis-ci.com/gmcbm/gmcbm)
 [![Build status (Jenkins)](https://img.shields.io/jenkins/build?jobUrl=https%3A%2F%2Fci.gmcbm.net%2Fjob%2Fgmcbm-public%2Fjob%2Fgmcbm%2Fjob%2Fdevelop%2F&label=Jenkins&logo=jenkins)](https://ci.gmcbm.net/job/gmcbm-public/job/gmcbm)
 [![Github last commit date](https://img.shields.io/github/last-commit/gmcbm/gmcbm?label=Updated&logo=github)](https://github.com/gmcbm/gmcbm/commits)
-[![Codecov](https://img.shields.io/codecov/c/gh/gmcbm/gmcbm)](https://app.codecov.io/gh/gmcbm/gmcbm)
+[![Codecov](https://img.shields.io/codecov/c/gh/gmcbm/gmcbm?label=Coverage&logo=codecov)](https://app.codecov.io/gh/gmcbm/gmcbm)
+[![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/gmcbm/gmcbm?label=Maintainability)](https://codeclimate.com/github/gmcbm/gmcbm)
 [![License](https://img.shields.io/github/license/gmcbm/gmcbm?label=License)](https://github.com/gmcbm/gmcbm/blob/main/LICENSE)
 
 <!--
