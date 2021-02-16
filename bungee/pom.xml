@@ -35,24 +35,18 @@
         <version>HEAD-jre-SNAPSHOT</version>
     </parent>
 
-    <artifactId>bungeecord</artifactId>
+    <artifactId>bungee</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Bungeecord</name>
-    <description>Global Minecraft Ban Manager Bungeecord Plugin</description>
+    <name>BungeeCord</name>
+    <description>Global Minecraft Ban Manager BungeeCord Plugin</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
-        <!-- Bungeecord -->
-        <!--        <repository>-->
-        <!--            <id>spigotmc-repo</id>-->
-        <!--            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>-->
-        <!--        </repository>-->
-        <!-- Mirror -->
         <repository>
             <id>gmcbm-repo</id>
             <url>https://repo.gmcbm.net/repository/maven-public/</url>
@@ -60,7 +54,7 @@
     </repositories>
 
     <dependencies>
-        <!-- Bungeecord -->
+        <!-- BungeeCord -->
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>

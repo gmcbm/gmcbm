@@ -35,7 +35,7 @@ public enum PluginType {
     /**
      * BungeeCord and Forks
      */
-    BUNGEECORD,
+    BUNGEE,
 
     /**
      * Bukkit and Forks

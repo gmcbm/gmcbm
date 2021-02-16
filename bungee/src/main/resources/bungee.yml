@@ -1,4 +1,4 @@
 name: gmcbm
 version: ${project.version}
-main: net.gmcbm.bungeecord.Main
+main: net.gmcbm.bungee.Main
 description: ${project.description}
