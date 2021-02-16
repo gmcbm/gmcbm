@@ -2,6 +2,8 @@ language: java
 
 jdk:
   - openjdk8
+  - openjdk11
+  - openjdk14
 
 jobs:
   include:
@@ -14,13 +16,16 @@ jobs:
         - mvn clean install
     - stage: "Build Plugins"
       script:
-        - cd spigot
+        - cd bukkit
         - mvn clean verify
     - stage: "Build Plugins"
       script:
-        - cd bungeecord
+        - cd bungee
         - mvn clean verify
 
 cache:
   directories:
     - $HOME/.m2
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

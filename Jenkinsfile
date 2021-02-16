@@ -15,13 +15,13 @@ pipeline {
                     echo "Building Core..."
                     sh 'mvn clean install -Djar.finalName=GMCBM_Core-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
                 }
-                dir('spigot') {
-                    echo "Building Spigot Plugin..."
-                    sh 'mvn clean package -Djar.finalName=GMCBM_Spigot-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                dir('bukkit') {
+                    echo "Building Bukkit Plugin..."
+                    sh 'mvn clean package -Djar.finalName=GMCBM_Bukkit-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
                 }
-                dir('bungeecord') {
-                    echo "Building Bungeecord Plugin..."
-                    sh 'mvn clean package -Djar.finalName=GMCBM_Bungeecord-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
+                dir('bungee') {
+                    echo "Building Bungee Plugin..."
+                    sh 'mvn clean package -Djar.finalName=GMCBM_Bungee-${GIT_BRANCH#*/}-#${BUILD_NUMBER}'
                 }
             }
             post {
