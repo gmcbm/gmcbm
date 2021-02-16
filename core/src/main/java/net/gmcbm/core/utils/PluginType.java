@@ -38,9 +38,9 @@ public enum PluginType {
     BUNGEECORD,
 
     /**
-     * Spigot and Forks
+     * Bukkit and Forks
      */
-    SPIGOT,
+    BUKKIT,
 
     /**
      * Sponge and Forks

@@ -23,7 +23,7 @@
  *
  */
 
-package net.gmcbm.spigot;
+package net.gmcbm.bukkit;
 
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.server.Server;
@@ -48,7 +48,7 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
-        this.gmcbm = new GMCBM(PluginType.SPIGOT, debug, new Server(UUID.randomUUID()));
+        this.gmcbm = new GMCBM(PluginType.BUKKIT, debug, new Server(UUID.randomUUID()));
     }
 
     @Override

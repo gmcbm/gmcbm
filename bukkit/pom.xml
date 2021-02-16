@@ -35,24 +35,18 @@
         <version>HEAD-jre-SNAPSHOT</version>
     </parent>
 
-    <artifactId>spigot</artifactId>
+    <artifactId>bukkit</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Spigot</name>
-    <description>Global Minecraft Ban Manager Spigot Plugin</description>
+    <name>Bukkit</name>
+    <description>Global Minecraft Ban Manager Bukkit Plugin</description>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <repositories>
-        <!-- Spigot -->
-        <!--        <repository>-->
-        <!--            <id>spigotmc-repo</id>-->
-        <!--            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>-->
-        <!--        </repository>-->
-        <!-- Mirror -->
         <repository>
             <id>gmcbm-repo</id>
             <url>https://repo.gmcbm.net/repository/maven-public/</url>
@@ -60,10 +54,10 @@
     </repositories>
 
     <dependencies>
-        <!-- Spigot -->
+        <!-- Bukkit -->
         <dependency>
-            <groupId>org.spigotmc</groupId>
-            <artifactId>spigot-api</artifactId>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
         </dependency>
         <!-- Annotation -->
         <dependency>
