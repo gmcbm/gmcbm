@@ -42,18 +42,6 @@ public class RequestResponse {
     /**
      * Constructor of {@link RequestResponse}
      *
-     * @param message Response message
-     * @param status  Status ({@link RequestStatus})
-     */
-    public RequestResponse(@Nonnull String message, @Nonnull RequestStatus status) {
-        this.message = message;
-        this.status = status;
-        this.response = Optional.empty();
-    }
-
-    /**
-     * Constructor of {@link RequestResponse}
-     *
      * @param message  Response message
      * @param status   Status ({@link RequestStatus})
      * @param response Response {@link Optional}
@@ -63,6 +51,18 @@ public class RequestResponse {
         this.message = message;
         this.status = status;
         this.response = response;
+    }
+
+    /**
+     * Constructor of {@link RequestResponse}
+     *
+     * @param message Response message
+     * @param status  Status ({@link RequestStatus})
+     */
+    public RequestResponse(@Nonnull String message, @Nonnull RequestStatus status) {
+        this.message = message;
+        this.status = status;
+        this.response = Optional.empty();
     }
 
     /**
