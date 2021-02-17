@@ -25,14 +25,10 @@
 
 package net.gmcbm.core.mute;
 
-import net.gmcbm.core.item.Item;
-import net.gmcbm.core.item.ItemAction;
-import net.gmcbm.core.item.ItemStatus;
-import net.gmcbm.core.item.OriginType;
+import net.gmcbm.core.item.*;
 import net.gmcbm.core.server.Server;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -44,41 +40,38 @@ import java.util.UUID;
 public class Mute extends Item {
 
     /**
-     * Constructor of {@link Mute}
+     * Constructor.
      *
-     * @param id         Mute Identifier
-     * @param player     {@link UUID} of Player
-     * @param reason     Reason
-     * @param issuer     Issuer {@link UUID} or null
-     * @param issuerName Issuer Name
-     * @param from       From {@link Instant}
-     * @param until      Until {@link Instant}
-     * @param status     Status ({@link ItemStatus})
-     * @param action     Action ({@link ItemAction})
-     * @param timestamp  Timestamp ({@link Instant})
-     * @param origin     Origin ({@link OriginType})
-     * @param server     Server ({@link Server})
+     * @param id        Mute Identifier
+     * @param player    {@link UUID} of Player
+     * @param reason    Reason
+     * @param issuer    Issuer ({@link Issuer})
+     * @param from      From {@link Instant}
+     * @param until     Until {@link Instant}
+     * @param status    Status ({@link ItemStatus})
+     * @param action    Action ({@link ItemAction})
+     * @param timestamp Timestamp ({@link Instant})
+     * @param origin    Origin ({@link OriginType})
+     * @param server    Server ({@link Server})
      */
-    public Mute(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer,
-                @Nonnull String issuerName, @Nonnull Instant from, @Nonnull Instant until,
-                @Nonnull ItemStatus status, @Nonnull ItemAction action, @Nonnull Instant timestamp,
-                @Nonnull OriginType origin, @Nonnull Server server) {
-        super(id, player, reason, issuer, issuerName, from, until, status, action, timestamp, origin, server);
+    public Mute(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nonnull Issuer issuer,
+                @Nonnull Instant from, @Nonnull Instant until, @Nonnull ItemStatus status, @Nonnull ItemAction action,
+                @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull Server server) {
+        super(id, player, reason, issuer, from, until, status, action, timestamp, origin, server);
     }
 
     /**
-     * Constructor of {@link Mute}
+     * Constructor.
      *
-     * @param player     {@link UUID} of Player
-     * @param reason     Reason
-     * @param issuer     Issuer {@link UUID} or null
-     * @param issuerName Issuer Name
-     * @param from       From {@link Instant}
-     * @param until      Until {@link Instant}
-     * @param server     Server ({@link Server})
+     * @param player {@link UUID} of Player
+     * @param reason Reason
+     * @param issuer Issuer ({@link Issuer})
+     * @param from   From {@link Instant}
+     * @param until  Until {@link Instant}
+     * @param server Server ({@link Server})
      */
-    public Mute(@Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer, @Nonnull String issuerName,
+    public Mute(@Nonnull UUID player, @Nonnull String reason, @Nonnull Issuer issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
-        super(player, reason, issuer, issuerName, from, until, server);
+        super(player, reason, issuer, from, until, server);
     }
 }

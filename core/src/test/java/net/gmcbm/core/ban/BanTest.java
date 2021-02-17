@@ -25,6 +25,7 @@
 
 package net.gmcbm.core.ban;
 
+import net.gmcbm.core.item.Issuer;
 import net.gmcbm.core.item.ItemAction;
 import net.gmcbm.core.item.ItemStatus;
 import net.gmcbm.core.item.OriginType;
@@ -44,12 +45,12 @@ class BanTest {
 
     @Test
     void testCoverage() {
-        Ban ban = new Ban("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), "Reason", null, "Issuer", Instant.MIN, Instant.MAX,
+        Ban ban = new Ban("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), "Reason", new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
                 ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2")));
 
         Assertions.assertEquals("Id", ban.getId(), "Coverage");
 
-        new Ban(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), "Reason", null, "Issuer", Instant.MIN, Instant.MAX,
+        new Ban(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), "Reason", new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
                 new Server(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2")));
     }
 }

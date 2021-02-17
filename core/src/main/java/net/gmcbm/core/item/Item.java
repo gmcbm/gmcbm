@@ -28,7 +28,6 @@ package net.gmcbm.core.item;
 import net.gmcbm.core.server.Server;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
@@ -43,8 +42,7 @@ public class Item {
     private final String id;
     private final UUID player;
     private final String reason;
-    private final UUID issuer;
-    private final String issuerName;
+    private final Issuer issuer;
     private final Instant from;
     private final Instant until;
     private final ItemStatus status;
@@ -54,30 +52,27 @@ public class Item {
     private final Server server;
 
     /**
-     * Constructor of {@link Item}
+     * Constructor.
      *
-     * @param id         Item Identifier
-     * @param player     {@link UUID} of Player
-     * @param reason     Reason
-     * @param issuer     Issuer {@link UUID} or null
-     * @param issuerName Issuer Name
-     * @param from       From {@link Instant}
-     * @param until      Until {@link Instant}
-     * @param status     Status ({@link ItemStatus})
-     * @param action     Action ({@link ItemAction})
-     * @param timestamp  Timestamp ({@link Instant})
-     * @param origin     Origin ({@link OriginType})
-     * @param server     Server ({@link Server})
+     * @param id        Item Identifier
+     * @param player    {@link UUID} of Player
+     * @param reason    Reason
+     * @param issuer    Issuer ({@link Issuer})
+     * @param from      From {@link Instant}
+     * @param until     Until {@link Instant}
+     * @param status    Status ({@link ItemStatus})
+     * @param action    Action ({@link ItemAction})
+     * @param timestamp Timestamp ({@link Instant})
+     * @param origin    Origin ({@link OriginType})
+     * @param server    Server ({@link Server})
      */
-    public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer,
-                @Nonnull String issuerName, @Nonnull Instant from, @Nonnull Instant until,
-                @Nonnull ItemStatus status, @Nonnull ItemAction action, @Nonnull Instant timestamp,
-                @Nonnull OriginType origin, @Nonnull Server server) {
+    public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nonnull Issuer issuer,
+                @Nonnull Instant from, @Nonnull Instant until, @Nonnull ItemStatus status, @Nonnull ItemAction action,
+                @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull Server server) {
         this.id = Objects.requireNonNull(id);
         this.player = Objects.requireNonNull(player);
         this.reason = Objects.requireNonNull(reason);
-        this.issuer = issuer;
-        this.issuerName = Objects.requireNonNull(issuerName);
+        this.issuer = Objects.requireNonNull(issuer);
         this.from = Objects.requireNonNull(from);
         this.until = Objects.requireNonNull(until);
         this.status = Objects.requireNonNull(status);
@@ -88,23 +83,21 @@ public class Item {
     }
 
     /**
-     * Constructor of {@link Item}
+     * Constructor.
      *
-     * @param player     {@link UUID} of Player
-     * @param reason     Reason
-     * @param issuer     Issuer {@link UUID} or null
-     * @param issuerName Issuer Name
-     * @param from       From {@link Instant}
-     * @param until      Until {@link Instant}
-     * @param server     Server ({@link Server})
+     * @param player {@link UUID} of Player
+     * @param reason Reason
+     * @param issuer Issuer ({@link Issuer})
+     * @param from   From {@link Instant}
+     * @param until  Until {@link Instant}
+     * @param server Server ({@link Server})
      */
-    public Item(@Nonnull UUID player, @Nonnull String reason, @Nullable UUID issuer, @Nonnull String issuerName,
+    public Item(@Nonnull UUID player, @Nonnull String reason, @Nonnull Issuer issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
         this.id = null;
         this.player = Objects.requireNonNull(player);
         this.reason = Objects.requireNonNull(reason);
-        this.issuer = issuer;
-        this.issuerName = Objects.requireNonNull(issuerName);
+        this.issuer = Objects.requireNonNull(issuer);
         this.from = Objects.requireNonNull(from);
         this.until = Objects.requireNonNull(until);
         this.status = ItemStatus.ACTIVE;
@@ -136,17 +129,10 @@ public class Item {
     }
 
     /**
-     * @return Issuer {@link UUID} or null
+     * @return Issuer ({@link Issuer})
      */
-    public UUID getIssuer() {
+    public Issuer getIssuer() {
         return issuer;
-    }
-
-    /**
-     * @return Issuer Name
-     */
-    public String getIssuerName() {
-        return issuerName;
     }
 
     /**
