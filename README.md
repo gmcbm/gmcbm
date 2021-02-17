@@ -5,6 +5,8 @@
 [![Github last commit date](https://img.shields.io/github/last-commit/gmcbm/gmcbm?label=Updated&logo=github)](https://github.com/gmcbm/gmcbm/commits)
 [![Codecov](https://img.shields.io/codecov/c/gh/gmcbm/gmcbm?label=Coverage&logo=codecov)](https://app.codecov.io/gh/gmcbm/gmcbm)
 [![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/gmcbm/gmcbm?label=Maintainability)](https://codeclimate.com/github/gmcbm/gmcbm)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/gmcbm/gmcbm?logo=lgtm)](https://lgtm.com/projects/g/gmcbm/gmcbm/alerts/)
+[![Language grade: Java](https://img.shields.io/lgtm/grade/java/g/gmcbm/gmcbm?logo=lgtm)](https://lgtm.com/projects/g/gmcbm/gmcbm/context:java)
 [![License](https://img.shields.io/github/license/gmcbm/gmcbm?label=License)](https://github.com/gmcbm/gmcbm/blob/main/LICENSE)
 
 <!--
