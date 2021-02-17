@@ -15,14 +15,14 @@ updates:
     assignees:
       - ursinn
   - package-ecosystem: maven
-    directory: "/spigot/"
+    directory: "/bukkit/"
     schedule:
       interval: daily
     target-branch: "develop"
     assignees:
       - ursinn
   - package-ecosystem: maven
-    directory: "/bungeecord/"
+    directory: "/bungee/"
     schedule:
       interval: daily
     target-branch: "develop"
