@@ -40,7 +40,7 @@ public class RequestResponse {
     private final Optional<Object> response;
 
     /**
-     * Constructor of {@link RequestResponse}
+     * Constructor.
      *
      * @param message  Response message
      * @param status   Status ({@link RequestStatus})
@@ -54,7 +54,7 @@ public class RequestResponse {
     }
 
     /**
-     * Constructor of {@link RequestResponse}
+     * Constructor.
      *
      * @param message Response message
      * @param status  Status ({@link RequestStatus})

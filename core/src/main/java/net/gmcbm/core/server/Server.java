@@ -37,7 +37,7 @@ public class Server {
     private final UUID id;
 
     /**
-     * Constructor of {@link Server}
+     * Constructor.
      *
      * @param id Server Identifier ({@link UUID})
      */

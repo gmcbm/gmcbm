@@ -40,7 +40,7 @@ public class GMCBM {
     private final Server server;
 
     /**
-     * GMCBM Constructor
+     * Constructor.
      *
      * @param type   Plugin ({@link PluginType})
      * @param debug  Debug mode
