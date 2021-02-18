@@ -41,6 +41,7 @@
 
     <name>Bukkit</name>
     <description>Global Minecraft Ban Manager Bukkit Plugin</description>
+    <url>https://github.com/gmcbm/gmcbm</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -69,6 +70,16 @@
             <groupId>net.gmcbm</groupId>
             <artifactId>core</artifactId>
         </dependency>
+        <!-- bStats - Bukkit -->
+        <dependency>
+            <groupId>org.bstats</groupId>
+            <artifactId>bstats-bukkit</artifactId>
+        </dependency>
+        <!-- Commands - Bukkit -->
+        <dependency>
+            <groupId>co.aikar</groupId>
+            <artifactId>acf-paper</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
@@ -82,6 +93,25 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>org.bstats</pattern>
+                            <!-- Replace this with your package! -->
+                            <shadedPattern>net.gmcbm.bukkit.utils</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>co.aikar.commands</pattern>
+                            <!-- Replace this with your package! -->
+                            <shadedPattern>net.gmcbm.bukkit.acf</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>co.aikar.locales</pattern>
+                            <!-- Replace this with your package! -->
+                            <shadedPattern>net.gmcbm.bukkit.locales</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
             </plugin>
             <!-- Surefire Plugin -->
             <plugin>
@@ -119,5 +149,11 @@
                 <artifactId>jacoco-maven-plugin</artifactId>
             </plugin>
         </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
     </build>
 </project>

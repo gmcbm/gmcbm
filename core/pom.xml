@@ -46,6 +46,13 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <repositories>
+        <repository>
+            <id>gmcbm-repo</id>
+            <url>https://repo.gmcbm.net/repository/maven-public/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <!-- Annotation -->
         <dependency>
@@ -61,6 +68,11 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
+        </dependency>
+        <!-- Commands - Core -->
+        <dependency>
+            <groupId>co.aikar</groupId>
+            <artifactId>acf-core</artifactId>
         </dependency>
     </dependencies>
 
