@@ -31,6 +31,7 @@ Description
 ### Metrics
 
 This plugin utilizes bStats plugin metrics system, which means that the following information is collected and sent to bstats.org:
+
 * Your server's randomly generated UUID
 * The amount of players on your server
 * The online mode of your server
