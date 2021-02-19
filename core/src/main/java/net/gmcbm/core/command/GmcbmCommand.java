@@ -40,7 +40,11 @@ import net.gmcbm.core.GMCBM;
 @Description("GMCBM Command")
 public class GmcbmCommand extends BaseCommand {
 
-    GMCBM gmcbm;
+    private final GMCBM gmcbm;
+
+    public GmcbmCommand(GMCBM gmcbm) {
+        this.gmcbm = gmcbm;
+    }
 
     @Default
     @CatchUnknown
