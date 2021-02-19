@@ -47,13 +47,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>gmcbm-repo</id>
-            <url>https://repo.gmcbm.net/repository/maven-public/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
         <!-- BungeeCord -->
         <dependency>
@@ -137,11 +130,6 @@
 <!--            <plugin>-->
 <!--                <groupId>org.apache.maven.plugins</groupId>-->
 <!--                <artifactId>maven-release-plugin</artifactId>-->
-<!--            </plugin>-->
-            <!-- Nexus Staging Plugin -->
-<!--            <plugin>-->
-<!--                <groupId>org.sonatype.plugins</groupId>-->
-<!--                <artifactId>nexus-staging-maven-plugin</artifactId>-->
 <!--            </plugin>-->
             <!-- Jacoco Plugin -->
             <plugin>
