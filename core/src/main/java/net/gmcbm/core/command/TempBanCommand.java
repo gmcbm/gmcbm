@@ -59,6 +59,6 @@ public class TempBanCommand extends BaseCommand {
         argList.remove(2);
         String reason = argList.toString();
 
-        sender.sendMessage("Player: " + player + " Time: " + time + " Unit:" + unit +" Reason: " + reason);
+        sender.sendMessage("Player: " + player + " Time: " + time + " Unit:" + unit + " Reason: " + reason);
     }
 }

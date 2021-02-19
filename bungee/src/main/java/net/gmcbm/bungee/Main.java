@@ -38,6 +38,10 @@ public final class Main extends Plugin {
 
     private static Main instance;
 
+    public static Main getInstance() {
+        return instance;
+    }
+
     @Override
     public void onEnable() {
         instance = this;
@@ -67,10 +71,6 @@ public final class Main extends Plugin {
         commandManager.registerCommand(new UnBanCommand());
         commandManager.registerCommand(new UnMuteCommand());
         commandManager.registerCommand(new WarnCommand());
-    }
-
-    public static Main getInstance() {
-        return instance;
     }
 
     public GMCBM gmcbm() {

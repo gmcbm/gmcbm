@@ -27,7 +27,6 @@ package net.gmcbm.bukkit;
 
 import co.aikar.commands.PaperCommandManager;
 import net.gmcbm.core.GMCBM;
-import net.gmcbm.core.command.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -37,6 +36,10 @@ import java.util.UUID;
 public final class Main extends JavaPlugin {
 
     private static Main instance;
+
+    public static Main getInstance() {
+        return instance;
+    }
 
     @Override
     public void onEnable() {
@@ -55,10 +58,6 @@ public final class Main extends JavaPlugin {
         commandManager = new PaperCommandManager(this);
 //        commandManager.enableUnstableAPI("help");
 
-    }
-
-    public static Main getInstance() {
-        return instance;
     }
 
     public GMCBM gmcbm() {

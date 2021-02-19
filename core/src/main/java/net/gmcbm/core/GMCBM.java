@@ -46,10 +46,10 @@ public class GMCBM {
     /**
      * Constructor.
      *
-     * @param type   Plugin ({@link PluginType})
-     * @param debug  Debug mode
+     * @param type    Plugin ({@link PluginType})
+     * @param debug   Debug mode
      * @param version Plugin Version
-     * @param server Server ({@link Server})
+     * @param server  Server ({@link Server})
      */
     public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull Server server) {
         this.type = Objects.requireNonNull(type);

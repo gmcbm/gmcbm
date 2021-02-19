@@ -40,7 +40,7 @@ import java.util.List;
 @CommandAlias("mute")
 @CommandPermission("gmcbm.command.mute")
 @Description("GMCBM Mute Command")
-public class MuteCommand  extends BaseCommand {
+public class MuteCommand extends BaseCommand {
 
     @Default
     @CatchUnknown
