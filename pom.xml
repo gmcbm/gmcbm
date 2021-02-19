@@ -164,23 +164,23 @@
             </dependency>
             <!-- Commands - Core -->
             <dependency>
-                <groupId>co.aikar</groupId>
+                <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-core</artifactId>
-                <version>0.5.0-SNAPSHOT</version>
+                <version>0.5.0</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Commands - Bukkit -->
             <dependency>
-                <groupId>co.aikar</groupId>
+                <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-paper</artifactId>
-                <version>0.5.0-SNAPSHOT</version>
+                <version>0.5.0</version>
                 <scope>compile</scope>
             </dependency>
             <!-- Commands - Bungee -->
             <dependency>
-                <groupId>co.aikar</groupId>
+                <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-bungee</artifactId>
-                <version>0.5.0-SNAPSHOT</version>
+                <version>0.5.0</version>
                 <scope>compile</scope>
             </dependency>
             <!-- Guava -->

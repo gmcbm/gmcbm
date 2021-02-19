@@ -64,7 +64,7 @@
         </dependency>
         <!-- Commands - Core -->
         <dependency>
-            <groupId>co.aikar</groupId>
+            <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-core</artifactId>
         </dependency>
         <!-- Guava -->
