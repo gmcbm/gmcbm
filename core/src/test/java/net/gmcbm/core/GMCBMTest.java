@@ -41,10 +41,11 @@ class GMCBMTest {
 
     @Test
     void testCoverage() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, new Server(UUID.fromString("3eb0f3b9-a260-4f57-b959-89ed6be64423")));
+        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.fromString("3eb0f3b9-a260-4f57-b959-89ed6be64423")));
 
         Assertions.assertEquals(PluginType.BUKKIT, gmcbm.getType(), "Coverage");
         Assertions.assertFalse(gmcbm.isDebug(), "Coverage");
+        Assertions.assertEquals("1.0.0", gmcbm.getVersion(), "Coverage");
         Assertions.assertEquals(gmcbm.getServer().getId(), UUID.fromString("3eb0f3b9-a260-4f57-b959-89ed6be64423"), "Coverage");
     }
 }

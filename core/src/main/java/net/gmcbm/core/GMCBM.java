@@ -28,6 +28,9 @@ package net.gmcbm.core;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 
+import javax.annotation.Nonnull;
+import java.util.Objects;
+
 /**
  * @author Ursin Filli
  * @version 1.0
@@ -37,6 +40,7 @@ public class GMCBM {
 
     private final PluginType type;
     private final boolean debug;
+    private final String version;
     private final Server server;
 
     /**
@@ -44,12 +48,14 @@ public class GMCBM {
      *
      * @param type   Plugin ({@link PluginType})
      * @param debug  Debug mode
+     * @param version Plugin Version
      * @param server Server ({@link Server})
      */
-    public GMCBM(PluginType type, boolean debug, Server server) {
-        this.type = type;
+    public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull Server server) {
+        this.type = Objects.requireNonNull(type);
         this.debug = debug;
-        this.server = server;
+        this.version = Objects.requireNonNull(version);
+        this.server = Objects.requireNonNull(server);
     }
 
     /**
@@ -64,6 +70,13 @@ public class GMCBM {
      */
     public boolean isDebug() {
         return debug;
+    }
+
+    /**
+     * @return Plugin Version
+     */
+    public String getVersion() {
+        return version;
     }
 
     /**
