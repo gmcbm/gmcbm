@@ -26,6 +26,41 @@
 
 Description
 
+<!--
+
+### Metrics
+
+This plugin utilizes bStats plugin metrics system, which means that the following information is collected and sent to bstats.org:
+* Your server's randomly generated UUID
+* The amount of players on your server
+* The online mode of your server
+* The bukkit version of your server
+* The java version of your system (e.g. Java 8)
+* The name of your OS (e.g. Windows)
+* The version of your OS
+* The architecture of your OS (e.g. amd64)
+* The system cores of your OS (e.g. 8)
+* bStats-supported plugins
+* Plugin version of bStats-supported plugins
+
+#### Bukkit
+
+[![Metrcis Bukkit](https://bstats.org/signatures/bukkit/GMCBM-Spigot.svg)](https://bstats.org/plugin/bukkit/GMCBM-Spigot/6855)
+
+#### Bungeecord
+
+[![Metrcis Bungeecord](https://bstats.org/signatures/bungeecord/GMCBM.svg)](https://bstats.org/plugin/bungeecord/GMCBM/4812)
+
+#### Sponge
+
+[![Metrcis Sponge](https://bstats.org/signatures/sponge/GMCBM.svg)](https://bstats.org/plugin/sponge/GMCBM/7182)
+
+#### Velocity
+
+[![Metrcis Velocity](https://bstats.org/signatures/velocity/GMCBM.svg)](https://bstats.org/plugin/velocity/GMCBM/10252)
+
+-->
+
 ---
 
 ## License
