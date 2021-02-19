@@ -66,4 +66,5 @@ This plugin utilizes bStats plugin metrics system, which means that the followin
 
 ## License
 
-This project is under the MIT License. See the [LICENSE](https://github.com/gmcbm/gmcbm/blob/main/LICENSE) file for the full license text.
+This project is under the MIT License. See the [LICENSE](https://github.com/gmcbm/gmcbm/blob/main/LICENSE) file for the
+full license text.
