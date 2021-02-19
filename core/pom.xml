@@ -67,6 +67,11 @@
             <groupId>co.aikar</groupId>
             <artifactId>acf-core</artifactId>
         </dependency>
+        <!-- Guava -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
