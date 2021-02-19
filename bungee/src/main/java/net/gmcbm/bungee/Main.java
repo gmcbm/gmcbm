@@ -57,14 +57,13 @@ public final class Main extends Plugin {
     private void registerCommands() {
         BungeeCommandManager commandManager;
         commandManager = new BungeeCommandManager(this);
-//        commandManager.enableUnstableAPI("help");
 
         commandManager.registerCommand(new BanCommand());
         commandManager.registerCommand(new CheckCommand());
         commandManager.registerCommand(new DelBanCommand());
         commandManager.registerCommand(new DelMuteCommand());
         commandManager.registerCommand(new DelWarnCommand());
-        commandManager.registerCommand(new GmcbmCommand());
+        commandManager.registerCommand(new GmcbmCommand(gmcbm()));
         commandManager.registerCommand(new MuteCommand());
         commandManager.registerCommand(new TempBanCommand());
         commandManager.registerCommand(new TempMuteCommand());

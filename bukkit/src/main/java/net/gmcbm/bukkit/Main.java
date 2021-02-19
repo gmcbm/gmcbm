@@ -27,6 +27,7 @@ package net.gmcbm.bukkit;
 
 import co.aikar.commands.PaperCommandManager;
 import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.command.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -56,8 +57,19 @@ public final class Main extends JavaPlugin {
     private void registerCommands() {
         PaperCommandManager commandManager;
         commandManager = new PaperCommandManager(this);
-//        commandManager.enableUnstableAPI("help");
 
+        commandManager.registerCommand(new BanCommand());
+        commandManager.registerCommand(new CheckCommand());
+        commandManager.registerCommand(new DelBanCommand());
+        commandManager.registerCommand(new DelMuteCommand());
+        commandManager.registerCommand(new DelWarnCommand());
+        commandManager.registerCommand(new GmcbmCommand(gmcbm()));
+        commandManager.registerCommand(new MuteCommand());
+        commandManager.registerCommand(new TempBanCommand());
+        commandManager.registerCommand(new TempMuteCommand());
+        commandManager.registerCommand(new UnBanCommand());
+        commandManager.registerCommand(new UnMuteCommand());
+        commandManager.registerCommand(new WarnCommand());
     }
 
     public GMCBM gmcbm() {
