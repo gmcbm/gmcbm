@@ -29,8 +29,8 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author Ursin Filli
@@ -53,11 +53,11 @@ public class TempMuteCommand extends BaseCommand {
         String player = args[0];
         String time = args[1];
         String unit = args[2];
-        List<String> argList = Arrays.asList(args);
-        argList.remove(0);
-        argList.remove(1);
-        argList.remove(2);
-        String reason = argList.toString();
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
+        list.remove(0);
+        list.remove(1);
+        list.remove(2);
+        String reason = list.toString();
 
         sender.sendMessage("Player: " + player + " Time: " + time + " Unit:" + unit + " Reason: " + reason);
     }

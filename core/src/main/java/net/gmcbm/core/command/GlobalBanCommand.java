@@ -29,8 +29,8 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author Ursin Filli
@@ -51,9 +51,9 @@ public class GlobalBanCommand extends BaseCommand {
         }
 
         String player = args[0];
-        List<String> argList = Arrays.asList(args);
-        argList.remove(0);
-        String reason = argList.toString();
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
+        list.remove(0);
+        String reason = list.toString();
 
         sender.sendMessage("Player: " + player + " Reason: " + reason);
     }
