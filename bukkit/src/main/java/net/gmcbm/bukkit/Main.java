@@ -25,7 +25,9 @@
 
 package net.gmcbm.bukkit;
 
+import co.aikar.commands.PaperCommandManager;
 import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.command.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -34,21 +36,13 @@ import java.util.UUID;
 
 public final class Main extends JavaPlugin {
 
-    // Instance
     private static Main instance;
-    // Debug Option
-    private final boolean debug = true;
-    private GMCBM gmcbm;
-
-    public static Main getInstance() {
-        return instance;
-    }
 
     @Override
     public void onEnable() {
         instance = this;
 
-        this.gmcbm = new GMCBM(PluginType.BUKKIT, debug, new Server(UUID.randomUUID()));
+        registerCommands();
     }
 
     @Override
@@ -56,11 +50,22 @@ public final class Main extends JavaPlugin {
         // Plugin shutdown logic
     }
 
-    public GMCBM getGmcbm() {
-        return gmcbm;
+    private void registerCommands() {
+        PaperCommandManager commandManager;
+        commandManager = new PaperCommandManager(this);
+//        commandManager.enableUnstableAPI("help");
+
+    }
+
+    public static Main getInstance() {
+        return instance;
+    }
+
+    public GMCBM gmcbm() {
+        return new GMCBM(PluginType.BUKKIT, true, "", new Server(UUID.randomUUID()));
     }
 
     public boolean isDebug() {
-        return debug;
+        return gmcbm().isDebug();
     }
 }

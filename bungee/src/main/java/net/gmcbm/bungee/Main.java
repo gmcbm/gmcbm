@@ -25,7 +25,9 @@
 
 package net.gmcbm.bungee;
 
+import co.aikar.commands.BungeeCommandManager;
 import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.command.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -34,21 +36,13 @@ import java.util.UUID;
 
 public final class Main extends Plugin {
 
-    // Instance
     private static Main instance;
-    // Debug Option
-    private final boolean debug = true;
-    private GMCBM gmcbm;
-
-    public static Main getInstance() {
-        return instance;
-    }
 
     @Override
     public void onEnable() {
         instance = this;
 
-        this.gmcbm = new GMCBM(PluginType.BUNGEE, debug, new Server(UUID.randomUUID()));
+        registerCommands();
     }
 
     @Override
@@ -56,11 +50,34 @@ public final class Main extends Plugin {
         // Plugin shutdown logic
     }
 
-    public GMCBM getGmcbm() {
-        return gmcbm;
+    private void registerCommands() {
+        BungeeCommandManager commandManager;
+        commandManager = new BungeeCommandManager(this);
+//        commandManager.enableUnstableAPI("help");
+
+        commandManager.registerCommand(new BanCommand());
+        commandManager.registerCommand(new CheckCommand());
+        commandManager.registerCommand(new DelBanCommand());
+        commandManager.registerCommand(new DelMuteCommand());
+        commandManager.registerCommand(new DelWarnCommand());
+        commandManager.registerCommand(new GmcbmCommand());
+        commandManager.registerCommand(new MuteCommand());
+        commandManager.registerCommand(new TempBanCommand());
+        commandManager.registerCommand(new TempMuteCommand());
+        commandManager.registerCommand(new UnBanCommand());
+        commandManager.registerCommand(new UnMuteCommand());
+        commandManager.registerCommand(new WarnCommand());
+    }
+
+    public static Main getInstance() {
+        return instance;
+    }
+
+    public GMCBM gmcbm() {
+        return new GMCBM(PluginType.BUNGEE, true, "", new Server(UUID.randomUUID()));
     }
 
     public boolean isDebug() {
-        return debug;
+        return gmcbm().isDebug();
     }
 }
