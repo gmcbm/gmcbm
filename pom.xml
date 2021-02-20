@@ -31,7 +31,7 @@
 
     <groupId>net.gmcbm</groupId>
     <artifactId>gmcbm-parent</artifactId>
-    <version>HEAD-jre-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
     <name>GMCBM Maven Parent</name>
