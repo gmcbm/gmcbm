@@ -1,0 +1,28 @@
+# GMCBM Configuration File
+
+# This enables the check for updates.
+# If this is set to true, you will get notifications about updates.
+# If don't want to check for updates, set this to false.
+# https://www.gmcbm.net/go/documentation#update-check
+update-check: true
+
+# This enables metrics.
+# If you don't want metrics enabled set this to false.
+# https://www.gmcbm.net/go/documentation#metrics
+metrics: true
+
+# This enables debug mode.
+# https://www.gmcbm.net/go/documentation#debug
+debug: false
+
+# API Key get from gmcbm.net
+# https://www.gmcbm.net/go/documentation#api-token
+api-token: default-token
+
+# Server ID get from gmcbm.net
+# https://www.gmcbm.net/go/documentation#server-id
+server-id: default-server
+
+# Set this to your preferred language.
+# https://www.gmcbm.net/go/documentation#language
+language: en
