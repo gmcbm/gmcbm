@@ -61,8 +61,9 @@ public class GMCBM {
     /**
      * @return Plugin ({@link PluginType})
      */
-    public PluginType getType() {
-        return type;
+    public @Nonnull
+    PluginType getType() {
+        return Objects.requireNonNull(type);
     }
 
     /**
@@ -75,14 +76,16 @@ public class GMCBM {
     /**
      * @return Plugin Version
      */
-    public String getVersion() {
-        return version;
+    public @Nonnull
+    String getVersion() {
+        return Objects.requireNonNull(version);
     }
 
     /**
      * @return Server ({@link Server})
      */
-    public Server getServer() {
+    public @Nonnull
+    Server getServer() {
         return server;
     }
 }
