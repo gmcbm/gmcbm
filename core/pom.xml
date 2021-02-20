@@ -107,10 +107,10 @@
                 <artifactId>maven-deploy-plugin</artifactId>
             </plugin>
             <!-- Release Plugin -->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-release-plugin</artifactId>-->
-<!--            </plugin>-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+            </plugin>
             <!-- Jacoco Plugin -->
             <plugin>
                 <groupId>org.jacoco</groupId>
