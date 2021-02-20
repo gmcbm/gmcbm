@@ -42,7 +42,7 @@
     <licenses>
         <license>
             <name>MIT License</name>
-            <url>https://opensource.org/licenses/MIT</url>
+            <url>https://github.com/gmcbm/gmcbm/blob/main/LICENSE</url>
             <distribution>repo</distribution>
         </license>
     </licenses>
@@ -131,7 +131,7 @@
             <dependency>
                 <groupId>net.md-5</groupId>
                 <artifactId>bungeecord-api</artifactId>
-                <version>1.8-SNAPSHOT</version>
+                <version>1.16-R0.4</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Testing - Junit -->
