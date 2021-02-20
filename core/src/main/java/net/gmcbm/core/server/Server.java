@@ -25,6 +25,7 @@
 
 package net.gmcbm.core.server;
 
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
@@ -41,14 +42,15 @@ public class Server {
      *
      * @param id Server Identifier ({@link UUID})
      */
-    public Server(UUID id) {
+    public Server(@Nullable UUID id) {
         this.id = id;
     }
 
     /**
      * @return Server Identifier ({@link UUID})
      */
-    public UUID getId() {
+    public @Nullable
+    UUID getId() {
         return id;
     }
 }
