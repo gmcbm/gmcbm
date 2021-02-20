@@ -26,19 +26,29 @@
 package net.gmcbm.bukkit;
 
 import co.aikar.commands.PaperCommandManager;
+import net.gmcbm.bukkit.utils.UpdateChecker;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.command.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 public final class Main extends JavaPlugin {
 
-    private static Main instance;
+    private static final int SPIGOT_PLUGIN_ID = 0;
+    private static final int METRICS_PLUGIN_ID = 6855;
 
-    public static Main getInstance() {
+    private static Main instance;
+    private GMCBM gmcbm;
+    private UpdateChecker updateChecker;
+
+    public static @Nonnull
+    Main getInstance() {
         return instance;
     }
 
@@ -46,7 +56,21 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
+        gmcbm = new GMCBM(PluginType.BUKKIT, getConfig().getBoolean("debug", false),
+                getDescription().getVersion(), new Server(getServerId()));
+        updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
+
         registerCommands();
+
+        if (getConfig().getBoolean("metrics")) {
+            Metrics metrics = new Metrics(this, METRICS_PLUGIN_ID);
+            metrics.addCustomChart(
+                    new Metrics.SimplePie("language", () -> getConfig().getString("language", "en")));
+        }
+
+        if (getConfig().getBoolean("update-check")) {
+            updateChecker.checkUpdate();
+        }
     }
 
     @Override
@@ -63,7 +87,7 @@ public final class Main extends JavaPlugin {
         commandManager.registerCommand(new DelBanCommand());
         commandManager.registerCommand(new DelMuteCommand());
         commandManager.registerCommand(new DelWarnCommand());
-        commandManager.registerCommand(new GmcbmCommand(gmcbm()));
+        commandManager.registerCommand(new GmcbmCommand(gmcbm));
         commandManager.registerCommand(new MuteCommand());
         commandManager.registerCommand(new TempBanCommand());
         commandManager.registerCommand(new TempMuteCommand());
@@ -72,11 +96,26 @@ public final class Main extends JavaPlugin {
         commandManager.registerCommand(new WarnCommand());
     }
 
-    public GMCBM gmcbm() {
-        return new GMCBM(PluginType.BUKKIT, true, "", new Server(UUID.randomUUID()));
+    private @Nullable
+    UUID getServerId() {
+        try {
+            return UUID.fromString(getConfig().getString("server-id", "default-server"));
+        } catch (IllegalArgumentException e) {
+            return null;
+        }
+    }
+
+    public @Nonnull
+    GMCBM getGmcbm() {
+        return gmcbm;
     }
 
     public boolean isDebug() {
-        return gmcbm().isDebug();
+        return gmcbm.isDebug();
+    }
+
+    public @Nonnull
+    UpdateChecker getUpdateChecker() {
+        return updateChecker;
     }
 }

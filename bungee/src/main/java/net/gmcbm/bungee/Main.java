@@ -26,19 +26,33 @@
 package net.gmcbm.bungee;
 
 import co.aikar.commands.BungeeCommandManager;
+import net.gmcbm.bungee.utils.UpdateChecker;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.command.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import net.md_5.bungee.api.plugin.Plugin;
+import net.md_5.bungee.config.Configuration;
+import net.md_5.bungee.config.ConfigurationProvider;
+import net.md_5.bungee.config.YamlConfiguration;
+import org.bstats.bungeecord.Metrics;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import java.io.File;
 import java.util.UUID;
 
 public final class Main extends Plugin {
 
-    private static Main instance;
+    private static final int SPIGOT_PLUGIN_ID = 0;
+    private static final int METRICS_PLUGIN_ID = 4812;
 
-    public static Main getInstance() {
+    private static Main instance;
+    private GMCBM gmcbm;
+    private UpdateChecker updateChecker;
+
+    public static @Nonnull
+    Main getInstance() {
         return instance;
     }
 
@@ -46,12 +60,27 @@ public final class Main extends Plugin {
     public void onEnable() {
         instance = this;
 
+        gmcbm = new GMCBM(PluginType.BUNGEE, getConfig().getBoolean("debug", false),
+                getDescription().getVersion(), new Server(getServerId()));
+        updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
+
         registerCommands();
+
+        if (getConfig().getBoolean("metrics")) {
+            Metrics metrics = new Metrics(this, METRICS_PLUGIN_ID);
+            metrics.addCustomChart(
+                    new Metrics.SimplePie("language", () -> getConfig().getString("language", "en")));
+        }
+
+        if (getConfig().getBoolean("update-check")) {
+            updateChecker.checkUpdate();
+        }
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        getProxy().getPluginManager().unregisterCommands(this);
+        getProxy().getPluginManager().unregisterListeners(this);
     }
 
     private void registerCommands() {
@@ -63,7 +92,7 @@ public final class Main extends Plugin {
         commandManager.registerCommand(new DelBanCommand());
         commandManager.registerCommand(new DelMuteCommand());
         commandManager.registerCommand(new DelWarnCommand());
-        commandManager.registerCommand(new GmcbmCommand(gmcbm()));
+        commandManager.registerCommand(new GmcbmCommand(gmcbm));
         commandManager.registerCommand(new MuteCommand());
         commandManager.registerCommand(new TempBanCommand());
         commandManager.registerCommand(new TempMuteCommand());
@@ -72,11 +101,39 @@ public final class Main extends Plugin {
         commandManager.registerCommand(new WarnCommand());
     }
 
-    public GMCBM gmcbm() {
-        return new GMCBM(PluginType.BUNGEE, true, "", new Server(UUID.randomUUID()));
+    private @Nullable
+    UUID getServerId() {
+        try {
+            return UUID.fromString(getConfig().getString("server-id", "default-server"));
+        } catch (IllegalArgumentException exception) {
+            return null;
+        }
+    }
+
+    public @Nonnull
+    GMCBM getGmcbm() {
+        return gmcbm;
     }
 
     public boolean isDebug() {
-        return gmcbm().isDebug();
+        return gmcbm.isDebug();
+    }
+
+    public @Nonnull
+    UpdateChecker getUpdateChecker() {
+        return updateChecker;
+    }
+
+    private @Nonnull
+    Configuration getConfig() {
+        Configuration configuration = new Configuration();
+        try {
+            configuration = ConfigurationProvider.getProvider(YamlConfiguration.class)
+                    .load(new File(getDataFolder(), "config.yml"));
+        } catch (Exception exception) {
+            getLogger().warning(exception.toString());
+            onDisable();
+        }
+        return configuration;
     }
 }
