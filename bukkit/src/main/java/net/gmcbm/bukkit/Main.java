@@ -70,6 +70,7 @@ public final class Main extends JavaPlugin {
                 getDescription().getVersion(), new Server(getServerId()));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 
+        saveDefaultConfig();
         registerCommands();
         registerListener();
 

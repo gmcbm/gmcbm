@@ -43,6 +43,9 @@ import org.bstats.bungeecord.Metrics;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.nio.file.Files;
 import java.util.UUID;
 
 public final class Main extends Plugin {
@@ -73,6 +76,7 @@ public final class Main extends Plugin {
                 getDescription().getVersion(), new Server(getServerId()));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 
+        saveDefaultConfig();
         registerCommands();
         registerListener();
 
@@ -161,4 +165,20 @@ public final class Main extends Plugin {
         }
         return configuration;
     }
+
+    private void saveDefaultConfig() {
+        if (!getDataFolder().exists()) {
+            getDataFolder().mkdir();
+        }
+
+        File file = new File(getDataFolder(), "config.yml");
+        if (!file.exists()) {
+            try (InputStream in = getResourceAsStream("config.yml")) {
+                Files.copy(in, file.toPath());
+            } catch (IOException exception) {
+                getLogger().warning(exception.toString());
+            }
+        }
+    }
+
 }
