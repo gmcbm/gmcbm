@@ -83,7 +83,7 @@ public class UpdateChecker {
         }).start();
     }
 
-    private void checkVersion(URLConnection connection) throws IOException {
+    private void checkVersion(@Nonnull URLConnection connection) throws IOException {
         InputStreamReader reader = new InputStreamReader(connection.getInputStream(), StandardCharsets.UTF_8);
         BufferedReader br = new BufferedReader(reader);
         String oldVersion = plugin.getDescription().getVersion();
@@ -100,7 +100,7 @@ public class UpdateChecker {
      *
      * @param updateNotifyText UpdateNotifyText
      */
-    public void setUpdateNotifyText(String updateNotifyText) {
+    public void setUpdateNotifyText(@Nonnull String updateNotifyText) {
         this.updateNotifyText = updateNotifyText;
     }
 
