@@ -26,8 +26,6 @@
 
 Description
 
-<!--
-
 ### Metrics
 
 This plugin utilizes bStats plugin metrics system, which means that the following information is collected and sent to bstats.org:
@@ -46,21 +44,19 @@ This plugin utilizes bStats plugin metrics system, which means that the followin
 
 #### Bukkit
 
-[![Metrcis Bukkit](https://bstats.org/signatures/bukkit/GMCBM-Spigot.svg)](https://bstats.org/plugin/bukkit/GMCBM-Spigot/6855)
+[![Metrcis Bukkit](https://bstats.org/signatures/bukkit/GMCBM-Bukkit.svg)](https://bstats.org/plugin/bukkit/GMCBM-Bukkit/10428)
 
 #### Bungeecord
 
-[![Metrcis Bungeecord](https://bstats.org/signatures/bungeecord/GMCBM.svg)](https://bstats.org/plugin/bungeecord/GMCBM/4812)
+[![Metrcis Bungeecord](https://bstats.org/signatures/bungeecord/GMCBM.svg)](https://bstats.org/plugin/bungeecord/GMCBM/10425)
 
 #### Sponge
 
-[![Metrcis Sponge](https://bstats.org/signatures/sponge/GMCBM.svg)](https://bstats.org/plugin/sponge/GMCBM/7182)
+[![Metrcis Sponge](https://bstats.org/signatures/sponge/GMCBM.svg)](https://bstats.org/plugin/sponge/GMCBM/10426)
 
 #### Velocity
 
-[![Metrcis Velocity](https://bstats.org/signatures/velocity/GMCBM.svg)](https://bstats.org/plugin/velocity/GMCBM/10252)
-
--->
+[![Metrcis Velocity](https://bstats.org/signatures/velocity/GMCBM.svg)](https://bstats.org/plugin/velocity/GMCBM/10427)
 
 ---
 
