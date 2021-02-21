@@ -23,32 +23,25 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import co.aikar.commands.BaseCommand;
-import co.aikar.commands.CommandIssuer;
-import co.aikar.commands.annotation.*;
+import net.gmcbm.core.test.TestCommandIssuer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("delban")
-@CommandPermission("gmcbm.command.delban")
-@Description("GMCBM Delban Command")
-public class DelBanCommand extends BaseCommand {
+class GlobalBanCommandTest {
 
-    @Default
-    @CatchUnknown
-    public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length != 1) {
-            sender.sendMessage("/delban <BanId>");
-            return;
-        }
-
-        String banId = args[0];
-
-        sender.sendMessage("BanId: " + banId);
+    @Test
+    void testOnCommand() {
+        TestCommandIssuer issuer = new TestCommandIssuer();
+        GlobalBanCommand command = new GlobalBanCommand();
+        command.onCommand(issuer, new String[]{});
+        command.onCommand(issuer, new String[]{"Player", "Reason", "Reason"});
+        Assertions.assertNull(command.getName(), "Coverage");
     }
 }

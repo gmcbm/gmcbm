@@ -23,25 +23,37 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import net.gmcbm.core.test.TestCommandIssuer;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.CommandIssuer;
+import co.aikar.commands.annotation.*;
+import net.gmcbm.core.GMCBM;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-class UnBanCommandTest {
+@CommandAlias("gmcbm")
+@CommandPermission("gmcbm.command.gmcbm")
+@Description("GMCBM Command")
+public class GmcbmCommand extends BaseCommand {
 
-    @Test
-    void testOnCommand() {
-        TestCommandIssuer issuer = new TestCommandIssuer();
-        UnBanCommand command = new UnBanCommand();
-        command.onCommand(issuer, new String[]{});
-        command.onCommand(issuer, new String[]{"BanId"});
-        Assertions.assertNull(command.getName(), "Coverage");
+    private final GMCBM gmcbm;
+
+    public GmcbmCommand(GMCBM gmcbm) {
+        this.gmcbm = gmcbm;
+    }
+
+    @Default
+    @CatchUnknown
+    public void onCommand(CommandIssuer sender) {
+        sender.sendMessage("Global Minecraft Ban Manager (GMCBM) is a Global Ban Manager for Minecraft.");
+        sender.sendMessage("----------------");
+        sender.sendMessage("Plugin Platform: " + gmcbm.getType().toString());
+        sender.sendMessage("Plugin Version: " + gmcbm.getVersion());
+        sender.sendMessage("Plugin Debug: " + gmcbm.isDebug());
+        sender.sendMessage("ServerId: " + gmcbm.getServer().getId().toString());
     }
 }

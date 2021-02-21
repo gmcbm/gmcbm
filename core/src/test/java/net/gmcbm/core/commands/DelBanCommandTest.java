@@ -23,31 +23,25 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import net.gmcbm.core.GMCBM;
-import net.gmcbm.core.server.Server;
 import net.gmcbm.core.test.TestCommandIssuer;
-import net.gmcbm.core.utils.PluginType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.util.UUID;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-class GmcbmCommandTest {
+class DelBanCommandTest {
 
     @Test
     void testOnCommand() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.fromString("020f2085-2bd9-445d-8472-a5aaa0d0672c")));
-
         TestCommandIssuer issuer = new TestCommandIssuer();
-        GmcbmCommand command = new GmcbmCommand(gmcbm);
-        command.onCommand(issuer);
+        DelBanCommand command = new DelBanCommand();
+        command.onCommand(issuer, new String[]{});
+        command.onCommand(issuer, new String[]{"BanId"});
         Assertions.assertNull(command.getName(), "Coverage");
     }
 }

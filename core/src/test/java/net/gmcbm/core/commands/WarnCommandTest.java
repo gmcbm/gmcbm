@@ -23,7 +23,7 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
 import net.gmcbm.core.test.TestCommandIssuer;
 import org.junit.jupiter.api.Assertions;
@@ -34,14 +34,14 @@ import org.junit.jupiter.api.Test;
  * @version 1.0
  * @since 1.0
  */
-class UnMuteCommandTest {
+class WarnCommandTest {
 
     @Test
     void testOnCommand() {
         TestCommandIssuer issuer = new TestCommandIssuer();
-        UnMuteCommand command = new UnMuteCommand();
+        WarnCommand command = new WarnCommand();
         command.onCommand(issuer, new String[]{});
-        command.onCommand(issuer, new String[]{"MuteId"});
+        command.onCommand(issuer, new String[]{"Player", "Reason", "Reason"});
         Assertions.assertNull(command.getName(), "Coverage");
     }
 }

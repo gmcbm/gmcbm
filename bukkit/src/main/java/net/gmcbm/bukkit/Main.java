@@ -28,7 +28,7 @@ package net.gmcbm.bukkit;
 import co.aikar.commands.PaperCommandManager;
 import net.gmcbm.bukkit.utils.UpdateChecker;
 import net.gmcbm.core.GMCBM;
-import net.gmcbm.core.command.*;
+import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import org.bstats.bukkit.Metrics;

@@ -23,38 +23,31 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import co.aikar.commands.BaseCommand;
-import co.aikar.commands.CommandIssuer;
-import co.aikar.commands.annotation.*;
+import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.server.Server;
+import net.gmcbm.core.test.TestCommandIssuer;
+import net.gmcbm.core.utils.PluginType;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("ban")
-@CommandPermission("gmcbm.command.ban")
-@Description("GMCBM Ban Command")
-public class BanCommand extends BaseCommand {
+class GmcbmCommandTest {
 
-    @Default
-    @CatchUnknown
-    public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length < 2) {
-            sender.sendMessage("/ban <Player> <Reason...>");
-            return;
-        }
+    @Test
+    void testOnCommand() {
+        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.fromString("020f2085-2bd9-445d-8472-a5aaa0d0672c")));
 
-        String player = args[0];
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
-        list.remove(0);
-        String reason = list.toString();
-
-        sender.sendMessage("Player: " + player + " Reason: " + reason);
+        TestCommandIssuer issuer = new TestCommandIssuer();
+        GmcbmCommand command = new GmcbmCommand(gmcbm);
+        command.onCommand(issuer);
+        Assertions.assertNull(command.getName(), "Coverage");
     }
 }

@@ -28,7 +28,7 @@ package net.gmcbm.bungee;
 import co.aikar.commands.BungeeCommandManager;
 import net.gmcbm.bungee.utils.UpdateChecker;
 import net.gmcbm.core.GMCBM;
-import net.gmcbm.core.command.*;
+import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.PluginType;
 import net.md_5.bungee.api.plugin.Plugin;

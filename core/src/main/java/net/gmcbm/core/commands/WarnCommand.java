@@ -23,25 +23,38 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import net.gmcbm.core.test.TestCommandIssuer;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import co.aikar.commands.BaseCommand;
+import co.aikar.commands.CommandIssuer;
+import co.aikar.commands.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-class TempBanCommandTest {
+@CommandAlias("warn")
+@CommandPermission("gmcbm.command.warn")
+@Description("GMCBM Warn Command")
+public class WarnCommand extends BaseCommand {
 
-    @Test
-    void testOnCommand() {
-        TestCommandIssuer issuer = new TestCommandIssuer();
-        TempBanCommand command = new TempBanCommand();
-        command.onCommand(issuer, new String[]{});
-        command.onCommand(issuer, new String[]{"Player", "Time", "Unit", "Reason", "Reason"});
-        Assertions.assertNull(command.getName(), "Coverage");
+    @Default
+    @CatchUnknown
+    public void onCommand(CommandIssuer sender, String[] args) {
+        if (args.length < 2) {
+            sender.sendMessage("/warn <Player> <Reason...>");
+            return;
+        }
+
+        String player = args[0];
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
+        list.remove(0);
+        String reason = list.toString();
+
+        sender.sendMessage("Player: " + player + " Reason: " + reason);
     }
 }

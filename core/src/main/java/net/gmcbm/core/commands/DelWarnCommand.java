@@ -23,38 +23,32 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("warn")
-@CommandPermission("gmcbm.command.warn")
-@Description("GMCBM Warn Command")
-public class WarnCommand extends BaseCommand {
+@CommandAlias("delwarn")
+@CommandPermission("gmcbm.command.delwarn")
+@Description("GMCBM Delwarn Command")
+public class DelWarnCommand extends BaseCommand {
 
     @Default
     @CatchUnknown
     public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length < 2) {
-            sender.sendMessage("/warn <Player> <Reason...>");
+        if (args.length != 1) {
+            sender.sendMessage("/delwarn <WarnId>");
             return;
         }
 
-        String player = args[0];
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
-        list.remove(0);
-        String reason = list.toString();
+        String warnId = args[0];
 
-        sender.sendMessage("Player: " + player + " Reason: " + reason);
+        sender.sendMessage("WarnId: " + warnId);
     }
 }

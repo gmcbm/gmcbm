@@ -23,32 +23,25 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import co.aikar.commands.BaseCommand;
-import co.aikar.commands.CommandIssuer;
-import co.aikar.commands.annotation.*;
+import net.gmcbm.core.test.TestCommandIssuer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("unmute")
-@CommandPermission("gmcbm.command.unmute")
-@Description("GMCBM Unmute Command")
-public class UnMuteCommand extends BaseCommand {
+class DelWarnCommandTest {
 
-    @Default
-    @CatchUnknown
-    public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length != 1) {
-            sender.sendMessage("/unmute <MuteId>");
-            return;
-        }
-
-        String muteId = args[0];
-
-        sender.sendMessage("MuteId: " + muteId);
+    @Test
+    void testOnCommand() {
+        TestCommandIssuer issuer = new TestCommandIssuer();
+        DelWarnCommand command = new DelWarnCommand();
+        command.onCommand(issuer, new String[]{});
+        command.onCommand(issuer, new String[]{"WarnId"});
+        Assertions.assertNull(command.getName(), "Coverage");
     }
 }

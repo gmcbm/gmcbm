@@ -23,32 +23,38 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("unban")
-@CommandPermission("gmcbm.command.unban")
-@Description("GMCBM Unban Command")
-public class UnBanCommand extends BaseCommand {
+@CommandAlias("ban")
+@CommandPermission("gmcbm.command.ban")
+@Description("GMCBM Ban Command")
+public class BanCommand extends BaseCommand {
 
     @Default
     @CatchUnknown
     public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length != 1) {
-            sender.sendMessage("/unban <BanId>");
+        if (args.length < 2) {
+            sender.sendMessage("/ban <Player> <Reason...>");
             return;
         }
 
-        String banId = args[0];
+        String player = args[0];
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
+        list.remove(0);
+        String reason = list.toString();
 
-        sender.sendMessage("BanId: " + banId);
+        sender.sendMessage("Player: " + player + " Reason: " + reason);
     }
 }

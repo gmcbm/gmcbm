@@ -23,32 +23,26 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import co.aikar.commands.BaseCommand;
-import co.aikar.commands.CommandIssuer;
-import co.aikar.commands.annotation.*;
+import net.gmcbm.core.test.TestCommandIssuer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("delwarn")
-@CommandPermission("gmcbm.command.delwarn")
-@Description("GMCBM Delwarn Command")
-public class DelWarnCommand extends BaseCommand {
+class CheckCommandTest {
 
-    @Default
-    @CatchUnknown
-    public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length != 1) {
-            sender.sendMessage("/delwarn <WarnId>");
-            return;
-        }
-
-        String warnId = args[0];
-
-        sender.sendMessage("WarnId: " + warnId);
+    @Test
+    void testOnCommand() {
+        TestCommandIssuer issuer = new TestCommandIssuer();
+        CheckCommand command = new CheckCommand();
+        command.onCommand(issuer, new String[]{});
+        command.onCommand(issuer, new String[]{"Player", "test"});
+        Assertions.assertNull(command.getName(), "Coverage");
     }
 }
+

@@ -23,32 +23,42 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("delmute")
-@CommandPermission("gmcbm.command.delmute")
-@Description("GMCBM Delmute Command")
-public class DelMuteCommand extends BaseCommand {
+@CommandAlias("tempmute")
+@CommandPermission("gmcbm.command.tempmute")
+@Description("GMCBM TempMute Command")
+public class TempMuteCommand extends BaseCommand {
 
     @Default
     @CatchUnknown
     public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length != 1) {
-            sender.sendMessage("/delmute <MuteId>");
+        if (args.length < 4) {
+            sender.sendMessage("/mute <Player> <Time> <Unit> <Reason...>");
             return;
         }
 
-        String muteId = args[0];
+        String player = args[0];
+        String time = args[1];
+        String unit = args[2];
+        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
+        list.remove(0);
+        list.remove(1);
+        list.remove(2);
+        String reason = list.toString();
 
-        sender.sendMessage("MuteId: " + muteId);
+        sender.sendMessage("Player: " + player + " Time: " + time + " Unit:" + unit + " Reason: " + reason);
     }
 }

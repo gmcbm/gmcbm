@@ -23,42 +23,25 @@
  *
  */
 
-package net.gmcbm.core.command;
+package net.gmcbm.core.commands;
 
-import co.aikar.commands.BaseCommand;
-import co.aikar.commands.CommandIssuer;
-import co.aikar.commands.annotation.*;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import net.gmcbm.core.test.TestCommandIssuer;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-@CommandAlias("tempban")
-@CommandPermission("gmcbm.command.tempban")
-@Description("GMCBM TempBan Command")
-public class TempBanCommand extends BaseCommand {
+class DelMuteCommandTest {
 
-    @Default
-    @CatchUnknown
-    public void onCommand(CommandIssuer sender, String[] args) {
-        if (args.length < 4) {
-            sender.sendMessage("/ban <Player> <Time> <Unit> <Reason...>");
-            return;
-        }
-
-        String player = args[0];
-        String time = args[1];
-        String unit = args[2];
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
-        list.remove(0);
-        list.remove(1);
-        list.remove(2);
-        String reason = list.toString();
-
-        sender.sendMessage("Player: " + player + " Time: " + time + " Unit:" + unit + " Reason: " + reason);
+    @Test
+    void testOnCommand() {
+        TestCommandIssuer issuer = new TestCommandIssuer();
+        DelMuteCommand command = new DelMuteCommand();
+        command.onCommand(issuer, new String[]{});
+        command.onCommand(issuer, new String[]{"MuteId"});
+        Assertions.assertNull(command.getName(), "Coverage");
     }
 }
