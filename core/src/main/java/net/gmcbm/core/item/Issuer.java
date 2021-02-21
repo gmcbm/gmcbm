@@ -54,14 +54,16 @@ public class Issuer {
     /**
      * @return Issuer {@link UUID} or null
      */
-    public UUID getId() {
+    public @Nullable
+    UUID getId() {
         return id;
     }
 
     /**
      * @return Issuer Name
      */
-    public String getName() {
+    public @Nonnull
+    String getName() {
         return name;
     }
 }

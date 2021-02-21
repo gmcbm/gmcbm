@@ -30,6 +30,8 @@ import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
 import net.gmcbm.core.GMCBM;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author Ursin Filli
  * @version 1.0
@@ -42,13 +44,13 @@ public class GmcbmCommand extends BaseCommand {
 
     private final GMCBM gmcbm;
 
-    public GmcbmCommand(GMCBM gmcbm) {
+    public GmcbmCommand(@Nonnull GMCBM gmcbm) {
         this.gmcbm = gmcbm;
     }
 
     @Default
     @CatchUnknown
-    public void onCommand(CommandIssuer sender) {
+    public void onCommand(@Nonnull CommandIssuer sender) {
         sender.sendMessage("Global Minecraft Ban Manager (GMCBM) is a Global Ban Manager for Minecraft.");
         sender.sendMessage("----------------");
         sender.sendMessage("Plugin Platform: " + gmcbm.getType().toString());

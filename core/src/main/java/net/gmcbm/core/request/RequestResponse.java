@@ -68,21 +68,24 @@ public class RequestResponse {
     /**
      * @return Response message
      */
-    public String getMessage() {
+    public @Nonnull
+    String getMessage() {
         return message;
     }
 
     /**
      * @return status ({@link RequestStatus})
      */
-    public RequestStatus getStatus() {
+    public @Nonnull
+    RequestStatus getStatus() {
         return status;
     }
 
     /**
      * @return Response {@link Optional}
      */
-    public Optional<Object> getResponse() {
+    public @Nonnull
+    Optional<Object> getResponse() {
         return response;
     }
 }

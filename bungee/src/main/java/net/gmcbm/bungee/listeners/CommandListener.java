@@ -30,6 +30,7 @@ import net.md_5.bungee.api.event.ChatEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
+import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
@@ -40,7 +41,7 @@ import java.util.UUID;
 public class CommandListener implements Listener {
 
     @EventHandler
-    public void onCommand(ChatEvent event) {
+    public void onCommand(@Nonnull ChatEvent event) {
         if (!event.isCommand() && !event.isProxyCommand()) {
             return;
         }

@@ -28,6 +28,7 @@ package net.gmcbm.core.item;
 import net.gmcbm.core.server.Server;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.time.Instant;
 import java.util.Objects;
 import java.util.UUID;
@@ -110,77 +111,88 @@ public class Item {
     /**
      * @return Item Identifier
      */
-    public String getId() {
+    public @Nullable
+    String getId() {
         return id;
     }
 
     /**
      * @return {@link UUID} of Player
      */
-    public UUID getPlayer() {
+    public @Nonnull
+    UUID getPlayer() {
         return player;
     }
 
     /**
      * @return Reason
      */
-    public String getReason() {
+    public @Nonnull
+    String getReason() {
         return reason;
     }
 
     /**
      * @return Issuer ({@link Issuer})
      */
-    public Issuer getIssuer() {
+    public @Nonnull
+    Issuer getIssuer() {
         return issuer;
     }
 
     /**
      * @return From {@link Instant}
      */
-    public Instant getFrom() {
+    public @Nonnull
+    Instant getFrom() {
         return from;
     }
 
     /**
      * @return Until {@link Instant}
      */
-    public Instant getUntil() {
+    public @Nonnull
+    Instant getUntil() {
         return until;
     }
 
     /**
      * @return Status ({@link ItemStatus})
      */
-    public ItemStatus getStatus() {
+    public @Nonnull
+    ItemStatus getStatus() {
         return status;
     }
 
     /**
      * @return Action ({@link ItemAction})
      */
-    public ItemAction getAction() {
+    public @Nonnull
+    ItemAction getAction() {
         return action;
     }
 
     /**
      * @return Timestamp ({@link Instant})
      */
-    public Instant getTimestamp() {
+    public @Nonnull
+    Instant getTimestamp() {
         return timestamp;
     }
 
     /**
      * @return Origin ({@link OriginType})
      */
-    public OriginType getOrigin() {
+    public @Nonnull
+    OriginType getOrigin() {
         return origin;
     }
 
     /**
      * @return Server ({@link Server})
      */
-    public Server getServer() {
+    public @Nonnull
+    Server getServer() {
         return server;
     }
 }

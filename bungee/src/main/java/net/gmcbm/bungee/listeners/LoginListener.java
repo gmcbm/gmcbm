@@ -29,6 +29,7 @@ import net.md_5.bungee.api.event.LoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
+import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
@@ -39,7 +40,7 @@ import java.util.UUID;
 public class LoginListener implements Listener {
 
     @EventHandler
-    public void onLogin(LoginEvent event) {
+    public void onLogin(@Nonnull LoginEvent event) {
         UUID uuid = event.getConnection().getUniqueId();
         //
     }

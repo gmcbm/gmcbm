@@ -32,6 +32,8 @@ import net.md_5.bungee.api.event.PostLoginEvent;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.event.EventHandler;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author Ursin Filli
  * @version 1.0
@@ -40,7 +42,7 @@ import net.md_5.bungee.event.EventHandler;
 public class JoinListener implements Listener {
 
     @EventHandler
-    public void onJoin(PostLoginEvent event) {
+    public void onJoin(@Nonnull PostLoginEvent event) {
         ProxiedPlayer player = event.getPlayer();
         if (player.hasPermission("gmcbm.update.notify") && Main.getInstance().getUpdateChecker().isUpdateAvailable()) {
             player.sendMessage(new TextComponent(Main.getInstance().getUpdateChecker().getFormattedUpdateNotifyText()));

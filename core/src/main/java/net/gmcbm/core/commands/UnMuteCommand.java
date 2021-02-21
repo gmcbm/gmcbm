@@ -29,6 +29,8 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
 
+import javax.annotation.Nonnull;
+
 /**
  * @author Ursin Filli
  * @version 1.0
@@ -41,7 +43,7 @@ public class UnMuteCommand extends BaseCommand {
 
     @Default
     @CatchUnknown
-    public void onCommand(CommandIssuer sender, String[] args) {
+    public void onCommand(@Nonnull CommandIssuer sender, @Nonnull String[] args) {
         if (args.length != 1) {
             sender.sendMessage("/unmute <MuteId>");
             return;

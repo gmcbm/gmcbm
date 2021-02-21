@@ -29,6 +29,7 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -44,7 +45,7 @@ public class MuteCommand extends BaseCommand {
 
     @Default
     @CatchUnknown
-    public void onCommand(CommandIssuer sender, String[] args) {
+    public void onCommand(@Nonnull CommandIssuer sender, @Nonnull String[] args) {
         if (args.length < 2) {
             sender.sendMessage("/mute <Player> <Reason...>");
             return;

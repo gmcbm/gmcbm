@@ -31,6 +31,7 @@ import co.aikar.commands.MessageType;
 import co.aikar.locales.MessageKey;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
@@ -41,12 +42,14 @@ import java.util.UUID;
 public class TestCommandIssuer implements CommandIssuer {
 
     @Override
-    public <T> T getIssuer() {
+    public @Nullable
+    <T> T getIssuer() {
         return null;
     }
 
     @Override
-    public CommandManager getManager() {
+    public @Nullable
+    CommandManager getManager() {
         return null;
     }
 

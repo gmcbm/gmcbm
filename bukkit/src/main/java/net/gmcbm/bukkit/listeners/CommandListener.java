@@ -29,6 +29,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 
+import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
@@ -39,7 +40,7 @@ import java.util.UUID;
 public class CommandListener implements Listener {
 
     @EventHandler
-    public void onCommand(PlayerCommandPreprocessEvent event) {
+    public void onCommand(@Nonnull PlayerCommandPreprocessEvent event) {
         UUID uuid = event.getPlayer().getUniqueId();
         //
     }

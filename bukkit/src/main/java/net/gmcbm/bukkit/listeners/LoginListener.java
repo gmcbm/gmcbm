@@ -29,6 +29,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 
+import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
@@ -39,7 +40,7 @@ import java.util.UUID;
 public class LoginListener implements Listener {
 
     @EventHandler
-    public void onLogin(AsyncPlayerPreLoginEvent event) {
+    public void onLogin(@Nonnull AsyncPlayerPreLoginEvent event) {
         UUID uuid = event.getUniqueId();
         //
     }
