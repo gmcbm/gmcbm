@@ -39,8 +39,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
 public class JoinListener implements Listener {
 
     @EventHandler
-    public void onJoin(PlayerJoinEvent e) {
-        Player player = e.getPlayer();
+    public void onJoin(PlayerJoinEvent event) {
+        Player player = event.getPlayer();
         if (player.hasPermission("gmcbm.update.notify") && Main.getInstance().getUpdateChecker().isUpdateAvailable()) {
             player.sendMessage(Main.getInstance().getUpdateChecker().getFormattedUpdateNotifyText());
         }

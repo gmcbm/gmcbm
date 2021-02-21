@@ -40,8 +40,8 @@ import net.md_5.bungee.event.EventHandler;
 public class JoinListener implements Listener {
 
     @EventHandler
-    public void onJoin(PostLoginEvent e) {
-        ProxiedPlayer player = e.getPlayer();
+    public void onJoin(PostLoginEvent event) {
+        ProxiedPlayer player = event.getPlayer();
         if (player.hasPermission("gmcbm.update.notify") && Main.getInstance().getUpdateChecker().isUpdateAvailable()) {
             player.sendMessage(new TextComponent(Main.getInstance().getUpdateChecker().getFormattedUpdateNotifyText()));
         }
