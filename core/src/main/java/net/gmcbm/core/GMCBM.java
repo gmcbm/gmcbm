@@ -26,6 +26,7 @@
 package net.gmcbm.core;
 
 import net.gmcbm.core.server.Server;
+import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
 
 import javax.annotation.Nonnull;
@@ -42,6 +43,7 @@ public class GMCBM {
     private final boolean debug;
     private final String version;
     private final Server server;
+    private final ApiKey apiKey;
 
     /**
      * Constructor.
@@ -50,12 +52,15 @@ public class GMCBM {
      * @param debug   Debug mode
      * @param version Plugin Version
      * @param server  Server ({@link Server})
+     * @param apiKey  Api Key ({@link ApiKey})
      */
-    public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull Server server) {
+    public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull Server server,
+                 @Nonnull ApiKey apiKey) {
         this.type = Objects.requireNonNull(type);
         this.debug = debug;
         this.version = Objects.requireNonNull(version);
         this.server = Objects.requireNonNull(server);
+        this.apiKey = Objects.requireNonNull(apiKey);
     }
 
     /**
@@ -87,5 +92,13 @@ public class GMCBM {
     public @Nonnull
     Server getServer() {
         return server;
+    }
+
+    /**
+     * @return Api Key ({@link ApiKey})
+     */
+    public @Nonnull
+    ApiKey getApiKey() {
+        return apiKey;
     }
 }

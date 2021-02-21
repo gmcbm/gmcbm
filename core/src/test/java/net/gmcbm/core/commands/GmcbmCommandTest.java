@@ -28,6 +28,7 @@ package net.gmcbm.core.commands;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.test.TestCommandIssuer;
+import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -43,7 +44,7 @@ class GmcbmCommandTest {
 
     @Test
     void testOnCommand() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.fromString("020f2085-2bd9-445d-8472-a5aaa0d0672c")));
+        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.fromString("020f2085-2bd9-445d-8472-a5aaa0d0672c")), new ApiKey(null));
 
         TestCommandIssuer issuer = new TestCommandIssuer();
         GmcbmCommand command = new GmcbmCommand(gmcbm);

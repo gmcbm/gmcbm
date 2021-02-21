@@ -31,6 +31,7 @@ import net.gmcbm.bukkit.utils.UpdateChecker;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.Server;
+import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.event.Listener;
@@ -67,7 +68,7 @@ public final class Main extends JavaPlugin {
         }
 
         gmcbm = new GMCBM(PluginType.BUKKIT, getConfig().getBoolean("debug", false),
-                getDescription().getVersion(), new Server(getServerId()));
+                getDescription().getVersion(), new Server(getServerId()), new ApiKey(null));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 
         saveDefaultConfig();

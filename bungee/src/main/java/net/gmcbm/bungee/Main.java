@@ -31,6 +31,7 @@ import net.gmcbm.bungee.utils.UpdateChecker;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.Server;
+import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
 import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
@@ -73,7 +74,7 @@ public final class Main extends Plugin {
         }
 
         gmcbm = new GMCBM(PluginType.BUNGEE, getConfig().getBoolean("debug", false),
-                getDescription().getVersion(), new Server(getServerId()));
+                getDescription().getVersion(), new Server(getServerId()), new ApiKey(null));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 
         saveDefaultConfig();
