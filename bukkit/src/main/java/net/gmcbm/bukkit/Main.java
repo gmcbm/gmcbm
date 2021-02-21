@@ -26,16 +26,14 @@
 package net.gmcbm.bukkit;
 
 import co.aikar.commands.PaperCommandManager;
-import com.google.common.reflect.ClassPath;
 import net.gmcbm.bukkit.utils.UpdateChecker;
+import net.gmcbm.bukkit.utils.Utils;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
 import org.bstats.bukkit.Metrics;
-import org.bukkit.event.Listener;
-import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import javax.annotation.Nonnull;
@@ -73,7 +71,7 @@ public final class Main extends JavaPlugin {
 
         saveDefaultConfig();
         registerCommands();
-        registerListener();
+        Utils.registerListener("net.gmcbm.bukkit.listeners", this);
 
         if (getConfig().getBoolean("metrics")) {
             Metrics metrics = new Metrics(this, METRICS_PLUGIN_ID);
@@ -107,21 +105,6 @@ public final class Main extends JavaPlugin {
         commandManager.registerCommand(new UnBanCommand());
         commandManager.registerCommand(new UnMuteCommand());
         commandManager.registerCommand(new WarnCommand());
-    }
-
-    private void registerListener() {
-        PluginManager pluginManager = getServer().getPluginManager();
-        try {
-            for (ClassPath.ClassInfo classInfo : ClassPath.from(ClassLoader.getSystemClassLoader())
-                    .getTopLevelClasses("net.gmcbm.bukkit.listeners")) {
-                Class<Listener> clazz = (Class<Listener>) Class.forName(classInfo.getName());
-                if (Listener.class.isAssignableFrom(clazz)) {
-                    pluginManager.registerEvents(clazz.getDeclaredConstructor().newInstance(), this);
-                }
-            }
-        } catch (Exception exception) {
-            getLogger().warning(exception.toString());
-        }
     }
 
     private @Nullable

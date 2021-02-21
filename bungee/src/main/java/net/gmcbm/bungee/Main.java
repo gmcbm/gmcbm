@@ -26,16 +26,14 @@
 package net.gmcbm.bungee;
 
 import co.aikar.commands.BungeeCommandManager;
-import com.google.common.reflect.ClassPath;
 import net.gmcbm.bungee.utils.UpdateChecker;
+import net.gmcbm.bungee.utils.Utils;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
-import net.md_5.bungee.api.plugin.Listener;
 import net.md_5.bungee.api.plugin.Plugin;
-import net.md_5.bungee.api.plugin.PluginManager;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
@@ -79,7 +77,7 @@ public final class Main extends Plugin {
 
         saveDefaultConfig();
         registerCommands();
-        registerListener();
+        Utils.registerListener("net.gmcbm.bungee.listeners", this);
 
         if (getConfig().getBoolean("metrics")) {
             Metrics metrics = new Metrics(this, METRICS_PLUGIN_ID);
@@ -114,21 +112,6 @@ public final class Main extends Plugin {
         commandManager.registerCommand(new UnBanCommand());
         commandManager.registerCommand(new UnMuteCommand());
         commandManager.registerCommand(new WarnCommand());
-    }
-
-    private void registerListener() {
-        PluginManager pluginManager = getProxy().getPluginManager();
-        try {
-            for (ClassPath.ClassInfo classInfo : ClassPath.from(ClassLoader.getSystemClassLoader())
-                    .getTopLevelClasses("net.gmcbm.bungee.listeners")) {
-                Class<Listener> clazz = (Class<Listener>) Class.forName(classInfo.getName());
-                if (Listener.class.isAssignableFrom(clazz)) {
-                    pluginManager.registerListener(this, clazz.getDeclaredConstructor().newInstance());
-                }
-            }
-        } catch (Exception exception) {
-            getLogger().warning(exception.toString());
-        }
     }
 
     private @Nullable
