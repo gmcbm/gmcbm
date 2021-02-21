@@ -50,7 +50,7 @@ import java.util.UUID;
 public final class Main extends Plugin {
 
     private static final int SPIGOT_PLUGIN_ID = 0;
-    private static final int METRICS_PLUGIN_ID = 4812;
+    private static final int METRICS_PLUGIN_ID = 10425;
 
     private static Main instance;
     private GMCBM gmcbm;
