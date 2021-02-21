@@ -34,6 +34,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.nio.charset.StandardCharsets;
+import java.util.Objects;
 
 /**
  * @author Ursin Filli
@@ -55,7 +56,7 @@ public class UpdateChecker {
      */
     public UpdateChecker(int id, @Nonnull Plugin plugin) {
         this.id = id;
-        this.plugin = plugin;
+        this.plugin = Objects.requireNonNull(plugin);
         this.updateAvailable = false;
         this.updateNotifyText = "An update for %PLUGIN_NAME% is available";
     }
@@ -106,7 +107,8 @@ public class UpdateChecker {
     /**
      * @return Formatted UpdateNotifyText
      */
-    public String getFormattedUpdateNotifyText() {
+    public @Nonnull
+    String getFormattedUpdateNotifyText() {
         return updateNotifyText.replace("%PLUGIN_NAME%", plugin.getDescription().getName());
     }
 }
