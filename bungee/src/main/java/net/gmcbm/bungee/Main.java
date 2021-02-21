@@ -60,6 +60,12 @@ public final class Main extends Plugin {
     public void onEnable() {
         instance = this;
 
+        if (!getProxy().getConfig().isOnlineMode()) {
+            getLogger().severe("Offline Mode not Supported!");
+            onDisable();
+            return;
+        }
+
         gmcbm = new GMCBM(PluginType.BUNGEE, getConfig().getBoolean("debug", false),
                 getDescription().getVersion(), new Server(getServerId()));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);

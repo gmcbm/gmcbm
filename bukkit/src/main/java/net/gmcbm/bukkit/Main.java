@@ -56,6 +56,13 @@ public final class Main extends JavaPlugin {
     public void onEnable() {
         instance = this;
 
+        if (!getServer().getOnlineMode()) {
+            getLogger().severe("Offline Mode not Supported!");
+            getLogger().severe("If u use BungeeCord use the BungeeCord Plugin!");
+            getServer().getPluginManager().disablePlugin(this);
+            return;
+        }
+
         gmcbm = new GMCBM(PluginType.BUKKIT, getConfig().getBoolean("debug", false),
                 getDescription().getVersion(), new Server(getServerId()));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
