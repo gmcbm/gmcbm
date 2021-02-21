@@ -39,7 +39,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>BungeeCord</name>
+    <name>GMCBM BungeeCord</name>
     <description>Global Minecraft Ban Manager BungeeCord Plugin</description>
     <url>https://github.com/gmcbm/gmcbm</url>
 
