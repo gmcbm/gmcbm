@@ -92,6 +92,8 @@ public class UpdateChecker {
             updateAvailable = true;
             plugin.getLogger().info(getFormattedUpdateNotifyText());
         }
+        br.close();
+        reader.close();
     }
 
     /**
