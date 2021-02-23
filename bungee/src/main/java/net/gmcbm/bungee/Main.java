@@ -143,8 +143,8 @@ public final class Main extends Plugin {
         try {
             configuration = ConfigurationProvider.getProvider(YamlConfiguration.class)
                     .load(new File(getDataFolder(), "config.yml"));
-        } catch (Exception exception) {
-            getLogger().warning(exception.toString());
+        } catch (IOException exception) {
+            getLogger().warning(String.valueOf(exception));
             onDisable();
         }
         return configuration;
@@ -160,9 +160,8 @@ public final class Main extends Plugin {
             try (InputStream in = getResourceAsStream("config.yml")) {
                 Files.copy(in, file.toPath());
             } catch (IOException exception) {
-                getLogger().warning(exception.toString());
+                getLogger().warning(String.valueOf(exception));
             }
         }
     }
-
 }
