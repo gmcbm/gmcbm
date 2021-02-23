@@ -48,20 +48,15 @@
     </properties>
 
     <dependencies>
-        <!-- Bukkit -->
-        <dependency>
-            <groupId>org.bukkit</groupId>
-            <artifactId>bukkit</artifactId>
-        </dependency>
-        <!-- Annotation -->
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-        </dependency>
         <!-- GMCBM Core -->
         <dependency>
             <groupId>net.gmcbm</groupId>
             <artifactId>core</artifactId>
+        </dependency>
+        <!-- Bukkit -->
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
         </dependency>
         <!-- bStats - Bukkit -->
         <dependency>
@@ -72,6 +67,11 @@
         <dependency>
             <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-paper</artifactId>
+        </dependency>
+        <!-- Annotation -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
         </dependency>
     </dependencies>
 

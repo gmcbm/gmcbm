@@ -48,20 +48,15 @@
     </properties>
 
     <dependencies>
-        <!-- BungeeCord -->
-        <dependency>
-            <groupId>net.md-5</groupId>
-            <artifactId>bungeecord-api</artifactId>
-        </dependency>
-        <!-- Annotation -->
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-        </dependency>
         <!-- GMCBM Core -->
         <dependency>
             <groupId>net.gmcbm</groupId>
             <artifactId>core</artifactId>
+        </dependency>
+        <!-- BungeeCord -->
+        <dependency>
+            <groupId>net.md-5</groupId>
+            <artifactId>bungeecord-api</artifactId>
         </dependency>
         <!-- bStats - Bungee -->
         <dependency>
@@ -72,6 +67,11 @@
         <dependency>
             <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-bungee</artifactId>
+        </dependency>
+        <!-- Annotation -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
         </dependency>
     </dependencies>
 
