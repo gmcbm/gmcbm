@@ -204,11 +204,18 @@
                 <version>0.5.0</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- Annotation -->
+            <!-- Annotation - JSR305 -->
             <dependency>
                 <groupId>com.google.code.findbugs</groupId>
                 <artifactId>jsr305</artifactId>
                 <version>3.0.2</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- Annotation - API -->
+            <dependency>
+                <groupId>org.apiguardian</groupId>
+                <artifactId>apiguardian-api</artifactId>
+                <version>1.1.1</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Guava -->

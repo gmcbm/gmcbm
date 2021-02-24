@@ -68,10 +68,15 @@
             <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-paper</artifactId>
         </dependency>
-        <!-- Annotation -->
+        <!-- Annotation - JSR305 -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
+        </dependency>
+        <!-- Annotation - API -->
+        <dependency>
+            <groupId>org.apiguardian</groupId>
+            <artifactId>apiguardian-api</artifactId>
         </dependency>
     </dependencies>
 

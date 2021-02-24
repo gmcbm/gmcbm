@@ -47,11 +47,6 @@
     </properties>
 
     <dependencies>
-        <!-- Annotation -->
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-        </dependency>
         <!-- Testing - Junit -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -66,6 +61,16 @@
         <dependency>
             <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-core</artifactId>
+        </dependency>
+        <!-- Annotation - JSR305 -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+        </dependency>
+        <!-- Annotation - API -->
+        <dependency>
+            <groupId>org.apiguardian</groupId>
+            <artifactId>apiguardian-api</artifactId>
         </dependency>
         <!-- Guava -->
         <dependency>
