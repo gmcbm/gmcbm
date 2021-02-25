@@ -75,8 +75,8 @@ public final class Main extends JavaPlugin {
 
         if (getConfig().getBoolean("metrics")) {
             Metrics metrics = new Metrics(this, METRICS_PLUGIN_ID);
-            metrics.addCustomChart(
-                    new Metrics.SimplePie("language", () -> getConfig().getString("language", "en")));
+//            metrics.addCustomChart(
+//                    new Metrics.SimplePie("language", () -> getConfig().getString("language", "en")));
         }
 
         if (getConfig().getBoolean("update-check")) {
