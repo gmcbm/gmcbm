@@ -122,11 +122,11 @@ public class Item {
      * Constructor.
      *
      * @param id        Item Identifier
-     * @param player    {@link UUID} of Player
+     * @param player    Player ({@link UUID})
      * @param reason    Reason
      * @param issuer    Issuer ({@link Issuer})
-     * @param from      From {@link Instant}
-     * @param until     Until {@link Instant}
+     * @param from      From ({@link Instant})
+     * @param until     Until ({@link Instant})
      * @param status    Status ({@link ItemStatus})
      * @param action    Action ({@link ItemAction})
      * @param timestamp Timestamp ({@link Instant})
@@ -155,8 +155,8 @@ public class Item {
      * @param player {@link UUID} of Player
      * @param reason Reason
      * @param issuer Issuer ({@link Issuer})
-     * @param from   From {@link Instant}
-     * @param until  Until {@link Instant}
+     * @param from   From ({@link Instant})
+     * @param until  Until ({@link Instant})
      * @param server Server ({@link Server})
      */
     public Item(@Nonnull UUID player, @Nonnull String reason, @Nonnull Issuer issuer,
