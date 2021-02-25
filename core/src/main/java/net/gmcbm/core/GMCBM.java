@@ -25,6 +25,7 @@
 
 package net.gmcbm.core;
 
+import lombok.Getter;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
@@ -39,11 +40,35 @@ import java.util.Objects;
  */
 public class GMCBM {
 
-    private final PluginType type;
+    /**
+     * Plugin ({@link PluginType})
+     */
+    @Getter
+    private final @Nonnull PluginType type;
+
+    /**
+     * Debug mode
+     */
+    @Getter
     private final boolean debug;
-    private final String version;
-    private final Server server;
-    private final ApiKey apiKey;
+
+    /**
+     * Plugin Version
+     */
+    @Getter
+    private final @Nonnull String version;
+
+    /**
+     * Server ({@link Server})
+     */
+    @Getter
+    private final @Nonnull Server server;
+
+    /**
+     * Api Key ({@link ApiKey})
+     */
+    @Getter
+    private final @Nonnull ApiKey apiKey;
 
     /**
      * Constructor.
@@ -61,44 +86,5 @@ public class GMCBM {
         this.version = Objects.requireNonNull(version);
         this.server = Objects.requireNonNull(server);
         this.apiKey = Objects.requireNonNull(apiKey);
-    }
-
-    /**
-     * @return Plugin ({@link PluginType})
-     */
-    public @Nonnull
-    PluginType getType() {
-        return Objects.requireNonNull(type);
-    }
-
-    /**
-     * @return Debug mode
-     */
-    public boolean isDebug() {
-        return debug;
-    }
-
-    /**
-     * @return Plugin Version
-     */
-    public @Nonnull
-    String getVersion() {
-        return Objects.requireNonNull(version);
-    }
-
-    /**
-     * @return Server ({@link Server})
-     */
-    public @Nonnull
-    Server getServer() {
-        return server;
-    }
-
-    /**
-     * @return Api Key ({@link ApiKey})
-     */
-    public @Nonnull
-    ApiKey getApiKey() {
-        return apiKey;
     }
 }

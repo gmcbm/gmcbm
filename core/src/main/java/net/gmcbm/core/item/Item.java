@@ -25,6 +25,7 @@
 
 package net.gmcbm.core.item;
 
+import lombok.Getter;
 import net.gmcbm.core.server.Server;
 
 import javax.annotation.Nonnull;
@@ -40,17 +41,82 @@ import java.util.UUID;
  */
 public class Item {
 
-    private final String id;
-    private final UUID player;
-    private final String reason;
-    private final Issuer issuer;
-    private final Instant from;
-    private final Instant until;
-    private final ItemStatus status;
-    private final ItemAction action;
-    private final Instant timestamp;
-    private final OriginType origin;
-    private final Server server;
+    /**
+     * Item Identifier
+     */
+    @Getter
+    private final @Nullable
+    String id;
+
+    /**
+     * Player ({@link UUID})
+     */
+    @Getter
+    private final @Nonnull
+    UUID player;
+
+    /**
+     * Reason
+     */
+    @Getter
+    private final @Nonnull
+    String reason;
+
+    /**
+     * Issuer ({@link Issuer})
+     */
+    @Getter
+    private final @Nonnull
+    Issuer issuer;
+
+    /**
+     * From ({@link Instant})
+     */
+    @Getter
+    private final @Nonnull
+    Instant from;
+
+    /**
+     * Until ({@link Instant})
+     */
+    @Getter
+    private final @Nonnull
+    Instant until;
+
+    /**
+     * Status ({@link ItemStatus})
+     */
+    @Getter
+    private final @Nonnull
+    ItemStatus status;
+
+    /**
+     * Action ({@link ItemAction})
+     */
+    @Getter
+    private final @Nonnull
+    ItemAction action;
+
+    /**
+     * Timestamp ({@link Instant})
+     */
+    @Getter
+    private final @Nonnull
+    Instant timestamp;
+
+    /**
+     * Origin ({@link OriginType})
+     */
+    @Getter
+    private final @Nonnull
+    OriginType origin;
+
+    /**
+     * Server ({@link Server})
+     */
+    @Getter
+    private final @Nonnull
+    Server server;
 
     /**
      * Constructor.
@@ -106,93 +172,5 @@ public class Item {
         this.timestamp = Instant.now();
         this.origin = OriginType.RUNTIME;
         this.server = Objects.requireNonNull(server);
-    }
-
-    /**
-     * @return Item Identifier
-     */
-    public @Nullable
-    String getId() {
-        return id;
-    }
-
-    /**
-     * @return {@link UUID} of Player
-     */
-    public @Nonnull
-    UUID getPlayer() {
-        return player;
-    }
-
-    /**
-     * @return Reason
-     */
-    public @Nonnull
-    String getReason() {
-        return reason;
-    }
-
-    /**
-     * @return Issuer ({@link Issuer})
-     */
-    public @Nonnull
-    Issuer getIssuer() {
-        return issuer;
-    }
-
-    /**
-     * @return From {@link Instant}
-     */
-    public @Nonnull
-    Instant getFrom() {
-        return from;
-    }
-
-    /**
-     * @return Until {@link Instant}
-     */
-    public @Nonnull
-    Instant getUntil() {
-        return until;
-    }
-
-    /**
-     * @return Status ({@link ItemStatus})
-     */
-    public @Nonnull
-    ItemStatus getStatus() {
-        return status;
-    }
-
-    /**
-     * @return Action ({@link ItemAction})
-     */
-    public @Nonnull
-    ItemAction getAction() {
-        return action;
-    }
-
-    /**
-     * @return Timestamp ({@link Instant})
-     */
-    public @Nonnull
-    Instant getTimestamp() {
-        return timestamp;
-    }
-
-    /**
-     * @return Origin ({@link OriginType})
-     */
-    public @Nonnull
-    OriginType getOrigin() {
-        return origin;
-    }
-
-    /**
-     * @return Server ({@link Server})
-     */
-    public @Nonnull
-    Server getServer() {
-        return server;
     }
 }

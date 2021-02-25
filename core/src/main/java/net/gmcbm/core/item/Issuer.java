@@ -25,6 +25,8 @@
 
 package net.gmcbm.core.item;
 
+import lombok.Getter;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -37,8 +39,19 @@ import java.util.UUID;
  */
 public class Issuer {
 
-    private final UUID id;
-    private final String name;
+    /**
+     * Issuer {@link UUID} or null
+     */
+    @Getter
+    private final @Nullable
+    UUID id;
+
+    /**
+     * Issuer Name
+     */
+    @Getter
+    private final @Nonnull
+    String name;
 
     /**
      * Constructor.
@@ -49,21 +62,5 @@ public class Issuer {
     public Issuer(@Nullable UUID id, @Nonnull String name) {
         this.id = id;
         this.name = Objects.requireNonNull(name);
-    }
-
-    /**
-     * @return Issuer {@link UUID} or null
-     */
-    public @Nullable
-    UUID getId() {
-        return id;
-    }
-
-    /**
-     * @return Issuer Name
-     */
-    public @Nonnull
-    String getName() {
-        return name;
     }
 }

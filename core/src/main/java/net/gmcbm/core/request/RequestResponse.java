@@ -25,6 +25,8 @@
 
 package net.gmcbm.core.request;
 
+import lombok.Getter;
+
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
@@ -35,9 +37,26 @@ import java.util.Optional;
  */
 public class RequestResponse {
 
-    private final String message;
-    private final RequestStatus status;
-    private final Optional<Object> response;
+    /**
+     * Response message
+     */
+    @Getter
+    private final @Nonnull
+    String message;
+
+    /**
+     * Status ({@link RequestStatus})
+     */
+    @Getter
+    private final @Nonnull
+    RequestStatus status;
+
+    /**
+     * Response {@link Optional}
+     */
+    @Getter
+    private final @Nonnull
+    Optional<Object> response;
 
     /**
      * Constructor.
@@ -63,29 +82,5 @@ public class RequestResponse {
         this.message = message;
         this.status = status;
         this.response = Optional.empty();
-    }
-
-    /**
-     * @return Response message
-     */
-    public @Nonnull
-    String getMessage() {
-        return message;
-    }
-
-    /**
-     * @return status ({@link RequestStatus})
-     */
-    public @Nonnull
-    RequestStatus getStatus() {
-        return status;
-    }
-
-    /**
-     * @return Response {@link Optional}
-     */
-    public @Nonnull
-    Optional<Object> getResponse() {
-        return response;
     }
 }

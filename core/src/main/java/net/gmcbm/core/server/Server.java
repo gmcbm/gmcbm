@@ -25,6 +25,8 @@
 
 package net.gmcbm.core.server;
 
+import lombok.Getter;
+
 import javax.annotation.Nullable;
 import java.util.UUID;
 
@@ -35,7 +37,12 @@ import java.util.UUID;
  */
 public class Server {
 
-    private final UUID id;
+    /**
+     * Server Identifier ({@link UUID})
+     */
+    @Getter
+    private final @Nullable
+    UUID id;
 
     /**
      * Constructor.
@@ -44,13 +51,5 @@ public class Server {
      */
     public Server(@Nullable UUID id) {
         this.id = id;
-    }
-
-    /**
-     * @return Server Identifier ({@link UUID})
-     */
-    public @Nullable
-    UUID getId() {
-        return id;
     }
 }

@@ -25,6 +25,8 @@
 
 package net.gmcbm.core.utils;
 
+import lombok.Getter;
+
 import javax.annotation.Nullable;
 
 /**
@@ -34,7 +36,12 @@ import javax.annotation.Nullable;
  */
 public class ApiKey {
 
-    private final String id;
+    /**
+     * Api Key
+     */
+    @Getter
+    private final @Nullable
+    String id;
 
     /**
      * Constructor.
@@ -44,13 +51,4 @@ public class ApiKey {
     public ApiKey(@Nullable String id) {
         this.id = id;
     }
-
-    /**
-     * @return Api Key
-     */
-    public @Nullable
-    String getId() {
-        return id;
-    }
-
 }
