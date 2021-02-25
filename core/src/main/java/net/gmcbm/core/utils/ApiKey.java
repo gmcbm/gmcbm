@@ -27,6 +27,8 @@ package net.gmcbm.core.utils;
 
 import lombok.Getter;
 
+import org.apiguardian.api.API;
+
 import javax.annotation.Nullable;
 
 /**
@@ -34,6 +36,7 @@ import javax.annotation.Nullable;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class ApiKey {
 
     /**

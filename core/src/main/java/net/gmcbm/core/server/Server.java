@@ -27,6 +27,8 @@ package net.gmcbm.core.server;
 
 import lombok.Getter;
 
+import org.apiguardian.api.API;
+
 import javax.annotation.Nullable;
 import java.util.UUID;
 
@@ -35,6 +37,7 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class Server {
 
     /**

@@ -28,6 +28,7 @@ package net.gmcbm.core.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ import java.util.Arrays;
 @CommandAlias("ban")
 @CommandPermission("gmcbm.command.ban")
 @Description("GMCBM Ban Command")
+@API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class BanCommand extends BaseCommand {
 
     @Default

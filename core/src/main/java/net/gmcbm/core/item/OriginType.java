@@ -25,11 +25,14 @@
 
 package net.gmcbm.core.item;
 
+import org.apiguardian.api.API;
+
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.STABLE, since = "1.0")
 public enum OriginType {
 
     /**

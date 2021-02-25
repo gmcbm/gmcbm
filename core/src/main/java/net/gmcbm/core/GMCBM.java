@@ -29,6 +29,7 @@ import lombok.Getter;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 import java.util.Objects;
@@ -38,6 +39,7 @@ import java.util.Objects;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class GMCBM {
 
     /**

@@ -27,6 +27,8 @@ package net.gmcbm.core.item;
 
 import lombok.Getter;
 
+import org.apiguardian.api.API;
+
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Objects;
@@ -37,6 +39,7 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.STABLE, since = "1.0")
 public class Issuer {
 
     /**

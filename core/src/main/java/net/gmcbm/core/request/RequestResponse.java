@@ -27,6 +27,8 @@ package net.gmcbm.core.request;
 
 import lombok.Getter;
 
+import org.apiguardian.api.API;
+
 import javax.annotation.Nonnull;
 import java.util.Optional;
 
@@ -35,6 +37,7 @@ import java.util.Optional;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class RequestResponse {
 
     /**

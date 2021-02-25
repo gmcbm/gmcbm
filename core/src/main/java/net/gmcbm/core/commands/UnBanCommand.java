@@ -28,6 +28,7 @@ package net.gmcbm.core.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 
@@ -39,6 +40,7 @@ import javax.annotation.Nonnull;
 @CommandAlias("unban")
 @CommandPermission("gmcbm.command.unban")
 @Description("GMCBM Unban Command")
+@API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class UnBanCommand extends BaseCommand {
 
     @Default

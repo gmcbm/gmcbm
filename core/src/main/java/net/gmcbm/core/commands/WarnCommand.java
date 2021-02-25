@@ -28,6 +28,7 @@ package net.gmcbm.core.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -41,6 +42,7 @@ import java.util.Arrays;
 @CommandAlias("warn")
 @CommandPermission("gmcbm.command.warn")
 @Description("GMCBM Warn Command")
+@API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class WarnCommand extends BaseCommand {
 
     @Default

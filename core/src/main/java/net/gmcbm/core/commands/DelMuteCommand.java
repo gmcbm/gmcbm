@@ -28,6 +28,7 @@ package net.gmcbm.core.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 
@@ -39,6 +40,7 @@ import javax.annotation.Nonnull;
 @CommandAlias("delmute")
 @CommandPermission("gmcbm.command.delmute")
 @Description("GMCBM Delmute Command")
+@API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class DelMuteCommand extends BaseCommand {
 
     @Default

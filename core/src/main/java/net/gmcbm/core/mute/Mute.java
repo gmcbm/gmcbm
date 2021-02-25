@@ -27,6 +27,7 @@ package net.gmcbm.core.mute;
 
 import net.gmcbm.core.item.*;
 import net.gmcbm.core.server.Server;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 import java.time.Instant;
@@ -37,6 +38,7 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.MAINTAINED, since = "1.0")
 public class Mute extends Item {
 
     /**

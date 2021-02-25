@@ -29,6 +29,7 @@ import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.CommandManager;
 import co.aikar.commands.MessageType;
 import co.aikar.locales.MessageKey;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -39,6 +40,7 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
+@API(status = API.Status.INTERNAL, since = "1.0")
 public class TestCommandIssuer implements CommandIssuer {
 
     @Override

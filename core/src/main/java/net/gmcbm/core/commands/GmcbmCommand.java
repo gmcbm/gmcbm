@@ -29,6 +29,7 @@ import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
 import net.gmcbm.core.GMCBM;
+import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 
@@ -40,6 +41,7 @@ import javax.annotation.Nonnull;
 @CommandAlias("gmcbm")
 @CommandPermission("gmcbm.command.gmcbm")
 @Description("GMCBM Command")
+@API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class GmcbmCommand extends BaseCommand {
 
     private final GMCBM gmcbm;
