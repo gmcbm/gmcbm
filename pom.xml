@@ -100,12 +100,12 @@
         <module>bungee</module>
     </modules>
 
-    <repositories>
-        <repository>
-            <id>gmcbm-repo</id>
-            <url>https://repo.gmcbm.net/repository/maven-public/</url>
-        </repository>
-    </repositories>
+<!--    <repositories>-->
+<!--        <repository>-->
+<!--            <id>gmcbm-repo</id>-->
+<!--            <url>https://repo.gmcbm.net/repository/maven-public/</url>-->
+<!--        </repository>-->
+<!--    </repositories>-->
 
     <dependencyManagement>
         <dependencies>
@@ -363,18 +363,61 @@
                         </execution>
                     </executions>
                 </plugin>
+                <!-- Nexus Staging Plugin -->
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.6.8</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <serverId>ossrh</serverId>
+                        <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    </configuration>
+                </plugin>
+                <!-- Spotbugs Plugin -->
+                <plugin>
+                    <groupId>com.github.spotbugs</groupId>
+                    <artifactId>spotbugs-maven-plugin</artifactId>
+                    <version>4.2.0</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
 
+    <profiles>
+        <!-- GPG Signature on release -->
+        <profile>
+            <id>release-sign-artifacts</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <distributionManagement>
-        <repository>
-            <id>gmcbm-repo</id>
-            <url>https://repo.gmcbm.net/repository/maven-releases/</url>
-        </repository>
         <snapshotRepository>
-            <id>gmcbm-repo</id>
-            <url>https://repo.gmcbm.net/repository/maven-snapshots/</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+        </repository>
     </distributionManagement>
 </project>
