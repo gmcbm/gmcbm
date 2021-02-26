@@ -100,13 +100,6 @@
         <module>bungee</module>
     </modules>
 
-<!--    <repositories>-->
-<!--        <repository>-->
-<!--            <id>gmcbm-repo</id>-->
-<!--            <url>https://repo.gmcbm.net/repository/maven-public/</url>-->
-<!--        </repository>-->
-<!--    </repositories>-->
-
     <dependencyManagement>
         <dependencies>
             <!-- GMCBM Core -->
