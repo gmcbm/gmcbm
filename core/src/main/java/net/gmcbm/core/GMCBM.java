@@ -46,7 +46,8 @@ public class GMCBM {
      * Plugin ({@link PluginType})
      */
     @Getter
-    private final @Nonnull PluginType type;
+    private final @Nonnull
+    PluginType type;
 
     /**
      * Debug mode
@@ -58,19 +59,22 @@ public class GMCBM {
      * Plugin Version
      */
     @Getter
-    private final @Nonnull String version;
+    private final @Nonnull
+    String version;
 
     /**
      * Server ({@link Server})
      */
     @Getter
-    private final @Nonnull Server server;
+    private final @Nonnull
+    Server server;
 
     /**
      * Api Key ({@link ApiKey})
      */
     @Getter
-    private final @Nonnull ApiKey apiKey;
+    private final @Nonnull
+    ApiKey apiKey;
 
     /**
      * Constructor.
