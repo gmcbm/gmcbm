@@ -58,14 +58,14 @@ public class GmcbmCommand extends BaseCommand {
         sender.sendMessage("Plugin Platform: " + gmcbm.getType().toString());
         sender.sendMessage("Plugin Version: " + gmcbm.getVersion());
         sender.sendMessage("Plugin Debug: " + gmcbm.isDebug());
-        if (gmcbm.getServer() == null) {
-            if (gmcbm.getServer().getId() == null) {
-                sender.sendMessage("Server Id: " + gmcbm.getServer().getId().toString());
-            }
-            if (gmcbm.getServer().getOwner() == null) {
-                sender.sendMessage("Owner Id: " + gmcbm.getServer().getOwner().getId().toString());
-                sender.sendMessage("Owner Name: " + gmcbm.getServer().getOwner().getName());
-            }
+        if (gmcbm.getServer().getId() != null) {
+            sender.sendMessage("Server Id: " + gmcbm.getServer().getId().toString());
+        }
+        if (gmcbm.getServer().getOwner().getId() != null) {
+            sender.sendMessage("Owner Id: " + gmcbm.getServer().getOwner().getId().toString());
+        }
+        if (gmcbm.getServer().getOwner().getName() != null) {
+            sender.sendMessage("Owner Name: " + gmcbm.getServer().getOwner().getName());
         }
     }
 }

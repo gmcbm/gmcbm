@@ -25,6 +25,7 @@
 
 package net.gmcbm.core;
 
+import net.gmcbm.core.server.Owner;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKey;
 import net.gmcbm.core.utils.PluginType;
@@ -42,13 +43,14 @@ class GMCBMTest {
 
     @Test
     void testCoverage() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(null, null), new ApiKey(null));
+        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(null, new Owner(null, null)), new ApiKey(null));
 
         Assertions.assertEquals(PluginType.BUKKIT, gmcbm.getType(), "Coverage");
         Assertions.assertFalse(gmcbm.isDebug(), "Coverage");
         Assertions.assertEquals("1.0.0", gmcbm.getVersion(), "Coverage");
         Assertions.assertNull(gmcbm.getServer().getId(), "Coverage");
-        Assertions.assertNull(gmcbm.getServer().getOwner(), "Coverage");
+        Assertions.assertNull(gmcbm.getServer().getOwner().getId(), "Coverage");
+        Assertions.assertNull(gmcbm.getServer().getOwner().getName(), "Coverage");
         Assertions.assertNull(gmcbm.getApiKey().getId(), "Coverage");
     }
 }

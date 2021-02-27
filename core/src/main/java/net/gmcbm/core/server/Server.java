@@ -29,6 +29,7 @@ import lombok.Getter;
 
 import org.apiguardian.api.API;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.UUID;
 
@@ -51,7 +52,7 @@ public class Server {
      * Owner ({@link Owner})
      */
     @Getter
-    private final @Nullable
+    private final @Nonnull
     Owner owner;
 
     /**
@@ -60,7 +61,7 @@ public class Server {
      * @param id    Server Identifier ({@link UUID})
      * @param owner Owner ({@link Owner})
      */
-    public Server(@Nullable UUID id, @Nullable Owner owner) {
+    public Server(@Nullable UUID id, @Nonnull Owner owner) {
         this.id = id;
         this.owner = owner;
     }

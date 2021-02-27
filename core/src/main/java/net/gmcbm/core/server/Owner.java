@@ -27,7 +27,7 @@ package net.gmcbm.core.server;
 import lombok.Getter;
 import org.apiguardian.api.API;
 
-import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
@@ -42,14 +42,14 @@ public class Owner {
      * Owner Identifier ({@link UUID})
      */
     @Getter
-    private final @Nonnull
+    private final @Nullable
     UUID id;
 
     /**
      * Name
      */
     @Getter
-    private final @Nonnull
+    private final @Nullable
     String name;
 
     /**
@@ -58,7 +58,7 @@ public class Owner {
      * @param id Owner Identifier ({@link UUID})
      * @param name Name
      */
-    public Owner(@Nonnull UUID id, @Nonnull String name) {
+    public Owner(@Nullable UUID id, @Nullable String name) {
         this.id = id;
         this.name = name;
     }
