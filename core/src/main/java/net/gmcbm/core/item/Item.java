@@ -62,7 +62,7 @@ public class Item {
      */
     @Getter
     private final @Nonnull
-    String reason;
+    Reason reason;
 
     /**
      * Issuer ({@link Issuer})
@@ -125,7 +125,7 @@ public class Item {
      *
      * @param id        Item Identifier
      * @param player    Player ({@link UUID})
-     * @param reason    Reason
+     * @param reason    Reason ({@link Reason})
      * @param issuer    Issuer ({@link Issuer})
      * @param from      From ({@link Instant})
      * @param until     Until ({@link Instant})
@@ -135,7 +135,7 @@ public class Item {
      * @param origin    Origin ({@link OriginType})
      * @param server    Server ({@link Server})
      */
-    public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull String reason, @Nonnull Issuer issuer,
+    public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull Reason reason, @Nonnull Issuer issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull ItemStatus status, @Nonnull ItemAction action,
                 @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull Server server) {
         this.id = Objects.requireNonNull(id);
@@ -155,13 +155,13 @@ public class Item {
      * Constructor.
      *
      * @param player {@link UUID} of Player
-     * @param reason Reason
+     * @param reason Reason ({@link Reason})
      * @param issuer Issuer ({@link Issuer})
      * @param from   From ({@link Instant})
      * @param until  Until ({@link Instant})
      * @param server Server ({@link Server})
      */
-    public Item(@Nonnull UUID player, @Nonnull String reason, @Nonnull Issuer issuer,
+    public Item(@Nonnull UUID player, @Nonnull Reason reason, @Nonnull Issuer issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
         this.id = null;
         this.player = Objects.requireNonNull(player);

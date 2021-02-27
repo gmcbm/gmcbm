@@ -20,34 +20,27 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 
-package net.gmcbm.core.ban;
+package net.gmcbm.core.item;
 
-import net.gmcbm.core.item.*;
-import net.gmcbm.core.server.Server;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
-
-import java.time.Instant;
-import java.util.UUID;
+import org.apiguardian.api.API;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
  */
-class BanTest {
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public enum ReasonType {
 
-    @Test
-    void testCoverage() {
-        Ban ban = new Ban("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
-                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2")));
+    /**
+     * Custom Reason
+     */
+    CUSTOM,
 
-        Assertions.assertEquals("Id", ban.getId(), "Coverage");
-
-        new Ban(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
-                new Server(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2")));
-    }
+    /**
+     * Alt Account
+     */
+    ALT_ACCOUNT
 }
