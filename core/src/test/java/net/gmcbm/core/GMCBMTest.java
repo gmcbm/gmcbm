@@ -47,7 +47,8 @@ class GMCBMTest {
         Assertions.assertEquals(PluginType.BUKKIT, gmcbm.getType(), "Coverage");
         Assertions.assertFalse(gmcbm.isDebug(), "Coverage");
         Assertions.assertEquals("1.0.0", gmcbm.getVersion(), "Coverage");
-        Assertions.assertEquals(gmcbm.getServer().getId(), UUID.fromString("3eb0f3b9-a260-4f57-b959-89ed6be64423"), "Coverage");
+        Assertions.assertNull(gmcbm.getServer().getId(), "Coverage");
+        Assertions.assertNull(gmcbm.getServer().getOwner(), "Coverage");
         Assertions.assertNull(gmcbm.getApiKey().getId(), "Coverage");
     }
 }
