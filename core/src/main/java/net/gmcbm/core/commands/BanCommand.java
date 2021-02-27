@@ -28,11 +28,11 @@ package net.gmcbm.core.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+import net.gmcbm.core.utils.Utils;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * @author Ursin Filli
@@ -54,9 +54,16 @@ public class BanCommand extends BaseCommand {
         }
 
         String player = args[0];
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
-        list.remove(0);
-        String reason = list.toString();
+        UUID uuid = Utils.getUUID(player);
+        if (uuid == null) {
+            sender.sendMessage("Player not Found");
+            return;
+        }
+
+        StringBuilder reason = new StringBuilder();
+        for (int i = 1; i < args.length; i++) {
+            reason.append(args[i]).append(" ");
+        }
 
         sender.sendMessage("Player: " + player + " Reason: " + reason);
     }

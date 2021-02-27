@@ -28,11 +28,11 @@ package net.gmcbm.core.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
+import net.gmcbm.core.utils.Utils;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.UUID;
 
 /**
  * @author Ursin Filli
@@ -54,13 +54,19 @@ public class TempMuteCommand extends BaseCommand {
         }
 
         String player = args[0];
+        UUID uuid = Utils.getUUID(player);
+        if (uuid == null) {
+            sender.sendMessage("Player not Found");
+            return;
+        }
+
         String time = args[1];
         String unit = args[2];
-        ArrayList<String> list = new ArrayList<>(Arrays.asList(args));
-        list.remove(0);
-        list.remove(1);
-        list.remove(2);
-        String reason = list.toString();
+
+        StringBuilder reason = new StringBuilder();
+        for (int i = 3; i < args.length; i++) {
+            reason.append(args[i]).append(" ");
+        }
 
         sender.sendMessage("Player: " + player + " Time: " + time + " Unit:" + unit + " Reason: " + reason);
     }

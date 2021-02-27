@@ -51,9 +51,9 @@ public class CheckCommand extends BaseCommand {
             return;
         }
 
-        String player = args[0];
+        String type = args[0];
         String value = args[1];
 
-        sender.sendMessage("Type: " + player + " Value: " + value);
+        sender.sendMessage("Type: " + type + " Value: " + value);
     }
 }
