@@ -32,6 +32,7 @@ import net.gmcbm.core.utils.Utils;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -54,19 +55,22 @@ public class TempMuteCommand extends BaseCommand {
         }
 
         String player = args[0];
-        UUID uuid = Utils.getUUID(player);
-        if (uuid == null) {
+        Optional<UUID> uuid = Utils.getUUID(player);
+        if (!uuid.isPresent()) {
             sender.sendMessage("Player not Found");
             return;
         }
 
-        String time = args[1];
+        int time = 0;
+        try {
+            time = Integer.parseInt(args[1]);
+        } catch (NumberFormatException e) {
+            sender.sendMessage("");
+        }
+
         String unit = args[2];
 
-        StringBuilder reason = new StringBuilder();
-        for (int i = 3; i < args.length; i++) {
-            reason.append(args[i]).append(" ");
-        }
+        String reason = Utils.buildReason(args, 3);
 
         sender.sendMessage("Player: " + player + " Time: " + time + " Unit:" + unit + " Reason: " + reason);
     }

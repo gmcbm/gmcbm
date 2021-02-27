@@ -32,6 +32,7 @@ import net.gmcbm.core.utils.Utils;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -54,16 +55,13 @@ public class GlobalBanCommand extends BaseCommand {
         }
 
         String player = args[0];
-        UUID uuid = Utils.getUUID(player);
-        if (uuid == null) {
+        Optional<UUID> uuid = Utils.getUUID(player);
+        if (!uuid.isPresent()) {
             sender.sendMessage("Player not Found");
             return;
         }
 
-        StringBuilder reason = new StringBuilder();
-        for (int i = 1; i < args.length; i++) {
-            reason.append(args[i]).append(" ");
-        }
+        String reason = Utils.buildReason(args, 1);
 
         sender.sendMessage("Player: " + player + " Reason: " + reason);
     }

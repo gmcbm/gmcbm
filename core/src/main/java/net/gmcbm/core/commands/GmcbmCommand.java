@@ -53,19 +53,24 @@ public class GmcbmCommand extends BaseCommand {
     @Default
     @CatchUnknown
     public void onCommand(@Nonnull CommandIssuer sender) {
-        sender.sendMessage("Global Minecraft Ban Manager (GMCBM) is a Global Ban Manager for Minecraft.");
-        sender.sendMessage("----------------");
-        sender.sendMessage("Plugin Platform: " + gmcbm.getType().toString());
-        sender.sendMessage("Plugin Version: " + gmcbm.getVersion());
-        sender.sendMessage("Plugin Debug: " + gmcbm.isDebug());
+        sender.sendMessage("§7<------- §8| §c§lGlobal Minecraft Ban Manager §8| §7------->");
+        sender.sendMessage(" ");
+        sender.sendMessage("§8> §7Global Minecraft Ban Manager (GMCBM) is a secure and reliable global ban manager for Minecraft");
+        sender.sendMessage(" ");
+        sender.sendMessage("§8> §7Here are just some information you may need if you have found a bug or you are opening a support ticket.");
+        sender.sendMessage("§8> §7Plugin Platform: §a" + gmcbm.getType().toString());
+        sender.sendMessage("§8> §7Plugin Version: §a" + gmcbm.getVersion());
+        sender.sendMessage("§8> §7Plugin Debug: §a" + gmcbm.isDebug());
         if (gmcbm.getServer().getId() != null) {
-            sender.sendMessage("Server Id: " + gmcbm.getServer().getId().toString());
+            sender.sendMessage("§8> §7Server ID: §a" + gmcbm.getServer().getId().toString());
         }
         if (gmcbm.getServer().getOwner().getId() != null) {
-            sender.sendMessage("Owner Id: " + gmcbm.getServer().getOwner().getId().toString());
+            sender.sendMessage("§8> §7Owner Id: §a" + gmcbm.getServer().getOwner().getId().toString());
         }
         if (gmcbm.getServer().getOwner().getName() != null) {
-            sender.sendMessage("Owner Name: " + gmcbm.getServer().getOwner().getName());
+            sender.sendMessage("§8> §7Owner Name: §a" + gmcbm.getServer().getOwner().getName());
         }
+        sender.sendMessage(" ");
+        sender.sendMessage("§7<------- §8| §c§lGlobal Minecraft Ban Manager §8| §7------->");
     }
 }

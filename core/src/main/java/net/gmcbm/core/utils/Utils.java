@@ -25,7 +25,7 @@
 package net.gmcbm.core.utils;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -35,7 +35,20 @@ import java.util.UUID;
  */
 public class Utils {
 
-    public static @Nullable UUID getUUID(@Nonnull String player) {
-        return null;
+    public static @Nonnull
+    Optional<UUID> getUUID(@Nonnull String player) {
+        return Optional.empty();
+    }
+
+    public static @Nonnull String buildReason(@Nonnull String[] args, int start) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = start; i < args.length; i++) {
+            if (i == args.length - 1) {
+                sb.append(args[i]);
+            } else {
+                sb.append(args[i]).append(" ");
+            }
+        }
+        return sb.toString();
     }
 }
