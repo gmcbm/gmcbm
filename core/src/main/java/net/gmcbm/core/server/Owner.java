@@ -20,17 +20,14 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 
-package net.gmcbm.core.mute;
+package net.gmcbm.core.server;
 
-import net.gmcbm.core.item.*;
-import net.gmcbm.core.server.Server;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import lombok.Getter;
+import org.apiguardian.api.API;
 
-import java.time.Instant;
+import javax.annotation.Nonnull;
 import java.util.UUID;
 
 /**
@@ -38,16 +35,31 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
-class MuteTest {
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public class Owner {
 
-    @Test
-    void testCoverage() {
-        Mute mute = new Mute("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
-                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(null, null));
+    /**
+     * Owner Identifier ({@link UUID})
+     */
+    @Getter
+    private final @Nonnull
+    UUID id;
 
-        Assertions.assertEquals("Id", mute.getId(), "Coverage");
+    /**
+     * Name
+     */
+    @Getter
+    private final @Nonnull
+    String name;
 
-        new Mute(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
-                new Server(null, null));
+    /**
+     * Constructor.
+     *
+     * @param id Owner Identifier ({@link UUID})
+     * @param name Name
+     */
+    public Owner(@Nonnull UUID id, @Nonnull String name) {
+        this.id = id;
+        this.name = name;
     }
 }

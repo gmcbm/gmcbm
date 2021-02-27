@@ -48,11 +48,20 @@ public class Server {
     UUID id;
 
     /**
+     * Owner ({@link Owner})
+     */
+    @Getter
+    private final @Nullable
+    Owner owner;
+
+    /**
      * Constructor.
      *
-     * @param id Server Identifier ({@link UUID})
+     * @param id    Server Identifier ({@link UUID})
+     * @param owner Owner ({@link Owner})
      */
-    public Server(@Nullable UUID id) {
+    public Server(@Nullable UUID id, @Nullable Owner owner) {
         this.id = id;
+        this.owner = owner;
     }
 }

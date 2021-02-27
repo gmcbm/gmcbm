@@ -72,7 +72,7 @@ public final class Main extends Plugin {
         }
 
         gmcbm = new GMCBM(PluginType.BUNGEE, getConfig().getBoolean("debug", false),
-                getDescription().getVersion(), new Server(getServerId()), new ApiKey(null));
+                getDescription().getVersion(), new Server(getServerId(), null), new ApiKey(null));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 
         saveDefaultConfig();
