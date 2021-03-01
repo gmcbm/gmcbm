@@ -90,8 +90,19 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <!-- Dependency Versions -->
+        <dependency.core.version>1.0.0-SNAPSHOT</dependency.core.version>
+        <dependency.sponge.version>7.3.0</dependency.sponge.version>
+        <dependency.velocity.version>1.1.0</dependency.velocity.version>
         <dependency.bstats.version>2.2.1</dependency.bstats.version>
         <dependency.commands.version>0.5.0</dependency.commands.version>
+        <dependency.guava.version>30.1-jre</dependency.guava.version>
+        <!-- Dependency Versions [Annotation] -->
+        <dependency.jsr305.version>3.0.2</dependency.jsr305.version>
+        <dependency.apiguardian.version>1.1.1</dependency.apiguardian.version>
+        <dependency.lombok.version>1.18.18</dependency.lombok.version>
+        <!-- Dependency Versions [Testing] -->
+        <dependency.junit.version>5.7.1</dependency.junit.version>
+        <dependency.mockito.version>3.8.0</dependency.mockito.version>
     </properties>
 
     <modules>
@@ -106,140 +117,126 @@
             <dependency>
                 <groupId>net.gmcbm</groupId>
                 <artifactId>core</artifactId>
-                <version>1.0.0-SNAPSHOT</version>
+                <version>${dependency.core.version}</version>
                 <scope>compile</scope>
-            </dependency>
-            <!-- Bukkit -->
-            <dependency>
-                <groupId>org.bukkit</groupId>
-                <artifactId>bukkit</artifactId>
-                <version>1.8.8-R0.1-SNAPSHOT</version>
-                <scope>provided</scope>
-            </dependency>
-            <!-- BungeeCord -->
-            <dependency>
-                <groupId>net.md-5</groupId>
-                <artifactId>bungeecord-api</artifactId>
-                <version>1.16-R0.4</version>
-                <scope>provided</scope>
             </dependency>
             <!-- Sponge -->
             <dependency>
                 <groupId>org.spongepowered</groupId>
                 <artifactId>spongeapi</artifactId>
-                <version>7.3.0</version>
+                <version>${dependency.sponge.version}</version>
                 <scope>provided</scope>
             </dependency>
             <!-- Velocity -->
             <dependency>
                 <groupId>com.velocitypowered</groupId>
                 <artifactId>velocity-api</artifactId>
-                <version>1.1.0</version>
+                <version>${dependency.velocity.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- bStats - Bukkit -->
+            <!-- bStats Bukkit -->
             <dependency>
                 <groupId>org.bstats</groupId>
                 <artifactId>bstats-bukkit</artifactId>
                 <version>${dependency.bstats.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- bStats - Bungee -->
+            <!-- bStats BungeeCord-->
             <dependency>
                 <groupId>org.bstats</groupId>
                 <artifactId>bstats-bungeecord</artifactId>
                 <version>${dependency.bstats.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- bStats - Sponge -->
+            <!-- bStats Sponge -->
             <dependency>
                 <groupId>org.bstats</groupId>
                 <artifactId>bstats-sponge</artifactId>
                 <version>${dependency.bstats.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- bStats - Velocity -->
+            <!-- bStats Velocity -->
             <dependency>
                 <groupId>org.bstats</groupId>
                 <artifactId>bstats-velocity</artifactId>
                 <version>${dependency.bstats.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- Commands - Core -->
+            <!-- Commands Core -->
             <dependency>
                 <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-core</artifactId>
                 <version>${dependency.commands.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Commands - Bukkit -->
+            <!-- Commands Paper -->
             <dependency>
                 <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-paper</artifactId>
                 <version>${dependency.commands.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- Commands - Bungee -->
+            <!-- Commands Bungee -->
             <dependency>
                 <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-bungee</artifactId>
                 <version>${dependency.commands.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- Commands - Sponge -->
+            <!-- Commands Sponge -->
             <dependency>
                 <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-sponge</artifactId>
                 <version>${dependency.commands.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- Commands - Velocity -->
+            <!-- Commands Velocity -->
             <dependency>
                 <groupId>net.gmcbm.dependencies</groupId>
                 <artifactId>acf-velocity</artifactId>
                 <version>${dependency.commands.version}</version>
                 <scope>compile</scope>
             </dependency>
-            <!-- Annotation - JSR305 -->
-            <dependency>
-                <groupId>com.google.code.findbugs</groupId>
-                <artifactId>jsr305</artifactId>
-                <version>3.0.2</version>
-                <scope>provided</scope>
-            </dependency>
-            <!-- Annotation - API -->
-            <dependency>
-                <groupId>org.apiguardian</groupId>
-                <artifactId>apiguardian-api</artifactId>
-                <version>1.1.1</version>
-                <scope>provided</scope>
-            </dependency>
             <!-- Guava -->
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>30.1-jre</version>
+                <version>${dependency.guava.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Lombok -->
+            <!-- JSR305 [Annotation] -->
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${dependency.jsr305.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- API [Annotation] -->
+            <dependency>
+                <groupId>org.apiguardian</groupId>
+                <artifactId>apiguardian-api</artifactId>
+                <version>${dependency.apiguardian.version}</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- Lombok [Annotation] -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <version>1.18.18</version>
+                <version>${dependency.lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
-            <!-- Testing - Junit -->
+            <!-- Junit [Testing] -->
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
                 <artifactId>junit-jupiter</artifactId>
-                <version>5.7.1</version>
+                <version>${dependency.junit.version}</version>
                 <scope>test</scope>
             </dependency>
-            <!-- Testing - Mockito -->
+            <!-- Mockito [Testing] -->
             <dependency>
                 <groupId>org.mockito</groupId>
                 <artifactId>mockito-core</artifactId>
-                <version>3.8.0</version>
+                <version>${dependency.mockito.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>

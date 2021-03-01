@@ -47,37 +47,37 @@
     </properties>
 
     <dependencies>
-        <!-- Commands - Core -->
+        <!-- Commands Core -->
         <dependency>
             <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-core</artifactId>
-        </dependency>
-        <!-- Annotation - JSR305 -->
-        <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-        </dependency>
-        <!-- Annotation - API -->
-        <dependency>
-            <groupId>org.apiguardian</groupId>
-            <artifactId>apiguardian-api</artifactId>
         </dependency>
         <!-- Guava -->
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
         </dependency>
-        <!-- Lombok -->
+        <!-- JSR305 [Annotation] -->
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+        </dependency>
+        <!-- API [Annotation] -->
+        <dependency>
+            <groupId>org.apiguardian</groupId>
+            <artifactId>apiguardian-api</artifactId>
+        </dependency>
+        <!-- Lombok [Annotation] -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
-        <!-- Testing - Junit -->
+        <!-- Junit [Testing] -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
         </dependency>
-        <!-- Testing - Mockito -->
+        <!-- Mockito [Testing] -->
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>

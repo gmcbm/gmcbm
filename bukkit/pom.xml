@@ -45,6 +45,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Dependency Versions -->
+        <dependency.bukkit.version>1.8.8-R0.1-SNAPSHOT</dependency.bukkit.version>
     </properties>
 
     <repositories>
@@ -65,28 +67,30 @@
         <dependency>
             <groupId>org.bukkit</groupId>
             <artifactId>bukkit</artifactId>
+            <version>${dependency.bukkit.version}</version>
+            <scope>provided</scope>
         </dependency>
-        <!-- bStats - Bukkit -->
+        <!-- bStats Bukkit -->
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
         </dependency>
-        <!-- Commands - Bukkit -->
+        <!-- Commands Paper -->
         <dependency>
             <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-paper</artifactId>
         </dependency>
-        <!-- Annotation - JSR305 -->
+        <!-- JSR305 [Annotation] -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
         </dependency>
-        <!-- Annotation - API -->
+        <!-- API [Annotation] -->
         <dependency>
             <groupId>org.apiguardian</groupId>
             <artifactId>apiguardian-api</artifactId>
         </dependency>
-        <!-- Lombok -->
+        <!-- Lombok [Annotation] -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

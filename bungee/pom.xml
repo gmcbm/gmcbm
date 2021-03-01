@@ -45,6 +45,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- Dependency Versions -->
+        <dependency.bungeecord.version>1.16-R0.4</dependency.bungeecord.version>
     </properties>
 
     <dependencies>
@@ -57,28 +59,30 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
+            <version>${dependency.bungeecord.version}</version>
+            <scope>provided</scope>
         </dependency>
-        <!-- bStats - Bungee -->
+        <!-- bStats BungeeCord-->
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bungeecord</artifactId>
         </dependency>
-        <!-- Commands - Bungee -->
+        <!-- Commands Bungee -->
         <dependency>
             <groupId>net.gmcbm.dependencies</groupId>
             <artifactId>acf-bungee</artifactId>
         </dependency>
-        <!-- Annotation - JSR305 -->
+        <!-- JSR305 [Annotation] -->
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
         </dependency>
-        <!-- Annotation - API -->
+        <!-- API [Annotation] -->
         <dependency>
             <groupId>org.apiguardian</groupId>
             <artifactId>apiguardian-api</artifactId>
         </dependency>
-        <!-- Lombok -->
+        <!-- Lombok [Annotation] -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
