@@ -26,7 +26,6 @@
 package net.gmcbm.core.utils;
 
 import lombok.Getter;
-
 import org.apiguardian.api.API;
 
 import javax.annotation.Nullable;

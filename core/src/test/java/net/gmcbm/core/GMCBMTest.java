@@ -32,8 +32,6 @@ import net.gmcbm.core.utils.PluginType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.UUID;
-
 /**
  * @author Ursin Filli
  * @version 1.0

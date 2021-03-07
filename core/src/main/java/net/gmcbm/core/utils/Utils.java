@@ -40,7 +40,8 @@ public class Utils {
         return Optional.empty();
     }
 
-    public static @Nonnull String buildReason(@Nonnull String[] args, int start) {
+    public static @Nonnull
+    String buildReason(@Nonnull String[] args, int start) {
         StringBuilder sb = new StringBuilder();
         for (int i = start; i < args.length; i++) {
             if (i == args.length - 1) {
