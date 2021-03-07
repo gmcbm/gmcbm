@@ -55,7 +55,7 @@ public class Owner {
     /**
      * Constructor.
      *
-     * @param id Owner Identifier ({@link UUID})
+     * @param id   Owner Identifier ({@link UUID})
      * @param name Name
      */
     public Owner(@Nullable UUID id, @Nullable String name) {

@@ -20,16 +20,11 @@
  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
- *
  */
 
-package net.gmcbm.core;
+package net.gmcbm.core.utils;
 
 import lombok.Getter;
-import net.gmcbm.core.server.Server;
-import net.gmcbm.core.utils.ApiKey;
-import net.gmcbm.core.utils.PluginType;
-import net.gmcbm.core.utils.Settings;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -41,66 +36,48 @@ import java.util.Objects;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class GMCBM {
+public class Settings {
 
     /**
-     * Plugin ({@link PluginType})
+     * Web API Enabled
+     */
+    @Getter
+    private final
+    boolean webEnabled;
+
+    /**
+     * Web Sync Enabled
+     */
+    @Getter
+    private final
+    boolean syncEnabled;
+
+    /**
+     * Allow Web Offline Join
+     */
+    @Getter
+    private final
+    boolean allowWebOfflineJoin;
+
+    /**
+     * Local DB Type
      */
     @Getter
     private final @Nonnull
-    PluginType type;
-
-    /**
-     * Debug mode
-     */
-    @Getter
-    private final boolean debug;
-
-    /**
-     * Plugin Version
-     */
-    @Getter
-    private final @Nonnull
-    String version;
-
-    /**
-     * Server ({@link Server})
-     */
-    @Getter
-    private final @Nonnull
-    Server server;
-
-    /**
-     * Api Key ({@link ApiKey})
-     */
-    @Getter
-    private final @Nonnull
-    ApiKey apiKey;
-
-    /**
-     * Settings ({@link Settings})
-     */
-    @Getter
-    private final @Nonnull
-    Settings settings;
+    LocalDbType localDbType;
 
     /**
      * Constructor.
      *
-     * @param type     Plugin ({@link PluginType})
-     * @param debug    Debug mode
-     * @param version  Plugin Version
-     * @param server   Server ({@link Server})
-     * @param apiKey   Api Key ({@link ApiKey})
-     * @param settings Settings ({@link Settings})
+     * @param webEnabled          Web API Enabled
+     * @param syncEnabled         Web Sync Enabled
+     * @param allowWebOfflineJoin Allow Web Offline Join
+     * @param localDbType         Local DB Type
      */
-    public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull Server server,
-                 @Nonnull ApiKey apiKey, @Nonnull Settings settings) {
-        this.type = Objects.requireNonNull(type);
-        this.debug = debug;
-        this.version = Objects.requireNonNull(version);
-        this.server = Objects.requireNonNull(server);
-        this.apiKey = Objects.requireNonNull(apiKey);
-        this.settings = Objects.requireNonNull(settings);
+    public Settings(boolean webEnabled, boolean syncEnabled, boolean allowWebOfflineJoin, @Nonnull LocalDbType localDbType) {
+        this.webEnabled = webEnabled;
+        this.syncEnabled = syncEnabled;
+        this.allowWebOfflineJoin = allowWebOfflineJoin;
+        this.localDbType = Objects.requireNonNull(localDbType);
     }
 }
