@@ -26,6 +26,7 @@
 package net.gmcbm.bukkit;
 
 import co.aikar.commands.PaperCommandManager;
+import lombok.Getter;
 import net.gmcbm.bukkit.utils.UpdateChecker;
 import net.gmcbm.bukkit.utils.Utils;
 import net.gmcbm.core.GMCBM;
@@ -48,14 +49,14 @@ public final class Main extends JavaPlugin {
     private static final int SPIGOT_PLUGIN_ID = 0;
     private static final int METRICS_PLUGIN_ID = 10428;
 
+    @Getter
     private static Main instance;
-    private GMCBM gmcbm;
-    private UpdateChecker updateChecker;
 
-    public static @Nonnull
-    Main getInstance() {
-        return instance;
-    }
+    @Getter
+    private GMCBM gmcbm;
+
+    @Getter
+    private UpdateChecker updateChecker;
 
     @Override
     public void onEnable() {
@@ -69,7 +70,8 @@ public final class Main extends JavaPlugin {
         }
 
         gmcbm = new GMCBM(PluginType.BUKKIT, getConfig().getBoolean("debug", false),
-                getDescription().getVersion(), new Server(getServerId(), new Owner(null, null)), new ApiKey(null), new Settings(false, false, false, LocalDbType.SQLITE));
+                getDescription().getVersion(), new Server(getServerId(), new Owner(null, null)), new ApiKey(null),
+                new Settings(false, false, false, LocalDbType.SQLITE));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 
         saveDefaultConfig();
@@ -119,17 +121,7 @@ public final class Main extends JavaPlugin {
         }
     }
 
-    public @Nonnull
-    GMCBM getGmcbm() {
-        return gmcbm;
-    }
-
     public boolean isDebug() {
         return gmcbm.isDebug();
-    }
-
-    public @Nonnull
-    UpdateChecker getUpdateChecker() {
-        return updateChecker;
     }
 }

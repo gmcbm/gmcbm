@@ -47,7 +47,8 @@ class GmcbmCommandTest {
 
     @Test
     void testOnCommand() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.randomUUID(), new Owner(UUID.randomUUID(), "")), new ApiKey(null), new Settings(false, false, false, LocalDbType.SQLITE));
+        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.randomUUID(), new Owner(UUID.randomUUID(), "")), new ApiKey(null),
+                new Settings(false, false, false, LocalDbType.SQLITE));
 
         TestCommandIssuer issuer = new TestCommandIssuer();
         GmcbmCommand command = new GmcbmCommand(gmcbm);
