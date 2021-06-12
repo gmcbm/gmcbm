@@ -23,14 +23,12 @@
  *
  */
 
-package net.gmcbm.core.ban;
+package net.gmcbm.core.item;
 
-import net.gmcbm.core.item.*;
-import net.gmcbm.core.server.Server;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.apiguardian.api.API;
 
-import java.time.Instant;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
@@ -38,16 +36,25 @@ import java.util.UUID;
  * @version 1.0
  * @since 1.0
  */
-class BanTest {
+@API(status = API.Status.STABLE, since = "1.0")
+public class IssuerRecord {
+    private final UUID id;
+    private final String name;
 
-    @Test
-    void testCoverage() {
-        Ban ban = new Ban("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new Reason(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(null, null));
+    /**
+     * @param id   Issuer {@link UUID} or null
+     * @param name Issuer Name
+     */
+    public IssuerRecord(@Nullable UUID id, @Nonnull String name) {
+        this.id = id;
+        this.name = name;
+    }
 
-        Assertions.assertEquals("Id", ban.getId(), "Coverage");
+    public UUID id() {
+        return id;
+    }
 
-        new Ban(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new Reason(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                new Server(null, null));
+    public String name() {
+        return name;
     }
 }

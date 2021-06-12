@@ -42,15 +42,15 @@ class ItemTest {
 
     @Test
     void testCoverage() {
-        Item item = new Item("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
+        Item item = new Item("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new Reason(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
                 ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2"), new Owner(UUID.fromString("8c4c42c9-906f-41ff-8d07-a57cc1cdabd5"), "")));
 
         Assertions.assertEquals("Id", item.getId(), "Coverage");
         Assertions.assertEquals(UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), item.getPlayer(), "Coverage");
         Assertions.assertEquals(ReasonType.ALT_ACCOUNT, item.getReason().getType(), "Coverage");
         Assertions.assertNull(item.getReason().getMessage(), "Coverage");
-        Assertions.assertNull(item.getIssuer().getId(), "Coverage");
-        Assertions.assertEquals("Issuer", item.getIssuer().getName(), "Coverage");
+        Assertions.assertNull(item.getIssuer().id(), "Coverage");
+        Assertions.assertEquals("Issuer", item.getIssuer().name(), "Coverage");
         Assertions.assertEquals(Instant.MIN, item.getFrom(), "Coverage");
         Assertions.assertEquals(Instant.MAX, item.getUntil(), "Coverage");
         Assertions.assertEquals(ItemStatus.ACTIVE, item.getStatus(), "Coverage");
@@ -62,7 +62,7 @@ class ItemTest {
         Assertions.assertEquals(UUID.fromString("8c4c42c9-906f-41ff-8d07-a57cc1cdabd5"), item.getServer().getOwner().getId(), "Coverage");
         Assertions.assertEquals("", item.getServer().getOwner().getName(), "Coverage");
 
-        new Item(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
+        new Item(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new Reason(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
                 new Server(null, null));
     }
 }

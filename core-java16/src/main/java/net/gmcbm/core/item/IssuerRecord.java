@@ -25,44 +25,20 @@
 
 package net.gmcbm.core.item;
 
-import lombok.Getter;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Objects;
 import java.util.UUID;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param id   Issuer {@link UUID} or null
+ * @param name Issuer Name
  */
 @API(status = API.Status.STABLE, since = "1.0")
-public class Issuer {
-
-    /**
-     * Issuer {@link UUID} or null
-     */
-    @Getter
-    private final @Nullable
-    UUID id;
-
-    /**
-     * Issuer Name
-     */
-    @Getter
-    private final @Nonnull
-    String name;
-
-    /**
-     * Constructor.
-     *
-     * @param id   Issuer {@link UUID} or null
-     * @param name Issuer Name
-     */
-    public Issuer(@Nullable UUID id, @Nonnull String name) {
-        this.id = id;
-        this.name = Objects.requireNonNull(name);
-    }
+public record IssuerRecord(@Nullable UUID id, @Nonnull String name) {
 }

@@ -65,11 +65,11 @@ public class Item {
     Reason reason;
 
     /**
-     * Issuer ({@link Issuer})
+     * Issuer ({@link IssuerRecord})
      */
     @Getter
     private final @Nonnull
-    Issuer issuer;
+    IssuerRecord issuer;
 
     /**
      * From ({@link Instant})
@@ -126,7 +126,7 @@ public class Item {
      * @param id        Item Identifier
      * @param player    Player ({@link UUID})
      * @param reason    Reason ({@link Reason})
-     * @param issuer    Issuer ({@link Issuer})
+     * @param issuer    Issuer ({@link IssuerRecord})
      * @param from      From ({@link Instant})
      * @param until     Until ({@link Instant})
      * @param status    Status ({@link ItemStatus})
@@ -135,7 +135,7 @@ public class Item {
      * @param origin    Origin ({@link OriginType})
      * @param server    Server ({@link Server})
      */
-    public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull Reason reason, @Nonnull Issuer issuer,
+    public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull Reason reason, @Nonnull IssuerRecord issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull ItemStatus status, @Nonnull ItemAction action,
                 @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull Server server) {
         this.id = Objects.requireNonNull(id);
@@ -156,12 +156,12 @@ public class Item {
      *
      * @param player {@link UUID} of Player
      * @param reason Reason ({@link Reason})
-     * @param issuer Issuer ({@link Issuer})
+     * @param issuer Issuer ({@link IssuerRecord})
      * @param from   From ({@link Instant})
      * @param until  Until ({@link Instant})
      * @param server Server ({@link Server})
      */
-    public Item(@Nonnull UUID player, @Nonnull Reason reason, @Nonnull Issuer issuer,
+    public Item(@Nonnull UUID player, @Nonnull Reason reason, @Nonnull IssuerRecord issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
         this.id = null;
         this.player = Objects.requireNonNull(player);

@@ -42,12 +42,12 @@ class MuteTest {
 
     @Test
     void testCoverage() {
-        Mute mute = new Mute("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
+        Mute mute = new Mute("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new Reason(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
                 ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(null, null));
 
         Assertions.assertEquals("Id", mute.getId(), "Coverage");
 
-        new Mute(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new Reason(ReasonType.ALT_ACCOUNT, null), new Issuer(null, "Issuer"), Instant.MIN, Instant.MAX,
+        new Mute(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new Reason(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
                 new Server(null, null));
     }
 }
