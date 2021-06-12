@@ -23,36 +23,23 @@
  *
  */
 
-package net.gmcbm.core.commands;
+package net.gmcbm.core.utils;
 
-import net.gmcbm.core.GMCBM;
-import net.gmcbm.core.server.Owner;
-import net.gmcbm.core.server.Server;
-import net.gmcbm.core.test.TestCommandIssuer;
-import net.gmcbm.core.utils.ApiKeyRecord;
-import net.gmcbm.core.utils.LocalDbType;
-import net.gmcbm.core.utils.PluginType;
-import net.gmcbm.core.utils.SettingsRecord;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.apiguardian.api.API;
 
-import java.util.UUID;
+import javax.annotation.Nonnull;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param webEnabled          Web API Enabled
+ * @param syncEnabled         Web Sync Enabled
+ * @param allowWebOfflineJoin Allow Web Offline Join
+ * @param localDbType         Local DB Type
  */
-class GmcbmCommandTest {
-
-    @Test
-    void testOnCommand() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.randomUUID(), new Owner(UUID.randomUUID(), "")), new ApiKeyRecord(null),
-                new SettingsRecord(false, false, false, LocalDbType.SQLITE));
-
-        TestCommandIssuer issuer = new TestCommandIssuer();
-        GmcbmCommand command = new GmcbmCommand(gmcbm);
-        command.onCommand(issuer);
-        Assertions.assertNull(command.getName(), "Coverage");
-    }
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public record SettingsRecord(boolean webEnabled, boolean syncEnabled, boolean allowWebOfflineJoin,
+                             @Nonnull LocalDbType localDbType) {
 }

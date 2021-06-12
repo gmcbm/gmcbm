@@ -24,7 +24,6 @@
 
 package net.gmcbm.core.utils;
 
-import lombok.Getter;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -36,48 +35,38 @@ import java.util.Objects;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class Settings {
+public class SettingsRecord {
+    private final boolean webEnabled;
+    private final boolean syncEnabled;
+    private final boolean allowWebOfflineJoin;
+    private final LocalDbType localDbType;
 
     /**
-     * Web API Enabled
-     */
-    @Getter
-    private final
-    boolean webEnabled;
-
-    /**
-     * Web Sync Enabled
-     */
-    @Getter
-    private final
-    boolean syncEnabled;
-
-    /**
-     * Allow Web Offline Join
-     */
-    @Getter
-    private final
-    boolean allowWebOfflineJoin;
-
-    /**
-     * Local DB Type
-     */
-    @Getter
-    private final @Nonnull
-    LocalDbType localDbType;
-
-    /**
-     * Constructor.
-     *
      * @param webEnabled          Web API Enabled
      * @param syncEnabled         Web Sync Enabled
      * @param allowWebOfflineJoin Allow Web Offline Join
      * @param localDbType         Local DB Type
      */
-    public Settings(boolean webEnabled, boolean syncEnabled, boolean allowWebOfflineJoin, @Nonnull LocalDbType localDbType) {
+    public SettingsRecord(boolean webEnabled, boolean syncEnabled, boolean allowWebOfflineJoin, @Nonnull LocalDbType localDbType) {
         this.webEnabled = webEnabled;
         this.syncEnabled = syncEnabled;
         this.allowWebOfflineJoin = allowWebOfflineJoin;
         this.localDbType = Objects.requireNonNull(localDbType);
+    }
+
+    public boolean webEnabled() {
+        return webEnabled;
+    }
+
+    public boolean syncEnabled() {
+        return syncEnabled;
+    }
+
+    public boolean allowWebOfflineJoin() {
+        return allowWebOfflineJoin;
+    }
+
+    public LocalDbType localDbType() {
+        return localDbType;
     }
 }

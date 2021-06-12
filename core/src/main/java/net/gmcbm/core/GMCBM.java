@@ -29,7 +29,7 @@ import lombok.Getter;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.PluginType;
-import net.gmcbm.core.utils.Settings;
+import net.gmcbm.core.utils.SettingsRecord;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -78,11 +78,11 @@ public class GMCBM {
     ApiKeyRecord apiKey;
 
     /**
-     * Settings ({@link Settings})
+     * Settings ({@link SettingsRecord})
      */
     @Getter
     private final @Nonnull
-    Settings settings;
+    SettingsRecord settings;
 
     /**
      * Constructor.
@@ -92,10 +92,10 @@ public class GMCBM {
      * @param version  Plugin Version
      * @param server   Server ({@link Server})
      * @param apiKey   Api Key ({@link ApiKeyRecord})
-     * @param settings Settings ({@link Settings})
+     * @param settings Settings ({@link SettingsRecord})
      */
     public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull Server server,
-                 @Nonnull ApiKeyRecord apiKey, @Nonnull Settings settings) {
+                 @Nonnull ApiKeyRecord apiKey, @Nonnull SettingsRecord settings) {
         this.type = Objects.requireNonNull(type);
         this.debug = debug;
         this.version = Objects.requireNonNull(version);

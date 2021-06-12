@@ -36,7 +36,7 @@ import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.LocalDbType;
 import net.gmcbm.core.utils.PluginType;
-import net.gmcbm.core.utils.Settings;
+import net.gmcbm.core.utils.SettingsRecord;
 import net.md_5.bungee.api.plugin.Plugin;
 import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
@@ -77,7 +77,7 @@ public final class Main extends Plugin {
 
         gmcbm = new GMCBM(PluginType.BUNGEE, getConfig().getBoolean("debug", false),
                 getDescription().getVersion(), new Server(getServerId(), new Owner(null, null)), new ApiKeyRecord(null),
-                new Settings(false, false, false, LocalDbType.SQLITE));
+                new SettingsRecord(false, false, false, LocalDbType.SQLITE));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 
         saveDefaultConfig();

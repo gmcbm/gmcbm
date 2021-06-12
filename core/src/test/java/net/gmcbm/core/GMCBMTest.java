@@ -30,7 +30,7 @@ import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.LocalDbType;
 import net.gmcbm.core.utils.PluginType;
-import net.gmcbm.core.utils.Settings;
+import net.gmcbm.core.utils.SettingsRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -44,7 +44,7 @@ class GMCBMTest {
     @Test
     void testCoverage() {
         GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(null, new Owner(null, null)), new ApiKeyRecord(null),
-                new Settings(false, false, false, LocalDbType.SQLITE));
+                new SettingsRecord(false, false, false, LocalDbType.SQLITE));
 
         Assertions.assertEquals(PluginType.BUKKIT, gmcbm.getType(), "Coverage");
         Assertions.assertFalse(gmcbm.isDebug(), "Coverage");
@@ -53,9 +53,9 @@ class GMCBMTest {
         Assertions.assertNull(gmcbm.getServer().getOwner().getId(), "Coverage");
         Assertions.assertNull(gmcbm.getServer().getOwner().getName(), "Coverage");
         Assertions.assertNull(gmcbm.getApiKey().id(), "Coverage");
-        Assertions.assertFalse(gmcbm.getSettings().isWebEnabled(), "Coverage");
-        Assertions.assertFalse(gmcbm.getSettings().isSyncEnabled(), "Coverage");
-        Assertions.assertFalse(gmcbm.getSettings().isAllowWebOfflineJoin(), "Coverage");
-        Assertions.assertEquals(gmcbm.getSettings().getLocalDbType(), LocalDbType.SQLITE, "Coverage");
+        Assertions.assertFalse(gmcbm.getSettings().webEnabled(), "Coverage");
+        Assertions.assertFalse(gmcbm.getSettings().syncEnabled(), "Coverage");
+        Assertions.assertFalse(gmcbm.getSettings().allowWebOfflineJoin(), "Coverage");
+        Assertions.assertEquals(gmcbm.getSettings().localDbType(), LocalDbType.SQLITE, "Coverage");
     }
 }
