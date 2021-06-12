@@ -46,7 +46,7 @@ public class Ban extends Item {
      *
      * @param id        Ban Identifier
      * @param player    Player ({@link UUID})
-     * @param reason    Reason ({@link Reason})
+     * @param reason    Reason ({@link ReasonRecord})
      * @param issuer    Issuer ({@link IssuerRecord})
      * @param from      From ({@link Instant})
      * @param until     Until ({@link Instant})
@@ -56,7 +56,7 @@ public class Ban extends Item {
      * @param origin    Origin ({@link OriginType})
      * @param server    Server ({@link Server})
      */
-    public Ban(@Nonnull String id, @Nonnull UUID player, @Nonnull Reason reason, @Nonnull IssuerRecord issuer,
+    public Ban(@Nonnull String id, @Nonnull UUID player, @Nonnull ReasonRecord reason, @Nonnull IssuerRecord issuer,
                @Nonnull Instant from, @Nonnull Instant until, @Nonnull ItemStatus status, @Nonnull ItemAction action,
                @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull Server server) {
         super(id, player, reason, issuer, from, until, status, action, timestamp, origin, server);
@@ -66,13 +66,13 @@ public class Ban extends Item {
      * Constructor.
      *
      * @param player Player ({@link UUID})
-     * @param reason Reason ({@link Reason})
+     * @param reason Reason ({@link ReasonRecord})
      * @param issuer Issuer ({@link IssuerRecord})
      * @param from   From ({@link Instant})
      * @param until  Until ({@link Instant})
      * @param server Server ({@link Server})
      */
-    public Ban(@Nonnull UUID player, @Nonnull Reason reason, @Nonnull IssuerRecord issuer,
+    public Ban(@Nonnull UUID player, @Nonnull ReasonRecord reason, @Nonnull IssuerRecord issuer,
                @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
         super(player, reason, issuer, from, until, server);
     }

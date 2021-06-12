@@ -24,7 +24,6 @@
 
 package net.gmcbm.core.item;
 
-import lombok.Getter;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -36,30 +35,24 @@ import javax.annotation.Nullable;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class Reason {
+public class ReasonRecord {
+    private final ReasonType type;
+    private final String message;
 
     /**
-     * Type ({@link ReasonType})
-     */
-    @Getter
-    private final @Nonnull
-    ReasonType type;
-
-    /**
-     * Message
-     */
-    @Getter
-    private final @Nullable
-    String message;
-
-    /**
-     * Constructor.
-     *
      * @param type    Type ({@link ReasonType})
      * @param message Message
      */
-    public Reason(@Nonnull ReasonType type, @Nullable String message) {
+    public ReasonRecord(@Nonnull ReasonType type, @Nullable String message) {
         this.type = type;
         this.message = message;
+    }
+
+    public ReasonType type() {
+        return type;
+    }
+
+    public String message() {
+        return message;
     }
 }

@@ -23,31 +23,21 @@
  *
  */
 
-package net.gmcbm.core.mute;
+package net.gmcbm.core.item;
 
-import net.gmcbm.core.item.*;
-import net.gmcbm.core.server.Server;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.apiguardian.api.API;
 
-import java.time.Instant;
-import java.util.UUID;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param type    Type ({@link ReasonType})
+ * @param message Message
  */
-class MuteTest {
-
-    @Test
-    void testCoverage() {
-        Mute mute = new Mute("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(null, null));
-
-        Assertions.assertEquals("Id", mute.getId(), "Coverage");
-
-        new Mute(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                new Server(null, null));
-    }
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public record ReasonRecord(@Nonnull ReasonType type, @Nullable String message) {
 }
