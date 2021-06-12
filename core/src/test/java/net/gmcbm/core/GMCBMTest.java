@@ -56,6 +56,6 @@ class GMCBMTest {
         Assertions.assertFalse(gmcbm.settings().webEnabled(), "Coverage");
         Assertions.assertFalse(gmcbm.settings().syncEnabled(), "Coverage");
         Assertions.assertFalse(gmcbm.settings().allowWebOfflineJoin(), "Coverage");
-        Assertions.assertEquals(gmcbm.settings().localDbType(), LocalDbType.SQLITE, "Coverage");
+        Assertions.assertEquals(LocalDbType.SQLITE, gmcbm.settings().localDbType(), "Coverage");
     }
 }
