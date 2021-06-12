@@ -25,7 +25,7 @@
 
 package net.gmcbm.core.item;
 
-import net.gmcbm.core.server.Owner;
+import net.gmcbm.core.server.OwnerRecord;
 import net.gmcbm.core.server.Server;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -43,7 +43,7 @@ class ItemTest {
     @Test
     void testCoverage() {
         Item item = new Item("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2"), new Owner(UUID.fromString("8c4c42c9-906f-41ff-8d07-a57cc1cdabd5"), "")));
+                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2"), new OwnerRecord(UUID.fromString("8c4c42c9-906f-41ff-8d07-a57cc1cdabd5"), "")));
 
         Assertions.assertEquals("Id", item.getId(), "Coverage");
         Assertions.assertEquals(UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), item.getPlayer(), "Coverage");
@@ -59,8 +59,8 @@ class ItemTest {
         Assertions.assertEquals(OriginType.LOCAL_DATABASE, item.getOrigin(), "Coverage");
         Assertions.assertEquals(UUID.fromString("74a730c5-06e3-4cce-88a8-5f18c2b883e2"), item.getServer().getId(), "Coverage");
         assert item.getServer().getOwner() != null;
-        Assertions.assertEquals(UUID.fromString("8c4c42c9-906f-41ff-8d07-a57cc1cdabd5"), item.getServer().getOwner().getId(), "Coverage");
-        Assertions.assertEquals("", item.getServer().getOwner().getName(), "Coverage");
+        Assertions.assertEquals(UUID.fromString("8c4c42c9-906f-41ff-8d07-a57cc1cdabd5"), item.getServer().getOwner().id(), "Coverage");
+        Assertions.assertEquals("", item.getServer().getOwner().name(), "Coverage");
 
         new Item(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
                 new Server(null, null));

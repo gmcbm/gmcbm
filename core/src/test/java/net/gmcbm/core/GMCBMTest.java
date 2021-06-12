@@ -25,7 +25,7 @@
 
 package net.gmcbm.core;
 
-import net.gmcbm.core.server.Owner;
+import net.gmcbm.core.server.OwnerRecord;
 import net.gmcbm.core.server.Server;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.LocalDbType;
@@ -43,15 +43,15 @@ class GMCBMTest {
 
     @Test
     void testCoverage() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(null, new Owner(null, null)), new ApiKeyRecord(null),
+        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(null, new OwnerRecord(null, null)), new ApiKeyRecord(null),
                 new SettingsRecord(false, false, false, LocalDbType.SQLITE));
 
         Assertions.assertEquals(PluginType.BUKKIT, gmcbm.getType(), "Coverage");
         Assertions.assertFalse(gmcbm.isDebug(), "Coverage");
         Assertions.assertEquals("1.0.0", gmcbm.getVersion(), "Coverage");
         Assertions.assertNull(gmcbm.getServer().getId(), "Coverage");
-        Assertions.assertNull(gmcbm.getServer().getOwner().getId(), "Coverage");
-        Assertions.assertNull(gmcbm.getServer().getOwner().getName(), "Coverage");
+        Assertions.assertNull(gmcbm.getServer().getOwner().id(), "Coverage");
+        Assertions.assertNull(gmcbm.getServer().getOwner().name(), "Coverage");
         Assertions.assertNull(gmcbm.getApiKey().id(), "Coverage");
         Assertions.assertFalse(gmcbm.getSettings().webEnabled(), "Coverage");
         Assertions.assertFalse(gmcbm.getSettings().syncEnabled(), "Coverage");

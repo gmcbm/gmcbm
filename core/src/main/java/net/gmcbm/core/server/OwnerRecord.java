@@ -24,7 +24,6 @@
 
 package net.gmcbm.core.server;
 
-import lombok.Getter;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nullable;
@@ -36,30 +35,24 @@ import java.util.UUID;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class Owner {
+public class OwnerRecord {
+    private final UUID id;
+    private final String name;
 
     /**
-     * Owner Identifier ({@link UUID})
-     */
-    @Getter
-    private final @Nullable
-    UUID id;
-
-    /**
-     * Name
-     */
-    @Getter
-    private final @Nullable
-    String name;
-
-    /**
-     * Constructor.
-     *
      * @param id   Owner Identifier ({@link UUID})
      * @param name Name
      */
-    public Owner(@Nullable UUID id, @Nullable String name) {
+    public OwnerRecord(@Nullable UUID id, @Nullable String name) {
         this.id = id;
         this.name = name;
+    }
+
+    public UUID id() {
+        return id;
+    }
+
+    public String name() {
+        return name;
     }
 }

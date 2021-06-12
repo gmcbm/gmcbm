@@ -23,36 +23,21 @@
  *
  */
 
-package net.gmcbm.core.commands;
+package net.gmcbm.core.server;
 
-import net.gmcbm.core.GMCBM;
-import net.gmcbm.core.server.OwnerRecord;
-import net.gmcbm.core.server.Server;
-import net.gmcbm.core.test.TestCommandIssuer;
-import net.gmcbm.core.utils.ApiKeyRecord;
-import net.gmcbm.core.utils.LocalDbType;
-import net.gmcbm.core.utils.PluginType;
-import net.gmcbm.core.utils.SettingsRecord;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.apiguardian.api.API;
 
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param id   Owner Identifier ({@link UUID})
+ * @param name Name
  */
-class GmcbmCommandTest {
-
-    @Test
-    void testOnCommand() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.randomUUID(), new OwnerRecord(UUID.randomUUID(), "")), new ApiKeyRecord(null),
-                new SettingsRecord(false, false, false, LocalDbType.SQLITE));
-
-        TestCommandIssuer issuer = new TestCommandIssuer();
-        GmcbmCommand command = new GmcbmCommand(gmcbm);
-        command.onCommand(issuer);
-        Assertions.assertNull(command.getName(), "Coverage");
-    }
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public record OwnerRecord(@Nullable UUID id, @Nullable String name) {
 }
