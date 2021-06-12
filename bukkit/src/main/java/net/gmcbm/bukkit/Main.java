@@ -32,7 +32,7 @@ import net.gmcbm.bukkit.utils.Utils;
 import net.gmcbm.core.GMCBM;
 import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.OwnerRecord;
-import net.gmcbm.core.server.Server;
+import net.gmcbm.core.server.ServerRecord;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.LocalDbType;
 import net.gmcbm.core.utils.PluginType;
@@ -70,7 +70,7 @@ public final class Main extends JavaPlugin {
         }
 
         gmcbm = new GMCBM(PluginType.BUKKIT, getConfig().getBoolean("debug", false),
-                getDescription().getVersion(), new Server(getServerId(), new OwnerRecord(null, null)), new ApiKeyRecord(null),
+                getDescription().getVersion(), new ServerRecord(getServerId(), new OwnerRecord(null, null)), new ApiKeyRecord(null),
                 new SettingsRecord(false, false, false, LocalDbType.SQLITE));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
 

@@ -61,14 +61,14 @@ public class GmcbmCommand extends BaseCommand {
         sender.sendMessage("§8> §7Plugin Platform: §a" + gmcbm.getType().toString());
         sender.sendMessage("§8> §7Plugin Version: §a" + gmcbm.getVersion());
         sender.sendMessage("§8> §7Plugin Debug: §a" + gmcbm.isDebug());
-        if (gmcbm.getServer().getId() != null) {
-            sender.sendMessage("§8> §7Server ID: §a" + gmcbm.getServer().getId().toString());
+        if (gmcbm.getServer().id() != null) {
+            sender.sendMessage("§8> §7Server ID: §a" + gmcbm.getServer().id().toString());
         }
-        if (gmcbm.getServer().getOwner().id() != null) {
-            sender.sendMessage("§8> §7Owner Id: §a" + gmcbm.getServer().getOwner().id().toString());
+        if (gmcbm.getServer().owner().id() != null) {
+            sender.sendMessage("§8> §7Owner Id: §a" + gmcbm.getServer().owner().id().toString());
         }
-        if (gmcbm.getServer().getOwner().name() != null) {
-            sender.sendMessage("§8> §7Owner Name: §a" + gmcbm.getServer().getOwner().name());
+        if (gmcbm.getServer().owner().name() != null) {
+            sender.sendMessage("§8> §7Owner Name: §a" + gmcbm.getServer().owner().name());
         }
         sender.sendMessage(" ");
         sender.sendMessage("§7<------- §8| §c§lGlobal Minecraft Ban Manager §8| §7------->");

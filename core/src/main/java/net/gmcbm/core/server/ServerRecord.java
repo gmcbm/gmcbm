@@ -25,7 +25,6 @@
 
 package net.gmcbm.core.server;
 
-import lombok.Getter;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -38,30 +37,24 @@ import java.util.UUID;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class Server {
+public class ServerRecord {
+    private final UUID id;
+    private final OwnerRecord owner;
 
     /**
-     * Server Identifier ({@link UUID})
-     */
-    @Getter
-    private final @Nullable
-    UUID id;
-
-    /**
-     * Owner ({@link OwnerRecord})
-     */
-    @Getter
-    private final @Nonnull
-    OwnerRecord owner;
-
-    /**
-     * Constructor.
-     *
      * @param id    Server Identifier ({@link UUID})
      * @param owner Owner ({@link OwnerRecord})
      */
-    public Server(@Nullable UUID id, @Nonnull OwnerRecord owner) {
+    public ServerRecord(@Nullable UUID id, @Nonnull OwnerRecord owner) {
         this.id = id;
         this.owner = owner;
+    }
+
+    public UUID id() {
+        return id;
+    }
+
+    public OwnerRecord owner() {
+        return owner;
     }
 }

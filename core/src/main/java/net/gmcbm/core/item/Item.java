@@ -26,7 +26,7 @@
 package net.gmcbm.core.item;
 
 import lombok.Getter;
-import net.gmcbm.core.server.Server;
+import net.gmcbm.core.server.ServerRecord;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -114,11 +114,11 @@ public class Item {
     OriginType origin;
 
     /**
-     * Server ({@link Server})
+     * Server ({@link ServerRecord})
      */
     @Getter
     private final @Nonnull
-    Server server;
+    ServerRecord server;
 
     /**
      * Constructor.
@@ -133,11 +133,11 @@ public class Item {
      * @param action    Action ({@link ItemAction})
      * @param timestamp Timestamp ({@link Instant})
      * @param origin    Origin ({@link OriginType})
-     * @param server    Server ({@link Server})
+     * @param server    Server ({@link ServerRecord})
      */
     public Item(@Nonnull String id, @Nonnull UUID player, @Nonnull ReasonRecord reason, @Nonnull IssuerRecord issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull ItemStatus status, @Nonnull ItemAction action,
-                @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull Server server) {
+                @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull ServerRecord server) {
         this.id = Objects.requireNonNull(id);
         this.player = Objects.requireNonNull(player);
         this.reason = Objects.requireNonNull(reason);
@@ -159,10 +159,10 @@ public class Item {
      * @param issuer Issuer ({@link IssuerRecord})
      * @param from   From ({@link Instant})
      * @param until  Until ({@link Instant})
-     * @param server Server ({@link Server})
+     * @param server Server ({@link ServerRecord})
      */
     public Item(@Nonnull UUID player, @Nonnull ReasonRecord reason, @Nonnull IssuerRecord issuer,
-                @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
+                @Nonnull Instant from, @Nonnull Instant until, @Nonnull ServerRecord server) {
         this.id = null;
         this.player = Objects.requireNonNull(player);
         this.reason = Objects.requireNonNull(reason);

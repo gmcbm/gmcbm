@@ -26,7 +26,7 @@
 package net.gmcbm.core.mute;
 
 import net.gmcbm.core.item.*;
-import net.gmcbm.core.server.Server;
+import net.gmcbm.core.server.ServerRecord;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -54,11 +54,11 @@ public class Mute extends Item {
      * @param action    Action ({@link ItemAction})
      * @param timestamp Timestamp ({@link Instant})
      * @param origin    Origin ({@link OriginType})
-     * @param server    Server ({@link Server})
+     * @param server    Server ({@link ServerRecord})
      */
     public Mute(@Nonnull String id, @Nonnull UUID player, @Nonnull ReasonRecord reason, @Nonnull IssuerRecord issuer,
                 @Nonnull Instant from, @Nonnull Instant until, @Nonnull ItemStatus status, @Nonnull ItemAction action,
-                @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull Server server) {
+                @Nonnull Instant timestamp, @Nonnull OriginType origin, @Nonnull ServerRecord server) {
         super(id, player, reason, issuer, from, until, status, action, timestamp, origin, server);
     }
 
@@ -70,10 +70,10 @@ public class Mute extends Item {
      * @param issuer Issuer ({@link IssuerRecord})
      * @param from   From ({@link Instant})
      * @param until  Until ({@link Instant})
-     * @param server Server ({@link Server})
+     * @param server Server ({@link ServerRecord})
      */
     public Mute(@Nonnull UUID player, @Nonnull ReasonRecord reason, @Nonnull IssuerRecord issuer,
-                @Nonnull Instant from, @Nonnull Instant until, @Nonnull Server server) {
+                @Nonnull Instant from, @Nonnull Instant until, @Nonnull ServerRecord server) {
         super(player, reason, issuer, from, until, server);
     }
 }

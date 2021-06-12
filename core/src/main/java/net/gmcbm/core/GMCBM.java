@@ -26,7 +26,7 @@
 package net.gmcbm.core;
 
 import lombok.Getter;
-import net.gmcbm.core.server.Server;
+import net.gmcbm.core.server.ServerRecord;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.PluginType;
 import net.gmcbm.core.utils.SettingsRecord;
@@ -64,11 +64,11 @@ public class GMCBM {
     String version;
 
     /**
-     * Server ({@link Server})
+     * Server ({@link ServerRecord})
      */
     @Getter
     private final @Nonnull
-    Server server;
+    ServerRecord server;
 
     /**
      * Api Key ({@link ApiKeyRecord})
@@ -90,11 +90,11 @@ public class GMCBM {
      * @param type     Plugin ({@link PluginType})
      * @param debug    Debug mode
      * @param version  Plugin Version
-     * @param server   Server ({@link Server})
+     * @param server   Server ({@link ServerRecord})
      * @param apiKey   Api Key ({@link ApiKeyRecord})
      * @param settings Settings ({@link SettingsRecord})
      */
-    public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull Server server,
+    public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull ServerRecord server,
                  @Nonnull ApiKeyRecord apiKey, @Nonnull SettingsRecord settings) {
         this.type = Objects.requireNonNull(type);
         this.debug = debug;

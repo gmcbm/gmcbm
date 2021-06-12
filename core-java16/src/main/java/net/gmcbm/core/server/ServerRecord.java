@@ -23,31 +23,22 @@
  *
  */
 
-package net.gmcbm.core.warn;
+package net.gmcbm.core.server;
 
-import net.gmcbm.core.item.*;
-import net.gmcbm.core.server.ServerRecord;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.apiguardian.api.API;
 
-import java.time.Instant;
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.UUID;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param id    Server Identifier ({@link UUID})
+ * @param owner Owner ({@link OwnerRecord})
  */
-class WarnTest {
-
-    @Test
-    void testCoverage() {
-        Warn warn = new Warn("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new ServerRecord(null, null));
-
-        Assertions.assertEquals("Id", warn.getId(), "Coverage");
-
-        new Warn(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                new ServerRecord(null, null));
-    }
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public record ServerRecord(@Nullable UUID id, @Nonnull OwnerRecord owner) {
 }

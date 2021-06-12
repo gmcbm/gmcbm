@@ -26,7 +26,7 @@
 package net.gmcbm.core.ban;
 
 import net.gmcbm.core.item.*;
-import net.gmcbm.core.server.Server;
+import net.gmcbm.core.server.ServerRecord;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -43,11 +43,11 @@ class BanTest {
     @Test
     void testCoverage() {
         Ban ban = new Ban("Id", UUID.fromString("b0e70a1a-57bb-478b-acc2-c4b4dc678b07"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new Server(null, null));
+                ItemStatus.ACTIVE, ItemAction.GET, Instant.MAX, OriginType.LOCAL_DATABASE, new ServerRecord(null, null));
 
         Assertions.assertEquals("Id", ban.getId(), "Coverage");
 
         new Ban(UUID.fromString("5ddc9229-6ec2-44db-9ad5-5fef6134bc0f"), new ReasonRecord(ReasonType.ALT_ACCOUNT, null), new IssuerRecord(null, "Issuer"), Instant.MIN, Instant.MAX,
-                new Server(null, null));
+                new ServerRecord(null, null));
     }
 }
