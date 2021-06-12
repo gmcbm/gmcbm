@@ -25,7 +25,6 @@
 
 package net.gmcbm.core.request;
 
-import lombok.Getter;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -37,52 +36,42 @@ import java.util.Optional;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class RequestResponse {
+public class RequestResponseRecord {
+    private final String message;
+    private final RequestStatus status;
+    private final Optional<Object> response;
 
     /**
-     * Response message
-     */
-    @Getter
-    private final @Nonnull
-    String message;
-
-    /**
-     * Status ({@link RequestStatus})
-     */
-    @Getter
-    private final @Nonnull
-    RequestStatus status;
-
-    /**
-     * Response {@link Optional}
-     */
-    @Getter
-    private final @Nonnull
-    Optional<Object> response;
-
-    /**
-     * Constructor.
-     *
      * @param message  Response message
      * @param status   Status ({@link RequestStatus})
      * @param response Response {@link Optional}
      */
-    public RequestResponse(@Nonnull String message, @Nonnull RequestStatus status,
-                           @Nonnull Optional<Object> response) {
+    public RequestResponseRecord(@Nonnull String message, @Nonnull RequestStatus status,
+                                 @Nonnull Optional<Object> response) {
         this.message = message;
         this.status = status;
         this.response = response;
     }
 
     /**
-     * Constructor.
-     *
      * @param message Response message
      * @param status  Status ({@link RequestStatus})
      */
-    public RequestResponse(@Nonnull String message, @Nonnull RequestStatus status) {
+    public RequestResponseRecord(@Nonnull String message, @Nonnull RequestStatus status) {
         this.message = message;
         this.status = status;
         this.response = Optional.empty();
+    }
+
+    public String message() {
+        return message;
+    }
+
+    public RequestStatus status() {
+        return status;
+    }
+
+    public Optional<Object> response() {
+        return response;
     }
 }

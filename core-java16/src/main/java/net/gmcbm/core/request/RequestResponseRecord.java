@@ -25,26 +25,29 @@
 
 package net.gmcbm.core.request;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.apiguardian.api.API;
 
+import javax.annotation.Nonnull;
 import java.util.Optional;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param message  Response message
+ * @param status   Status ({@link RequestStatus})
+ * @param response Response {@link Optional}
  */
-class RequestResponseTest {
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public record RequestResponseRecord(@Nonnull String message, @Nonnull RequestStatus status,
+                                    @Nonnull Optional<Object> response) {
 
-    @Test
-    void testCoverage() {
-        RequestResponseRecord response = new RequestResponseRecord("Message", RequestStatus.FAILED_NOT_IMPLEMENTED, Optional.empty());
-
-        Assertions.assertEquals("Message", response.message(), "Coverage");
-        Assertions.assertEquals(RequestStatus.FAILED_NOT_IMPLEMENTED, response.status(), "Coverage");
-        Assertions.assertEquals(Optional.empty(), response.response(), "Coverage");
-
-        new RequestResponseRecord("Message", RequestStatus.FAILED_NOT_IMPLEMENTED);
+    /**
+     * @param message Response message
+     * @param status  Status ({@link RequestStatus})
+     */
+    public RequestResponseRecord(@Nonnull String message, @Nonnull RequestStatus status) {
+        this(message, status, Optional.empty());
     }
 }
