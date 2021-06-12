@@ -25,7 +25,6 @@
 
 package net.gmcbm.core.utils;
 
-import lombok.Getter;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nullable;
@@ -34,23 +33,9 @@ import javax.annotation.Nullable;
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param id Api Key
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class ApiKey {
-
-    /**
-     * Api Key
-     */
-    @Getter
-    private final @Nullable
-    String id;
-
-    /**
-     * Constructor.
-     *
-     * @param id Api Key
-     */
-    public ApiKey(@Nullable String id) {
-        this.id = id;
-    }
+public record ApiKeyRecord(@Nullable String id) {
 }
