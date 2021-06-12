@@ -29,7 +29,7 @@ import co.aikar.commands.PaperCommandManager;
 import lombok.Getter;
 import net.gmcbm.bukkit.utils.UpdateChecker;
 import net.gmcbm.bukkit.utils.Utils;
-import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.GMCBMRecord;
 import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.OwnerRecord;
 import net.gmcbm.core.server.ServerRecord;
@@ -53,7 +53,7 @@ public final class Main extends JavaPlugin {
     private static Main instance;
 
     @Getter
-    private GMCBM gmcbm;
+    private GMCBMRecord gmcbm;
 
     @Getter
     private UpdateChecker updateChecker;
@@ -69,7 +69,7 @@ public final class Main extends JavaPlugin {
             return;
         }
 
-        gmcbm = new GMCBM(PluginType.BUKKIT, getConfig().getBoolean("debug", false),
+        gmcbm = new GMCBMRecord(PluginType.BUKKIT, getConfig().getBoolean("debug", false),
                 getDescription().getVersion(), new ServerRecord(getServerId(), new OwnerRecord(null, null)), new ApiKeyRecord(null),
                 new SettingsRecord(false, false, false, LocalDbType.SQLITE));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
@@ -122,6 +122,6 @@ public final class Main extends JavaPlugin {
     }
 
     public boolean isDebug() {
-        return gmcbm.isDebug();
+        return gmcbm.debug();
     }
 }

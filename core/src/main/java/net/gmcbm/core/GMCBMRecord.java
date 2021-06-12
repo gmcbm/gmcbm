@@ -25,7 +25,6 @@
 
 package net.gmcbm.core;
 
-import lombok.Getter;
 import net.gmcbm.core.server.ServerRecord;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.PluginType;
@@ -33,7 +32,6 @@ import net.gmcbm.core.utils.SettingsRecord;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
-import java.util.Objects;
 
 /**
  * @author Ursin Filli
@@ -41,52 +39,15 @@ import java.util.Objects;
  * @since 1.0
  */
 @API(status = API.Status.MAINTAINED, since = "1.0")
-public class GMCBM {
-
-    /**
-     * Plugin ({@link PluginType})
-     */
-    @Getter
-    private final @Nonnull
-    PluginType type;
-
-    /**
-     * Debug mode
-     */
-    @Getter
+public class GMCBMRecord {
+    private final PluginType type;
     private final boolean debug;
+    private final String version;
+    private final ServerRecord server;
+    private final ApiKeyRecord apiKey;
+    private final SettingsRecord settings;
 
     /**
-     * Plugin Version
-     */
-    @Getter
-    private final @Nonnull
-    String version;
-
-    /**
-     * Server ({@link ServerRecord})
-     */
-    @Getter
-    private final @Nonnull
-    ServerRecord server;
-
-    /**
-     * Api Key ({@link ApiKeyRecord})
-     */
-    @Getter
-    private final @Nonnull
-    ApiKeyRecord apiKey;
-
-    /**
-     * Settings ({@link SettingsRecord})
-     */
-    @Getter
-    private final @Nonnull
-    SettingsRecord settings;
-
-    /**
-     * Constructor.
-     *
      * @param type     Plugin ({@link PluginType})
      * @param debug    Debug mode
      * @param version  Plugin Version
@@ -94,13 +55,37 @@ public class GMCBM {
      * @param apiKey   Api Key ({@link ApiKeyRecord})
      * @param settings Settings ({@link SettingsRecord})
      */
-    public GMCBM(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull ServerRecord server,
-                 @Nonnull ApiKeyRecord apiKey, @Nonnull SettingsRecord settings) {
-        this.type = Objects.requireNonNull(type);
+    public GMCBMRecord(@Nonnull PluginType type, boolean debug, @Nonnull String version, @Nonnull ServerRecord server,
+                       @Nonnull ApiKeyRecord apiKey, @Nonnull SettingsRecord settings) {
+        this.type = type;
         this.debug = debug;
-        this.version = Objects.requireNonNull(version);
-        this.server = Objects.requireNonNull(server);
-        this.apiKey = Objects.requireNonNull(apiKey);
-        this.settings = Objects.requireNonNull(settings);
+        this.version = version;
+        this.server = server;
+        this.apiKey = apiKey;
+        this.settings = settings;
+    }
+
+    public PluginType type() {
+        return type;
+    }
+
+    public boolean debug() {
+        return debug;
+    }
+
+    public String version() {
+        return version;
+    }
+
+    public ServerRecord server() {
+        return server;
+    }
+
+    public ApiKeyRecord apiKey() {
+        return apiKey;
+    }
+
+    public SettingsRecord settings() {
+        return settings;
     }
 }

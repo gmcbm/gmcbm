@@ -25,9 +25,9 @@
 
 package net.gmcbm.core.commands;
 
-import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.GMCBMRecord;
 import net.gmcbm.core.server.OwnerRecord;
-import net.gmcbm.core.server.Server;
+import net.gmcbm.core.server.ServerRecord;
 import net.gmcbm.core.test.TestCommandIssuer;
 import net.gmcbm.core.utils.ApiKeyRecord;
 import net.gmcbm.core.utils.LocalDbType;
@@ -47,7 +47,7 @@ class GmcbmCommandTest {
 
     @Test
     void testOnCommand() {
-        GMCBM gmcbm = new GMCBM(PluginType.BUKKIT, false, "1.0.0", new Server(UUID.randomUUID(), new OwnerRecord(UUID.randomUUID(), "")), new ApiKeyRecord(null),
+        GMCBMRecord gmcbm = new GMCBMRecord(PluginType.BUKKIT, false, "1.0.0", new ServerRecord(UUID.randomUUID(), new OwnerRecord(UUID.randomUUID(), "")), new ApiKeyRecord(null),
                 new SettingsRecord(false, false, false, LocalDbType.SQLITE));
 
         TestCommandIssuer issuer = new TestCommandIssuer();

@@ -29,7 +29,7 @@ import co.aikar.commands.BungeeCommandManager;
 import lombok.Getter;
 import net.gmcbm.bungee.utils.UpdateChecker;
 import net.gmcbm.bungee.utils.Utils;
-import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.GMCBMRecord;
 import net.gmcbm.core.commands.*;
 import net.gmcbm.core.server.OwnerRecord;
 import net.gmcbm.core.server.ServerRecord;
@@ -60,7 +60,7 @@ public final class Main extends Plugin {
     private static Main instance;
 
     @Getter
-    private GMCBM gmcbm;
+    private GMCBMRecord gmcbm;
 
     @Getter
     private UpdateChecker updateChecker;
@@ -75,7 +75,7 @@ public final class Main extends Plugin {
             return;
         }
 
-        gmcbm = new GMCBM(PluginType.BUNGEE, getConfig().getBoolean("debug", false),
+        gmcbm = new GMCBMRecord(PluginType.BUNGEE, getConfig().getBoolean("debug", false),
                 getDescription().getVersion(), new ServerRecord(getServerId(), new OwnerRecord(null, null)), new ApiKeyRecord(null),
                 new SettingsRecord(false, false, false, LocalDbType.SQLITE));
         updateChecker = new UpdateChecker(SPIGOT_PLUGIN_ID, this);
@@ -129,7 +129,7 @@ public final class Main extends Plugin {
     }
 
     public boolean isDebug() {
-        return gmcbm.isDebug();
+        return gmcbm.debug();
     }
 
     private @Nonnull

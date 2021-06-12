@@ -28,7 +28,7 @@ package net.gmcbm.core.commands;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.CommandIssuer;
 import co.aikar.commands.annotation.*;
-import net.gmcbm.core.GMCBM;
+import net.gmcbm.core.GMCBMRecord;
 import org.apiguardian.api.API;
 
 import javax.annotation.Nonnull;
@@ -44,9 +44,9 @@ import javax.annotation.Nonnull;
 @API(status = API.Status.EXPERIMENTAL, since = "1.0")
 public class GmcbmCommand extends BaseCommand {
 
-    private final GMCBM gmcbm;
+    private final GMCBMRecord gmcbm;
 
-    public GmcbmCommand(@Nonnull GMCBM gmcbm) {
+    public GmcbmCommand(@Nonnull GMCBMRecord gmcbm) {
         this.gmcbm = gmcbm;
     }
 
@@ -58,17 +58,17 @@ public class GmcbmCommand extends BaseCommand {
         sender.sendMessage("§8> §7Global Minecraft Ban Manager (GMCBM) is a secure and reliable global ban manager for Minecraft");
         sender.sendMessage(" ");
         sender.sendMessage("§8> §7Here are just some information you may need if you have found a bug or you are opening a support ticket.");
-        sender.sendMessage("§8> §7Plugin Platform: §a" + gmcbm.getType().toString());
-        sender.sendMessage("§8> §7Plugin Version: §a" + gmcbm.getVersion());
-        sender.sendMessage("§8> §7Plugin Debug: §a" + gmcbm.isDebug());
-        if (gmcbm.getServer().id() != null) {
-            sender.sendMessage("§8> §7Server ID: §a" + gmcbm.getServer().id().toString());
+        sender.sendMessage("§8> §7Plugin Platform: §a" + gmcbm.type().toString());
+        sender.sendMessage("§8> §7Plugin Version: §a" + gmcbm.version());
+        sender.sendMessage("§8> §7Plugin Debug: §a" + gmcbm.debug());
+        if (gmcbm.server().id() != null) {
+            sender.sendMessage("§8> §7Server ID: §a" + gmcbm.server().id().toString());
         }
-        if (gmcbm.getServer().owner().id() != null) {
-            sender.sendMessage("§8> §7Owner Id: §a" + gmcbm.getServer().owner().id().toString());
+        if (gmcbm.server().owner().id() != null) {
+            sender.sendMessage("§8> §7Owner Id: §a" + gmcbm.server().owner().id().toString());
         }
-        if (gmcbm.getServer().owner().name() != null) {
-            sender.sendMessage("§8> §7Owner Name: §a" + gmcbm.getServer().owner().name());
+        if (gmcbm.server().owner().name() != null) {
+            sender.sendMessage("§8> §7Owner Name: §a" + gmcbm.server().owner().name());
         }
         sender.sendMessage(" ");
         sender.sendMessage("§7<------- §8| §c§lGlobal Minecraft Ban Manager §8| §7------->");

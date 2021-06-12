@@ -25,37 +25,28 @@
 
 package net.gmcbm.core;
 
-import net.gmcbm.core.server.OwnerRecord;
 import net.gmcbm.core.server.ServerRecord;
 import net.gmcbm.core.utils.ApiKeyRecord;
-import net.gmcbm.core.utils.LocalDbType;
 import net.gmcbm.core.utils.PluginType;
 import net.gmcbm.core.utils.SettingsRecord;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+import org.apiguardian.api.API;
+
+import javax.annotation.Nonnull;
 
 /**
  * @author Ursin Filli
  * @version 1.0
  * @since 1.0
+ *
+ * @param type     Plugin ({@link PluginType})
+ * @param debug    Debug mode
+ * @param version  Plugin Version
+ * @param server   Server ({@link ServerRecord})
+ * @param apiKey   Api Key ({@link ApiKeyRecord})
+ * @param settings Settings ({@link SettingsRecord})
  */
-class GMCBMTest {
-
-    @Test
-    void testCoverage() {
-        GMCBMRecord gmcbm = new GMCBMRecord(PluginType.BUKKIT, false, "1.0.0", new ServerRecord(null, new OwnerRecord(null, null)), new ApiKeyRecord(null),
-                new SettingsRecord(false, false, false, LocalDbType.SQLITE));
-
-        Assertions.assertEquals(PluginType.BUKKIT, gmcbm.type(), "Coverage");
-        Assertions.assertFalse(gmcbm.debug(), "Coverage");
-        Assertions.assertEquals("1.0.0", gmcbm.version(), "Coverage");
-        Assertions.assertNull(gmcbm.server().id(), "Coverage");
-        Assertions.assertNull(gmcbm.server().owner().id(), "Coverage");
-        Assertions.assertNull(gmcbm.server().owner().name(), "Coverage");
-        Assertions.assertNull(gmcbm.apiKey().id(), "Coverage");
-        Assertions.assertFalse(gmcbm.settings().webEnabled(), "Coverage");
-        Assertions.assertFalse(gmcbm.settings().syncEnabled(), "Coverage");
-        Assertions.assertFalse(gmcbm.settings().allowWebOfflineJoin(), "Coverage");
-        Assertions.assertEquals(gmcbm.settings().localDbType(), LocalDbType.SQLITE, "Coverage");
-    }
+@API(status = API.Status.MAINTAINED, since = "1.0")
+public record GMCBMRecord(@Nonnull PluginType type, boolean debug, @Nonnull String version,
+                          @Nonnull ServerRecord server,
+                          @Nonnull ApiKeyRecord apiKey, @Nonnull SettingsRecord settings) {
 }
