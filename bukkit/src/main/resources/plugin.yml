@@ -1,5 +1,5 @@
 name: gmcbm
-version: ${project.version}
+version: ${ci.build.version}
 main: net.gmcbm.bukkit.Main
 prefix: gmcbm
 authors: [ ursinn ]
