@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage("Initialization") {
             steps {
-                buildName "${BUILD_NUMBER} ${POM_VERSION}"
+                buildName "#${BUILD_NUMBER} ${POM_VERSION}"
             }
         }
 
