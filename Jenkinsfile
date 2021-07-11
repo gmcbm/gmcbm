@@ -11,6 +11,7 @@ pipeline {
         stage("Initialization") {
             steps {
                 buildName "#${BUILD_NUMBER} ${POM_VERSION}"
+                scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
             }
         }
 
