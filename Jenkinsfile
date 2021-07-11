@@ -3,7 +3,17 @@ pipeline {
       label 'maven-jdk11-openj9'
     }
 
+    environment {
+        POM_VERSION = readMavenPom().getVersion()
+    }
+
     stages {
+        stage("Initialization") {
+            steps {
+                buildName "${BUILD_NUMBER} ${POM_VERSION}"
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'mvn -B -U -DskipTests -P jenkins clean install'
