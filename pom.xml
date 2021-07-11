@@ -60,8 +60,8 @@
     </issueManagement>
 
     <ciManagement>
-        <system>Travis CI</system>
-        <url>https://travis-ci.com/github/gmcbm/gmcbm</url>
+        <system>Jenkins CI</system>
+        <url>https://ci.gmcbm.net/gmcbm/gmcbm</url>
     </ciManagement>
 
     <developers>
@@ -87,6 +87,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <ci.build.version>${version}</ci.build.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <!-- Dependency Versions -->
@@ -244,6 +245,7 @@
 
     <build>
         <defaultGoal>clean package</defaultGoal>
+        <finalName>GMCBM_${artifactId}-${ci.build.version}</finalName>
         <pluginManagement>
             <plugins>
                 <!-- Compiler Plugin -->
@@ -397,6 +399,15 @@
                     </plugin>
                 </plugins>
             </build>
+        </profile>
+        <profile>
+            <id>jenkins</id>
+            <properties>
+                <!--suppress UnresolvedMavenProperty -->
+                <ci.build.version>
+                    ${version}-b${env.BUILD_NUMBER}
+                </ci.build.version>
+            </properties>
         </profile>
     </profiles>
 
