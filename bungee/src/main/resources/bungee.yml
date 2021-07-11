@@ -1,4 +1,4 @@
 name: gmcbm
-version: ${project.version}
+version: ${ci.build.version}
 main: net.gmcbm.bungee.Main
 description: ${project.description}
