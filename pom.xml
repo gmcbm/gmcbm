@@ -61,7 +61,7 @@
 
     <ciManagement>
         <system>Jenkins CI</system>
-        <url>https://ci.gmcbm.net/gmcbm/gmcbm</url>
+        <url>https://ci.gmcbm.net/job/gmcbm/job/gmcbm/</url>
     </ciManagement>
 
     <developers>
