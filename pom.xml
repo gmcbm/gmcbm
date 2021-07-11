@@ -405,7 +405,7 @@
             <properties>
                 <!--suppress UnresolvedMavenProperty -->
                 <ci.build.version>
-                    ${version}-b${env.BUILD_NUMBER}
+                    ${version}-b${env.BUILD_NUMBER}_${env.BRANCH_NAME}
                 </ci.build.version>
             </properties>
         </profile>
