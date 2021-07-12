@@ -87,7 +87,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <ci.build.version>${version}</ci.build.version>
+        <ci.build.version>${project.version}</ci.build.version>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
         <!-- Dependency Versions -->
@@ -245,7 +245,7 @@
 
     <build>
         <defaultGoal>clean package</defaultGoal>
-        <finalName>GMCBM_${artifactId}-${ci.build.version}</finalName>
+        <finalName>GMCBM_${project.artifactId}-${ci.build.version}</finalName>
         <pluginManagement>
             <plugins>
                 <!-- Compiler Plugin -->
@@ -405,7 +405,7 @@
             <properties>
                 <!--suppress UnresolvedMavenProperty -->
                 <ci.build.version>
-                    ${version}-b${env.BUILD_NUMBER}_${env.BRANCH_NAME}
+                    ${project.version}-b${env.BUILD_NUMBER}_${env.BRANCH_NAME}
                 </ci.build.version>
             </properties>
         </profile>
