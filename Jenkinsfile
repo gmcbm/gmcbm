@@ -8,15 +8,16 @@ pipeline {
     }
 
     stages {
-        stage("Initialization") {
+        stage("Checkout") {
             steps {
-                buildName "#${BUILD_NUMBER} ${POM_VERSION}"
                 scmSkip(deleteBuild: true, skipPattern:'.*\\[ci skip\\].*')
+                buildName "#${BUILD_NUMBER} ${POM_VERSION}"
             }
         }
 
         stage('Build') {
             steps {
+                echo 'Building'
                 sh 'mvn -B -U -DskipTests -P jenkins clean install'
             }
             post {
@@ -28,12 +29,20 @@ pipeline {
 
         stage('Test') {
             steps {
+                echo 'Testing'
                 sh 'mvn -B test'
             }
             post {
                 always {
                     junit '**/target/surefire-reports/*.xml'
                 }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying'
+                sh 'mvn -B deploy'
             }
         }
     }
