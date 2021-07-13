@@ -19,7 +19,7 @@ pipeline {
             steps {
                 echo 'Building'
                 withMaven {
-                    sh "mvn -B -U -DskipTests -P jenkins clean install"
+                    sh "mvn -DskipTests clean install"
                 }
             }
         }
