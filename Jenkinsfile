@@ -22,6 +22,11 @@ pipeline {
                     sh "mvn -DskipTests clean install"
                 }
             }
+            post {
+                success {
+                    archiveArtifacts artifacts: '**/target/*.jar', fingerprint: true
+                }
+            }
         }
 
         stage('Test') {
