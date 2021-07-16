@@ -95,7 +95,7 @@
         <dependency.sponge.version>7.3.0</dependency.sponge.version>
         <dependency.velocity.version>1.1.0</dependency.velocity.version>
         <dependency.bstats.version>2.2.1</dependency.bstats.version>
-        <dependency.commands.version>0.5.0</dependency.commands.version>
+        <dependency.commands.version>0.5.2</dependency.commands.version>
         <dependency.guava.version>30.1.1-jre</dependency.guava.version>
         <!-- Dependency Versions [Annotation] -->
         <dependency.jsr305.version>3.0.2</dependency.jsr305.version>
